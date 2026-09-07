@@ -1,0 +1,2334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAMQRA LUXE | Premium Fragrances Pakistan</title>
+    <meta name="description" content="Feel Elegant. Feel You. Discover luxury long-lasting perfumes for men and women. Free delivery across Pakistan.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================================
+           ROOT VARIABLES — Premium Soft Luxury Palette
+           ============================================================ */
+        :root {
+            --bg-primary: #FFF9F5;
+            --bg-card: #FFFFFF;
+            --text-dark: #1A1A1A;
+            --text-muted: #6B6B6B;
+            --accent-rose: #D96C6C;
+            --accent-rose-hover: #B85353;
+            --accent-soft-pink: #FCEEEB;
+            --accent-gold: #D4AF37;
+            --border-color: #EFE6E1;
+            --font-serif: 'Playfair Display', Georgia, serif;
+            --font-sans: 'Inter', -apple-system, sans-serif;
+            --transition: all 0.3s ease;
+            --shadow-subtle: 0 10px 30px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.07);
+            --radius: 8px;
+        }
+
+        /* ============================================================
+           RESET & BASE
+           ============================================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-dark);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        button {
+            cursor: pointer;
+            font-family: var(--font-sans);
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* ============================================================
+           TOP ANNOUNCEMENT BAR
+           ============================================================ */
+        .announcement-bar {
+            background: var(--accent-soft-pink);
+            color: var(--text-dark);
+            text-align: center;
+            padding: 10px 16px;
+            font-size: 11px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* ============================================================
+           HEADER / NAVIGATION
+           ============================================================ */
+        .site-header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .brand-logo {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            letter-spacing: 4px;
+            text-decoration: none;
+            color: var(--text-dark);
+            text-align: center;
+            font-weight: 700;
+            line-height: 1;
+            cursor: pointer;
+        }
+
+        .brand-logo span {
+            display: block;
+            font-size: 10px;
+            letter-spacing: 6px;
+            font-weight: 400;
+            margin-top: 2px;
+            color: var(--text-muted);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 11px;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--accent-rose);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-rose);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            position: relative;
+            transition: var(--transition);
+            padding: 4px;
+            border-radius: 50%;
+        }
+
+        .icon-btn:hover {
+            background: var(--accent-soft-pink);
+        }
+
+        .hamburger-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 22px;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -4px;
+            right: -6px;
+            background: var(--accent-rose);
+            color: #FFF;
+            font-size: 9px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            letter-spacing: 0;
+        }
+
+        /* ============================================================
+           PAGE VIEWS
+           ============================================================ */
+        .page-view {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .page-view.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============================================================
+           HERO SECTION
+           ============================================================ */
+        .hero {
+            display: flex;
+            align-items: center;
+            padding: 60px 5%;
+            gap: 50px;
+            background: linear-gradient(135deg, #FFF9F5 0%, #FCEEEB 100%);
+            min-height: 80vh;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .sub-tag {
+            letter-spacing: 3px;
+            color: var(--accent-rose);
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: 54px;
+            line-height: 1.1;
+            margin: 12px 0 10px;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .hero-title .italic {
+            font-style: italic;
+            font-weight: 400;
+            display: block;
+            margin-top: 2px;
+        }
+
+        .hero-desc {
+            color: var(--text-muted);
+            font-size: 17px;
+            margin-bottom: 22px;
+            font-weight: 300;
+        }
+
+        .hero-checklist {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+            margin-bottom: 28px;
+            font-size: 13px;
+            font-weight: 500;
+            flex-wrap: wrap;
+        }
+
+        .hero-checklist li {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hero-checklist li::before {
+            content: '✓';
+            color: var(--accent-rose);
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .price-wrap {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+
+        .price-old {
+            text-decoration: line-through;
+            color: var(--text-muted);
+            font-size: 17px;
+        }
+
+        .price-new {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .badge-discount {
+            background: var(--accent-rose);
+            color: #FFF;
+            font-size: 11px;
+            padding: 4px 14px;
+            border-radius: 3px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-media {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-img-box {
+            width: 100%;
+            max-width: 440px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+            background: #FFF;
+            padding: 20px;
+        }
+
+        .hero-img-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        /* ============================================================
+           BUTTONS
+           ============================================================ */
+        .btn-primary {
+            display: inline-block;
+            background: var(--accent-rose);
+            color: #FFF;
+            padding: 14px 36px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 2.5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-rose-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(217, 108, 108, 0.25);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background: transparent;
+            color: var(--text-dark);
+            border: 1px solid var(--text-dark);
+            padding: 12px 28px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 2px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-secondary:hover {
+            background: var(--text-dark);
+            color: #FFF;
+        }
+
+        .btn-gold {
+            background: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: #FFF;
+        }
+
+        .btn-gold:hover {
+            background: #b8962e;
+            border-color: #b8962e;
+        }
+
+        .full-width {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* ============================================================
+           TRUST BAR
+           ============================================================ */
+        .trust-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            padding: 28px 5%;
+            background: #FFF;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .trust-icon {
+            font-size: 24px;
+        }
+
+        .trust-item strong {
+            display: block;
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .trust-item p {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        /* ============================================================
+           SECTION UTILITIES
+           ============================================================ */
+        .section-padding {
+            padding: 70px 5%;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            text-align: center;
+            font-size: 30px;
+            letter-spacing: 3px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .section-sub {
+            text-align: center;
+            color: var(--text-muted);
+            font-weight: 300;
+            font-size: 14px;
+            margin-top: -30px;
+            margin-bottom: 40px;
+        }
+
+        /* ============================================================
+           CATEGORY GRID
+           ============================================================ */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+        }
+
+        .category-card {
+            background: #FFF;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 28px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: var(--transition);
+            cursor: pointer;
+            gap: 16px;
+        }
+
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--accent-rose);
+        }
+
+        .category-card h3 {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            margin-bottom: 4px;
+            letter-spacing: 1px;
+        }
+
+        .category-card p {
+            color: var(--text-muted);
+            font-size: 12px;
+            margin-bottom: 14px;
+        }
+
+        .category-card img {
+            width: 90px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .category-card .btn-secondary {
+            padding: 8px 20px;
+            font-size: 9px;
+        }
+
+        /* ============================================================
+           PROMO CARDS
+           ============================================================ */
+        .promo-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
+        }
+
+        .promo-card {
+            background: #FFF;
+            padding: 32px 34px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            transition: var(--transition);
+        }
+
+        .promo-card:hover {
+            box-shadow: var(--shadow-hover);
+        }
+
+        .promo-card-content h2 {
+            font-family: var(--font-serif);
+            font-size: 34px;
+            line-height: 1.1;
+            margin: 6px 0 4px;
+        }
+
+        .promo-card-content p {
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .promo-card img {
+            width: 110px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* ============================================================
+           PRODUCT GRID
+           ============================================================ */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 28px;
+        }
+
+        .product-card {
+            background: #FFF;
+            padding: 20px 20px 24px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            position: relative;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px);
+            border-color: var(--accent-rose);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: var(--accent-rose);
+            color: #FFF;
+            font-size: 9px;
+            padding: 4px 10px;
+            border-radius: 3px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .product-thumb {
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            overflow: hidden;
+            border-radius: 4px;
+            cursor: pointer;
+            background: var(--bg-primary);
+        }
+
+        .product-thumb img {
+            max-height: 100%;
+            width: auto;
+            object-fit: contain;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-thumb img {
+            transform: scale(1.04);
+        }
+
+        .product-title {
+            font-family: var(--font-serif);
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+
+        .product-desc {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+            height: 32px;
+            overflow: hidden;
+        }
+
+        .product-card .price-wrap {
+            justify-content: center;
+            margin-bottom: 14px;
+        }
+
+        .product-card .price-new {
+            font-size: 20px;
+        }
+
+        .product-card .price-old {
+            font-size: 14px;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .card-actions button {
+            flex: 1;
+            padding: 9px 5px;
+            font-size: 9px;
+            letter-spacing: 1.5px;
+            border-radius: 4px;
+        }
+
+        .card-actions .btn-secondary {
+            padding: 9px 5px;
+            font-size: 9px;
+        }
+
+        .card-actions .btn-primary {
+            padding: 9px 5px;
+            font-size: 9px;
+        }
+
+        /* ============================================================
+           SHOP CONTROLS
+           ============================================================ */
+        .shop-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            padding: 8px 20px;
+            cursor: pointer;
+            font-size: 11px;
+            border-radius: 4px;
+            transition: var(--transition);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .tab-btn.active,
+        .tab-btn:hover {
+            background: var(--accent-rose);
+            color: #FFF;
+            border-color: var(--accent-rose);
+        }
+
+        .sort-dropdown {
+            padding: 9px 16px;
+            border: 1px solid var(--border-color);
+            background: #FFF;
+            font-size: 11px;
+            border-radius: 4px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        /* ============================================================
+           WHY US
+           ============================================================ */
+        .why-us-bg {
+            background: #FFF;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 24px;
+            text-align: center;
+        }
+
+        .why-card span {
+            font-size: 30px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .why-card h4 {
+            font-size: 12px;
+            letter-spacing: 1px;
+            margin-bottom: 3px;
+            text-transform: uppercase;
+        }
+
+        .why-card p {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        /* ============================================================
+           PRODUCT DETAIL
+           ============================================================ */
+        .product-detail-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            background: #FFF;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+        }
+
+        .product-detail-container .detail-image {
+            text-align: center;
+        }
+
+        .product-detail-container .detail-image img {
+            max-width: 100%;
+            max-height: 420px;
+            border-radius: 6px;
+            object-fit: contain;
+        }
+
+        .product-detail-container .detail-info .hero-title {
+            font-size: 34px;
+            margin: 6px 0 8px;
+        }
+
+        .product-detail-container .detail-info .price-wrap {
+            margin-bottom: 18px;
+        }
+
+        .product-detail-container .detail-notes {
+            background: var(--bg-primary);
+            padding: 16px 20px;
+            margin: 16px 0 20px;
+            font-size: 13px;
+            border-radius: 6px;
+            border-left: 3px solid var(--accent-rose);
+        }
+
+        .product-detail-container .detail-notes p {
+            margin-bottom: 3px;
+        }
+
+        .product-detail-container .detail-notes p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ============================================================
+           CHECKOUT
+           ============================================================ */
+        .checkout-layout {
+            display: grid;
+            grid-template-columns: 1.3fr 0.9fr;
+            gap: 38px;
+        }
+
+        .checkout-form {
+            background: #FFF;
+            padding: 32px 34px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+        }
+
+        .checkout-form h3 {
+            font-family: var(--font-serif);
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .flex-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 11px;
+            margin-bottom: 5px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background: var(--bg-primary);
+            font-family: var(--font-sans);
+            font-size: 13px;
+            transition: var(--transition);
+            color: var(--text-dark);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent-rose);
+            outline: none;
+            background: #FFF;
+            box-shadow: 0 0 0 3px rgba(217, 108, 108, 0.08);
+        }
+
+        .order-summary-box {
+            background: #FFF;
+            padding: 32px 34px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            height: fit-content;
+        }
+
+        .order-summary-box h3 {
+            font-family: var(--font-serif);
+            margin-bottom: 18px;
+            font-size: 20px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 13px;
+            align-items: center;
+        }
+
+        .summary-row .qty-ctrl {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .summary-row .qty-ctrl button {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            width: 26px;
+            height: 26px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .summary-row .qty-ctrl button:hover {
+            background: var(--accent-rose);
+            color: #FFF;
+            border-color: var(--accent-rose);
+        }
+
+        .payment-method-badge {
+            background: var(--bg-primary);
+            padding: 12px;
+            text-align: center;
+            font-size: 12px;
+            margin-top: 16px;
+            border: 1px dashed var(--accent-rose);
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        /* ============================================================
+           ORDER CONFIRMATION
+           ============================================================ */
+        .confirmation-box {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #FFF;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 40px 44px;
+            text-align: center;
+        }
+
+        .success-icon {
+            font-size: 48px;
+        }
+
+        .confirmation-box h1 {
+            font-family: var(--font-serif);
+            margin: 14px 0 6px;
+            font-size: 28px;
+        }
+
+        .order-ref-card {
+            background: var(--bg-primary);
+            padding: 20px 24px;
+            margin: 20px 0;
+            text-align: left;
+            font-size: 13px;
+            border-radius: 6px;
+            border-left: 4px solid var(--accent-rose);
+        }
+
+        .order-ref-card p {
+            margin-bottom: 4px;
+        }
+
+        .order-ref-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ============================================================
+           NEWSLETTER
+           ============================================================ */
+        .newsletter-section {
+            background: var(--accent-soft-pink);
+            text-align: center;
+            padding: 56px 5%;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .newsletter-section h2 {
+            font-family: var(--font-serif);
+            font-size: 26px;
+            letter-spacing: 1px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            max-width: 480px;
+            margin: 18px auto 0;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 13px;
+            background: #FFF;
+        }
+
+        .newsletter-form input:focus {
+            border-color: var(--accent-rose);
+            outline: none;
+        }
+
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+        .site-footer {
+            background: #FFF;
+            color: var(--text-dark);
+            padding: 56px 5% 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 36px;
+            margin-bottom: 36px;
+        }
+
+        .footer-col h4 {
+            font-size: 11px;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 12px;
+            line-height: 2.2;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent-rose);
+        }
+
+        .footer-col .brand-logo {
+            text-align: left;
+            margin-bottom: 12px;
+        }
+
+        .footer-col p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 11px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            padding-top: 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-bottom .payment-icons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom .payment-icons span {
+            background: var(--bg-primary);
+            padding: 4px 14px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 500;
+        }
+
+        /* ============================================================
+           FLOATING WHATSAPP
+           ============================================================ */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background-color: #25D366;
+            color: #FFF;
+            border-radius: 50px;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 24px rgba(37, 211, 102, 0.3);
+            z-index: 999;
+            text-decoration: none;
+            font-size: 28px;
+            transition: var(--transition);
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 32px rgba(37, 211, 102, 0.4);
+        }
+
+        /* ============================================================
+           SEARCH OVERLAY
+           ============================================================ */
+        .search-overlay {
+            display: none;
+            background: #FFF;
+            padding: 14px 5%;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .search-overlay.active {
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-overlay input {
+            flex: 1;
+            padding: 10px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        .search-overlay input:focus {
+            border-color: var(--accent-rose);
+            outline: none;
+        }
+
+        /* ============================================================
+           TOAST NOTIFICATION
+           ============================================================ */
+        .toast-msg {
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--text-dark);
+            color: #FFF;
+            padding: 12px 28px;
+            border-radius: 4px;
+            font-size: 12px;
+            z-index: 9999;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            transition: opacity 0.3s ease;
+            text-align: center;
+            max-width: 90%;
+        }
+
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 5% 50px;
+                min-height: auto;
+            }
+
+            .hero-checklist {
+                justify-content: center;
+            }
+
+            .price-wrap {
+                justify-content: center;
+            }
+
+            .hero-media {
+                width: 100%;
+            }
+
+            .hero-img-box {
+                max-width: 340px;
+                margin: 0 auto;
+            }
+
+            .checkout-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .product-detail-container {
+                grid-template-columns: 1fr;
+                padding: 28px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #FFF;
+                flex-direction: column;
+                padding: 20px 5%;
+                border-bottom: 1px solid var(--border-color);
+                gap: 14px;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger-btn {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .hero-title .italic {
+                font-size: 28px;
+            }
+
+            .section-title {
+                font-size: 24px;
+                letter-spacing: 2px;
+            }
+
+            .category-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 24px;
+            }
+
+            .category-card img {
+                width: 80px;
+                height: 100px;
+            }
+
+            .promo-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 28px;
+            }
+
+            .promo-card img {
+                width: 90px;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 18px;
+            }
+
+            .shop-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .filter-tabs {
+                justify-content: center;
+            }
+
+            .flex-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .checkout-form {
+                padding: 24px 20px;
+            }
+
+            .order-summary-box {
+                padding: 24px 20px;
+            }
+
+            .confirmation-box {
+                padding: 28px 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 28px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+                bottom: 18px;
+                right: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 28px;
+            }
+
+            .hero-title .italic {
+                font-size: 22px;
+            }
+
+            .price-new {
+                font-size: 24px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 14px;
+            }
+
+            .product-card {
+                padding: 14px 12px 18px;
+            }
+
+            .product-thumb {
+                height: 160px;
+            }
+
+            .product-title {
+                font-size: 15px;
+            }
+
+            .product-card .price-new {
+                font-size: 16px;
+            }
+
+            .product-card .price-old {
+                font-size: 12px;
+            }
+
+            .card-actions {
+                flex-direction: column;
+            }
+
+            .card-actions button {
+                padding: 8px 5px;
+                font-size: 8px;
+            }
+
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .promo-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input {
+                width: 100%;
+            }
+
+            .trust-bar {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .why-us-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================
+    TOP ANNOUNCEMENT BAR
+    ============================================================ -->
+    <div class="announcement-bar">
+        🚚 FREE DELIVERY ALL OVER PAKISTAN
+    </div>
+
+    <!-- ============================================================
+    HEADER / NAVIGATION
+    ============================================================ -->
+    <header class="site-header">
+        <a href="#" onclick="showPage('home')" class="brand-logo">
+            JAMQRA
+            <span>LUXE</span>
+        </a>
+
+        <nav>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" onclick="showPage('home')" class="active" data-page="home">HOME</a></li>
+                <li><a href="#" onclick="showPage('shop')" data-page="shop">SHOP</a></li>
+                <li><a href="#" onclick="filterByCategory('for-him')" data-page="for-him">FOR HIM</a></li>
+                <li><a href="#" onclick="filterByCategory('for-her')" data-page="for-her">FOR HER</a></li>
+                <li><a href="#" onclick="filterByCategory('testers')" data-page="testers">TESTERS</a></li>
+                <li><a href="#" onclick="showPage('about')" data-page="about">ABOUT</a></li>
+                <li><a href="#" onclick="showPage('contact')" data-page="contact">CONTACT</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-actions">
+            <button class="icon-btn" onclick="toggleSearch()" aria-label="Search">🔍</button>
+            <button class="icon-btn" onclick="showPage('checkout')" aria-label="Shopping Bag">
+                🛍️
+                <span class="cart-count" id="cartBadge">0</span>
+            </button>
+            <button class="hamburger-btn" onclick="toggleMobileMenu()" aria-label="Menu">☰</button>
+        </div>
+    </header>
+
+    <!-- ============================================================
+    SEARCH OVERLAY
+    ============================================================ -->
+    <div id="searchBar" class="search-overlay">
+        <input type="text" id="searchInput" placeholder="Search fragrances (e.g., Noir, Rose, Oud)..." onkeyup="handleSearch()">
+        <button onclick="toggleSearch()" class="btn-secondary" style="padding:10px 20px;">✕</button>
+    </div>
+
+    <!-- ============================================================
+    MAIN CONTENT — PAGE VIEWS
+    ============================================================ -->
+    <main id="mainContent">
+
+        <!-- ==================== HOME ==================== -->
+        <section id="page-home" class="page-view active">
+
+            <!-- Hero -->
+            <div class="hero">
+                <div class="hero-content">
+                    <span class="sub-tag">JAMQRA LUXE</span>
+                    <h1 class="hero-title">
+                        FEEL ELEGANT.
+                        <span class="italic">Feel You.</span>
+                    </h1>
+                    <p class="hero-desc">Premium Fragrances for Him &amp; Her</p>
+
+                    <div class="price-wrap">
+                        <span class="price-old">Rs. 2,500</span>
+                        <span class="price-new">Rs. 2,000</span>
+                        <span class="badge-discount">20% OFF</span>
+                    </div>
+
+                    <div style="margin-bottom: 28px;">
+                        <button class="btn-primary" onclick="showPage('shop')">BUY NOW</button>
+                    </div>
+
+                    <ul class="hero-checklist">
+                        <li>Long Lasting</li>
+                        <li>Premium Quality</li>
+                        <li>Made for You</li>
+                    </ul>
+                </div>
+
+                <div class="hero-media">
+                    <div class="hero-img-box">
+                        <img src="https://i.ibb.co/3ykMvKG/hero-bottle.jpg" alt="JAMQRA LUXE Premium Perfume" loading="lazy">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trust Bar -->
+            <div class="trust-bar">
+                <div class="trust-item">
+                    <span class="trust-icon">🚚</span>
+                    <div><strong>FREE DELIVERY</strong><p>All Over Pakistan</p></div>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">🛡️</span>
+                    <div><strong>100% ORIGINAL</strong><p>Premium Quality</p></div>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">🏷️</span>
+                    <div><strong>DEALS &amp; OFFERS</strong><p>Sales &amp; Save</p></div>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">💵</span>
+                    <div><strong>CASH ON DELIVERY</strong><p>Available</p></div>
+                </div>
+            </div>
+
+            <!-- Shop By Category -->
+            <div class="section-padding">
+                <h2 class="section-title">SHOP BY CATEGORY</h2>
+                <div class="category-grid">
+                    <div class="category-card" onclick="filterByCategory('for-him')">
+                        <div>
+                            <h3>FOR HIM</h3>
+                            <p>Bold &amp; Confident</p>
+                            <button class="btn-secondary" onclick="event.stopPropagation(); filterByCategory('for-him')">SHOP NOW</button>
+                        </div>
+                        <img src="https://i.ibb.co/m0f2p0Z/category-him.jpg" alt="For Him Perfume" loading="lazy">
+                    </div>
+
+                    <div class="category-card" onclick="filterByCategory('for-her')">
+                        <div>
+                            <h3>FOR HER</h3>
+                            <p>Elegant &amp; Graceful</p>
+                            <button class="btn-secondary" onclick="event.stopPropagation(); filterByCategory('for-her')">SHOP NOW</button>
+                        </div>
+                        <img src="https://i.ibb.co/3ykMvKG/hero-bottle.jpg" alt="For Her Perfume" loading="lazy">
+                    </div>
+
+                    <div class="category-card" onclick="filterByCategory('all')">
+                        <div>
+                            <h3>BEST SELLERS</h3>
+                            <p>Our Most Loved</p>
+                            <button class="btn-secondary" onclick="event.stopPropagation(); filterByCategory('all')">SHOP NOW</button>
+                        </div>
+                        <img src="https://i.ibb.co/YTSXkK5/category-gold.jpg" alt="Best Seller Perfume" loading="lazy">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Promo Section -->
+            <div class="section-padding" style="padding-top:0;">
+                <div class="promo-wrapper">
+                    <div class="promo-card">
+                        <div class="promo-card-content">
+                            <span class="sub-tag">SPECIAL OFFER</span>
+                            <h2>20% OFF</h2>
+                            <p>ON ALL PERFUMES</p>
+                            <button class="btn-primary" onclick="showPage('shop')">SHOP NOW</button>
+                        </div>
+                        <img src="https://i.ibb.co/3ykMvKG/hero-bottle.jpg" alt="Special Offer" loading="lazy">
+                    </div>
+
+                    <div class="promo-card">
+                        <div class="promo-card-content">
+                            <span class="sub-tag">TESTER OFFER</span>
+                            <h2>6 TESTERS</h2>
+                            <p>ONLY RS. 500</p>
+                            <button class="btn-primary" onclick="buyNow('jamqra-testers')">BUY NOW</button>
+                        </div>
+                        <img src="https://i.ibb.co/L5R9RzM/collection-all.jpg" alt="Tester Pack" loading="lazy">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Products -->
+            <div class="section-padding" style="background:#FFF; border-top:1px solid var(--border-color);">
+                <h2 class="section-title">OUR SIGNATURE FRAGRANCES</h2>
+                <p class="section-sub">Timeless scents crafted for every mood</p>
+                <div class="product-grid" id="homeProductGrid"></div>
+            </div>
+
+            <!-- Why Choose Us -->
+            <div class="section-padding why-us-bg">
+                <h2 class="section-title">WHY CHOOSE JAMQRA LUXE?</h2>
+                <div class="why-us-grid">
+                    <div class="why-card">
+                        <span>💧</span>
+                        <h4>LONG LASTING</h4>
+                        <p>Premium Oils</p>
+                    </div>
+                    <div class="why-card">
+                        <span>🎁</span>
+                        <h4>PREMIUM PACKAGING</h4>
+                        <p>Luxury Experience</p>
+                    </div>
+                    <div class="why-card">
+                        <span>✨</span>
+                        <h4>PERFECT GIFT</h4>
+                        <p>For Loved Ones</p>
+                    </div>
+                    <div class="why-card">
+                        <span>🇵🇰</span>
+                        <h4>MADE FOR PAKISTAN</h4>
+                        <p>Loved Nationwide</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SHOP ==================== -->
+        <section id="page-shop" class="page-view">
+            <div class="section-padding">
+                <h1 class="section-title">ALL PRODUCTS</h1>
+                <div class="shop-controls">
+                    <div class="filter-tabs">
+                        <button class="tab-btn active" onclick="filterProducts('all', this)">All</button>
+                        <button class="tab-btn" onclick="filterProducts('for-him', this)">For Him</button>
+                        <button class="tab-btn" onclick="filterProducts('for-her', this)">For Her</button>
+                        <button class="tab-btn" onclick="filterProducts('testers', this)">Testers</button>
+                    </div>
+                    <select id="sortSelect" onchange="sortProducts()" class="sort-dropdown">
+                        <option value="featured">Featured</option>
+                        <option value="low-high">Price: Low to High</option>
+                        <option value="high-low">Price: High to Low</option>
+                    </select>
+                </div>
+                <div class="product-grid" id="shopProductGrid"></div>
+            </div>
+        </section>
+
+        <!-- ==================== PRODUCT DETAIL ==================== -->
+        <section id="page-product" class="page-view">
+            <div class="section-padding">
+                <div class="product-detail-container" id="productDetailContent">
+                    <!-- Rendered dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CHECKOUT ==================== -->
+        <section id="page-checkout" class="page-view">
+            <div class="section-padding">
+                <h1 class="section-title">CHECKOUT</h1>
+                <div class="checkout-layout">
+
+                    <form id="checkoutForm" class="checkout-form">
+                        <h3>Customer Delivery Details</h3>
+                        <div class="form-group">
+                            <label>Full Name *</label>
+                            <input type="text" id="fullName" required placeholder="e.g. Ali Khan">
+                        </div>
+                        <div class="form-group flex-2">
+                            <div>
+                                <label>Mobile Number *</label>
+                                <input type="tel" id="phone" required placeholder="0300 1234567">
+                            </div>
+                            <div>
+                                <label>WhatsApp Number *</label>
+                                <input type="tel" id="whatsapp" required placeholder="0300 1234567">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address (Optional)</label>
+                            <input type="email" id="email" placeholder="ali@gmail.com">
+                        </div>
+                        <div class="form-group">
+                            <label>City *</label>
+                            <input type="text" id="city" required placeholder="Lahore, Karachi, Islamabad...">
+                        </div>
+                        <div class="form-group">
+                            <label>Complete Delivery Address *</label>
+                            <textarea id="address" rows="3" required placeholder="House No, Street, Sector / Area"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Additional Notes (Optional)</label>
+                            <input type="text" id="notes" placeholder="Special instructions for rider...">
+                        </div>
+                        <button type="submit" class="btn-primary full-width">CONFIRM ORDER VIA WHATSAPP</button>
+                    </form>
+
+                    <div class="order-summary-box">
+                        <h3>ORDER SUMMARY</h3>
+                        <div id="checkoutCartItems"></div>
+                        <hr style="margin:14px 0; border:none; border-top:1px solid var(--border-color);">
+                        <div class="summary-row"><span>Subtotal</span><span id="subtotalVal">Rs. 0</span></div>
+                        <div class="summary-row"><span>Delivery</span><span style="color:green;font-weight:bold;">FREE</span></div>
+                        <hr style="margin:14px 0; border:none; border-top:1px solid var(--border-color);">
+                        <div class="summary-row" style="font-size:18px; font-weight:bold;"><span>Total</span><span id="totalVal">Rs. 0</span></div>
+                        <div class="payment-method-badge">💳 Payment Method: <strong>CASH ON DELIVERY</strong></div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== ORDER CONFIRMATION ==================== -->
+        <section id="page-order-confirmation" class="page-view">
+            <div class="section-padding">
+                <div class="confirmation-box">
+                    <span class="success-icon">✨</span>
+                    <h1>ORDER CONFIRMED!</h1>
+                    <p>Thank you for choosing JAMQRA LUXE. Your order has been placed.</p>
+                    <div class="order-ref-card" id="confirmationDetails"></div>
+                    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+                        <button class="btn-primary" onclick="showPage('shop')">CONTINUE SHOPPING</button>
+                        <a id="waSupportBtn" href="#" target="_blank" class="btn-secondary">SUPPORT VIA WHATSAPP</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== ABOUT ==================== -->
+        <section id="page-about" class="page-view">
+            <div class="section-padding" style="max-width:800px; margin:0 auto;">
+                <h1 class="section-title">ABOUT JAMQRA LUXE</h1>
+                <p style="margin-bottom:16px; font-size:16px; text-align:center; color:var(--text-muted);">
+                    At <strong>JAMQRA LUXE</strong>, we craft high-concentration, long-lasting fragrances designed specifically for South Asian weather and tastes.
+                </p>
+                <p style="font-size:16px; text-align:center; color:var(--text-muted);">
+                    Our perfumes combine rich East-meets-West oil blends that leave an elegant, unforgettable scent trail all day long.
+                </p>
+                <p style="font-size:16px; text-align:center; color:var(--text-muted); margin-top:12px;">
+                    <span style="font-family:var(--font-serif); font-size:20px; color:var(--accent-rose);">— Feel Elegant. Feel You. —</span>
+                </p>
+            </div>
+        </section>
+
+        <!-- ==================== CONTACT ==================== -->
+        <section id="page-contact" class="page-view">
+            <div class="section-padding" style="max-width:800px; margin:0 auto;">
+                <h1 class="section-title">CONTACT US</h1>
+                <div style="text-align:center; font-size:15px; line-height:2.2;">
+                    <p><strong>📞 WhatsApp:</strong> <a href="https://wa.me/923704558965" target="_blank" style="color:var(--accent-rose);">0370 4558965</a></p>
+                    <p><strong>✉️ Email:</strong> <a href="mailto:business.jamqra@gmail.com" style="color:var(--accent-rose);">business.jamqra@gmail.com</a></p>
+                    <p><strong>📍 Location:</strong> Delivery Available All Over Pakistan</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================================
+    NEWSLETTER
+    ============================================================ -->
+    <div class="newsletter-section">
+        <h2>STAY UPDATED</h2>
+        <p style="font-size:13px; color:var(--text-muted); margin-top:4px;">Subscribe to get special offers &amp; updates.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('Thank you for subscribing to JAMQRA LUXE!');">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit" class="btn-primary">SUBSCRIBE</button>
+        </form>
+    </div>
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="brand-logo" style="text-align:left; margin-bottom:12px;">
+                    JAMQRA
+                    <span>LUXE</span>
+                </div>
+                <p style="color:var(--text-muted); font-size:12px; margin-bottom:14px;">
+                    Luxury Fragrances crafted with passion and precision for every moment &amp; every you.
+                </p>
+                <p style="font-size:12px; color:var(--text-dark);">📞 <a href="tel:03704558965" style="color:var(--text-dark);">0370 4558965</a></p>
+                <p style="font-size:12px; color:var(--text-dark);">✉️ <a href="mailto:business.jamqra@gmail.com" style="color:var(--text-dark);">business.jamqra@gmail.com</a></p>
+            </div>
+
+            <div class="footer-col">
+                <h4>QUICK LINKS</h4>
+                <ul>
+                    <li><a onclick="showPage('home')">Home</a></li>
+                    <li><a onclick="showPage('shop')">Shop</a></li>
+                    <li><a onclick="filterByCategory('for-him')">For Him</a></li>
+                    <li><a onclick="filterByCategory('for-her')">For Her</a></li>
+                    <li><a onclick="filterByCategory('testers')">Testers</a></li>
+                    <li><a onclick="showPage('about')">About Us</a></li>
+                    <li><a onclick="showPage('contact')">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>CUSTOMER CARE</h4>
+                <ul>
+                    <li><a onclick="showToast('Order tracking info sent via WhatsApp.')">Track Order</a></li>
+                    <li><a onclick="showToast('Easy returns & exchanges within 7 days.')">Return &amp; Refund</a></li>
+                    <li><a onclick="showToast('Free shipping across Pakistan on all orders.')">Shipping Policy</a></li>
+                    <li><a onclick="showToast('Terms & conditions available on request.')">Terms &amp; Conditions</a></li>
+                    <li><a onclick="showToast('Privacy policy available on request.')">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>PAYMENT METHODS</h4>
+                <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:4px;">
+                    <span style="background:var(--bg-primary); padding:4px 16px; border-radius:4px; font-size:11px; font-weight:500;">VISA</span>
+                    <span style="background:var(--bg-primary); padding:4px 16px; border-radius:4px; font-size:11px; font-weight:500;">MasterCard</span>
+                    <span style="background:var(--bg-primary); padding:4px 16px; border-radius:4px; font-size:11px; font-weight:500;">EasyPaisa</span>
+                    <span style="background:var(--bg-primary); padding:4px 16px; border-radius:4px; font-size:11px; font-weight:500;">JazzCash</span>
+                    <span style="background:var(--bg-primary); padding:4px 16px; border-radius:4px; font-size:11px; font-weight:500;">Cash on Delivery</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Jamqra Luxe. All Rights Reserved.</p>
+            <p>Designed with ❤️ for Pakistan</p>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+    FLOATING WHATSAPP BUTTON
+    ============================================================ -->
+    <a href="https://wa.me/923704558965?text=Hello%20JAMQRA%20LUXE%2C%20I%20am%20interested%20in%20your%20perfumes."
+    class="whatsapp-float"
+    target="_blank"
+    aria-label="Contact on WhatsApp">
+    💬
+</a>
+
+<!-- ============================================================
+COMPLETE JAVASCRIPT — Fully Functional E-Commerce Engine
+============================================================ -->
+<script>
+    // ============================================================
+    // PRODUCT CATALOG
+    // ============================================================
+    const PRODUCTS = [{
+        id: "jamqra-rose",
+        name: "JAMQRA Rose",
+        category: "for-her",
+        price: 2000,
+        originalPrice: 2500,
+        badge: "20% OFF",
+        image: "https://i.ibb.co/3ykMvKG/hero-bottle.jpg",
+        description: "Fresh blooming Bulgarian Rose with soft floral and amber notes.",
+        topNotes: "Peony, Peach",
+        heartNotes: "Bulgarian Rose, Jasmine",
+        baseNotes: "Musk, Vanilla"
+    }, {
+        id: "jamqra-noir",
+        name: "JAMQRA Noir",
+        category: "for-him",
+        price: 2000,
+        originalPrice: 2500,
+        badge: "20% OFF",
+        image: "https://i.ibb.co/m0f2p0Z/category-him.jpg",
+        description: "A bold, magnetic aquatic-woody combination for modern men.",
+        topNotes: "Bergamot, Fresh Citrus",
+        heartNotes: "Cedarwood, Aquatic Accords",
+        baseNotes: "Dark Amber, Oakmoss"
+    }, {
+        id: "jamqra-oud",
+        name: "JAMQRA Frosted Oud",
+        category: "for-him",
+        price: 2000,
+        originalPrice: 2500,
+        badge: "20% OFF",
+        image: "https://i.ibb.co/YTSXkK5/category-gold.jpg",
+        description: "Exotic warm amber and rich oriental oud for long-lasting luxury.",
+        topNotes: "Saffron, Nutmeg",
+        heartNotes: "Agarwood (Oud)",
+        baseNotes: "Sandalwood, Golden Amber"
+    }, {
+        id: "jamqra-box-set",
+        name: "JAMQRA Box Edition",
+        category: "for-him",
+        price: 2200,
+        originalPrice: 2800,
+        badge: "BEST SELLER",
+        image: "https://i.ibb.co/G2L3X9Q/box-set.jpg",
+        description: "Signature 50ml bottle packaged inside a premium velvet luxury gift box.",
+        topNotes: "Rich Spices",
+        heartNotes: "Woody Accord",
+        baseNotes: "Musk & Amber"
+    }, {
+        id: "jamqra-bloom",
+        name: "JAMQRA Bloom",
+        category: "for-her",
+        price: 2000,
+        originalPrice: 2500,
+        badge: "20% OFF",
+        image: "https://i.ibb.co/3ykMvKG/hero-bottle.jpg",
+        description: "Fresh, airy, and joyful floral bouquet with a touch of sweetness.",
+        topNotes: "Citrus, Pear",
+        heartNotes: "Jasmine, Lily",
+        baseNotes: "Musk, Cedar"
+    }, {
+        id: "jamqra-elite",
+        name: "JAMQRA Elite",
+        category: "for-him",
+        price: 2000,
+        originalPrice: 2500,
+        badge: "20% OFF",
+        image: "https://i.ibb.co/YTSXkK5/category-gold.jpg",
+        description: "Sophisticated, refined, and powerful leather-woody fragrance.",
+        topNotes: "Lavender, Bergamot",
+        heartNotes: "Iris, Violet",
+        baseNotes: "Leather, Oakmoss"
+    }, {
+        id: "jamqra-pearl",
+        name: "JAMQRA Pearl",
+        category: "for-her",
+        price: 2000,
+        originalPrice: 2500,
+        badge: "20% OFF",
+        image: "https://i.ibb.co/3ykMvKG/hero-bottle.jpg",
+        description: "Soft, luminous, and delicate with a powdery floral finish.",
+        topNotes: "Pear, Freesia",
+        heartNotes: "Rose, Peony",
+        baseNotes: "Musk, Vanilla"
+    }, {
+        id: "jamqra-testers",
+        name: "Discovery Tester Pack (6 Pack)",
+        category: "testers",
+        price: 500,
+        originalPrice: 1000,
+        badge: "50% OFF",
+        image: "https://i.ibb.co/L5R9RzM/collection-all.jpg",
+        description: "Try 6 miniature sample vials before buying the full 50ml bottle.",
+        topNotes: "Mixed Sampler",
+        heartNotes: "Mixed Sampler",
+        baseNotes: "Mixed Sampler"
+    }];
+
+    // ============================================================
+    // CART ENGINE (LocalStorage) — Silent Add / No Popup
+    // ============================================================
+    const Cart = {
+        getItems() {
+            try {
+                return JSON.parse(localStorage.getItem('jamqra_cart')) || [];
+            } catch { return []; }
+        },
+
+        save(cart) {
+            localStorage.setItem('jamqra_cart', JSON.stringify(cart));
+            this.updateUI();
+        },
+
+        // 🔥 SILENT ADD — NO ALERT, NO TOAST
+        add(productId, qty = 1) {
+            const cart = this.getItems();
+            const product = PRODUCTS.find(p => p.id === productId);
+            if (!product) return;
+
+            const existing = cart.find(i => i.id === productId);
+            if (existing) {
+                existing.quantity += qty;
+            } else {
+                cart.push({ ...product, quantity: qty });
+            }
+            this.save(cart);
+            // ⛔ NO alert / NO toast — silently added
+        },
+
+        updateQty(productId, delta) {
+            let cart = this.getItems();
+            const item = cart.find(i => i.id === productId);
+            if (!item) return;
+            item.quantity += delta;
+            if (item.quantity <= 0) {
+                cart = cart.filter(i => i.id !== productId);
+            }
+            this.save(cart);
+        },
+
+        remove(productId) {
+            let cart = this.getItems();
+            cart = cart.filter(i => i.id !== productId);
+            this.save(cart);
+            // Silent removal — no toast
+        },
+
+        getTotal() {
+            return this.getItems().reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        },
+
+        getCount() {
+            return this.getItems().reduce((sum, item) => sum + item.quantity, 0);
+        },
+
+        clear() {
+            localStorage.removeItem('jamqra_cart');
+            this.updateUI();
+        },
+
+        updateUI() {
+            const count = this.getCount();
+            document.querySelectorAll('#cartBadge').forEach(el => el.textContent = count);
+            renderCheckoutCart();
+        }
+    };
+
+    // ============================================================
+    // TOAST NOTIFICATION (only for non-cart actions)
+    // ============================================================
+    function showToast(msg) {
+        const existing = document.querySelector('.toast-msg');
+        if (existing) existing.remove();
+
+        const div = document.createElement('div');
+        div.className = 'toast-msg';
+        div.textContent = msg;
+        document.body.appendChild(div);
+
+        setTimeout(() => {
+            div.style.opacity = '0';
+            setTimeout(() => div.remove(), 350);
+        }, 2800);
+    }
+
+    // ============================================================
+    // PAGE ROUTER
+    // ============================================================
+    function showPage(pageId) {
+        document.querySelectorAll('.page-view').forEach(view => view.classList.remove('active'));
+
+        const target = document.getElementById(`page-${pageId}`);
+        if (target) {
+            target.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+        document.querySelectorAll('.nav-links a').forEach(a => {
+            if (a.dataset.page === pageId) a.classList.add('active');
+        });
+
+        document.getElementById('navLinks').classList.remove('active');
+    }
+
+    // ============================================================
+    // FILTER & SORT FUNCTIONS
+    // ============================================================
+    let currentFilter = 'all';
+    let currentSort = 'featured';
+
+    function filterByCategory(category) {
+        currentFilter = category;
+        showPage('shop');
+        renderShopProducts();
+
+        document.querySelectorAll('.filter-tabs .tab-btn').forEach(btn => {
+            btn.classList.remove('active');
+            const label = btn.textContent.trim().toLowerCase();
+            const catMap = { 'all': 'all', 'for him': 'for-him', 'for her': 'for-her', 'testers': 'testers' };
+            if (catMap[label] === category || (category === 'all' && label === 'all')) {
+                btn.classList.add('active');
+            }
+        });
+        if (category === 'all') {
+            document.querySelectorAll('.filter-tabs .tab-btn').forEach(btn => {
+                if (btn.textContent.trim() === 'All') btn.classList.add('active');
+            });
+        }
+    }
+
+    function filterProducts(category, btnElement) {
+        currentFilter = category;
+        if (btnElement) {
+            document.querySelectorAll('.filter-tabs .tab-btn').forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
+        }
+        renderShopProducts();
+    }
+
+    function sortProducts() {
+        const val = document.getElementById('sortSelect').value;
+        currentSort = val;
+        renderShopProducts();
+    }
+
+    function getFilteredProducts() {
+        let items = [...PRODUCTS];
+        if (currentFilter !== 'all') {
+            items = items.filter(p => p.category === currentFilter);
+        }
+        if (currentSort === 'low-high') items.sort((a, b) => a.price - b.price);
+        else if (currentSort === 'high-low') items.sort((a, b) => b.price - a.price);
+        return items;
+    }
+
+    function renderShopProducts() {
+        const items = getFilteredProducts();
+        renderProducts(items, 'shopProductGrid');
+    }
+
+    // ============================================================
+    // RENDER PRODUCTS
+    // ============================================================
+    function createProductCardHTML(p) {
+        return `
+            <div class="product-card">
+                <span class="product-badge">${p.badge}</span>
+                <div class="product-thumb" onclick="openProductDetail('${p.id}')">
+                    <img src="${p.image}" alt="${p.name}" loading="lazy">
+                </div>
+                <h3 class="product-title">${p.name}</h3>
+                <p class="product-desc">${p.description}</p>
+                <div class="price-wrap">
+                    <span class="price-old">Rs. ${p.originalPrice}</span>
+                    <span class="price-new">Rs. ${p.price}</span>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-secondary" onclick="Cart.add('${p.id}')">ADD TO CART</button>
+                    <button class="btn-primary" onclick="buyNow('${p.id}')">BUY NOW</button>
+                </div>
+            </div>
+        `;
+    }
+
+    function renderProducts(items, containerId) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        if (items.length === 0) {
+            container.innerHTML =
+                `<p style="grid-column:1/-1; text-align:center; color:var(--text-muted); padding:40px 0;">No products found.</p>`;
+            return;
+        }
+
+        container.innerHTML = items.map(p => createProductCardHTML(p)).join('');
+    }
+
+    // ============================================================
+    // PRODUCT DETAIL
+    // ============================================================
+    function openProductDetail(productId) {
+        const p = PRODUCTS.find(item => item.id === productId);
+        if (!p) return;
+
+        const container = document.getElementById('productDetailContent');
+        container.innerHTML = `
+            <div class="detail-image">
+                <img src="${p.image}" alt="${p.name}">
+            </div>
+            <div class="detail-info">
+                <span class="sub-tag">JAMQRA LUXE</span>
+                <h1 class="hero-title" style="font-size:32px; margin:8px 0;">${p.name}</h1>
+                <p style="color:var(--text-muted); margin-bottom:14px;">${p.description}</p>
+                <div class="price-wrap">
+                    <span class="price-old">Rs. ${p.originalPrice}</span>
+                    <span class="price-new">Rs. ${p.price}</span>
+                    <span class="badge-discount">${p.badge}</span>
+                </div>
+                <div class="detail-notes">
+                    <p><strong>Top Notes:</strong> ${p.topNotes}</p>
+                    <p><strong>Heart Notes:</strong> ${p.heartNotes}</p>
+                    <p><strong>Base Notes:</strong> ${p.baseNotes}</p>
+                </div>
+                <div class="card-actions" style="max-width:340px;">
+                    <button class="btn-secondary" onclick="Cart.add('${p.id}')">ADD TO CART</button>
+                    <button class="btn-primary" onclick="buyNow('${p.id}')">BUY NOW</button>
+                </div>
+                <div style="margin-top:20px; font-size:12px; color:var(--text-muted);">
+                    <span>✓ Free Delivery All Over Pakistan</span><br>
+                    <span>✓ Cash on Delivery Available</span><br>
+                    <span>✓ Premium Quality</span><br>
+                    <span>✓ Long Lasting Fragrance</span>
+                </div>
+            </div>
+        `;
+
+        showPage('product');
+    }
+
+    // ============================================================
+    // BUY NOW — Silent Add → Direct Checkout
+    // ============================================================
+    function buyNow(productId) {
+        Cart.add(productId); // silent add — no popup
+        showPage('checkout');
+    }
+
+    // ============================================================
+    // CHECKOUT RENDER
+    // ============================================================
+    function renderCheckoutCart() {
+        const items = Cart.getItems();
+        const container = document.getElementById('checkoutCartItems');
+        if (!container) return;
+
+        if (items.length === 0) {
+            container.innerHTML = `<p style="font-size:13px; color:var(--text-muted);">Your shopping bag is empty.</p>`;
+        } else {
+            container.innerHTML = items.map(item => `
+                <div class="summary-row" style="align-items:center; padding:4px 0; border-bottom:1px solid var(--border-color);">
+                    <div>
+                        <strong style="font-size:13px;">${item.name}</strong><br>
+                        <small style="font-size:11px; color:var(--text-muted);">Qty: ${item.quantity} × Rs. ${item.price}</small>
+                    </div>
+                    <div class="qty-ctrl">
+                        <button onclick="Cart.updateQty('${item.id}', -1)">−</button>
+                        <span style="min-width:20px; text-align:center; font-weight:600;">${item.quantity}</span>
+                        <button onclick="Cart.updateQty('${item.id}', 1)">+</button>
+                        <button onclick="Cart.remove('${item.id}')" style="background:transparent; border:none; font-size:14px; color:#D96C6C;">✕</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        const total = Cart.getTotal();
+        const subtotalEl = document.getElementById('subtotalVal');
+        const totalEl = document.getElementById('totalVal');
+        if (subtotalEl) subtotalEl.textContent = `Rs. ${total.toLocaleString()}`;
+        if (totalEl) totalEl.textContent = `Rs. ${total.toLocaleString()}`;
+    }
+
+    // ============================================================
+    // SEARCH
+    // ============================================================
+    function toggleSearch() {
+        document.getElementById('searchBar').classList.toggle('active');
+        if (document.getElementById('searchBar').classList.contains('active')) {
+            document.getElementById('searchInput').focus();
+        }
+    }
+
+    function handleSearch() {
+        const query = document.getElementById('searchInput').value.toLowerCase().trim();
+        if (query === '') {
+            renderProducts(getFilteredProducts(), 'shopProductGrid');
+            return;
+        }
+        const filtered = PRODUCTS.filter(p =>
+            p.name.toLowerCase().includes(query) ||
+            p.description.toLowerCase().includes(query) ||
+            p.category.toLowerCase().includes(query)
+        );
+        showPage('shop');
+        renderProducts(filtered, 'shopProductGrid');
+    }
+
+    // ============================================================
+    // MOBILE MENU
+    // ============================================================
+    function toggleMobileMenu() {
+        document.getElementById('navLinks').classList.toggle('active');
+    }
+
+    // ============================================================
+    // CHECKOUT FORM SUBMIT
+    // ============================================================
+    document.addEventListener('DOMContentLoaded', () => {
+        renderProducts(PRODUCTS.slice(0, 6), 'homeProductGrid');
+        renderShopProducts();
+        Cart.updateUI();
+
+        const checkoutForm = document.getElementById('checkoutForm');
+        if (checkoutForm) {
+            checkoutForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const cart = Cart.getItems();
+                if (cart.length === 0) {
+                    showToast('Your bag is empty. Add some products first.');
+                    return;
+                }
+
+                const name = document.getElementById('fullName').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const whatsapp = document.getElementById('whatsapp').value.trim();
+                const city = document.getElementById('city').value.trim();
+                const address = document.getElementById('address').value.trim();
+
+                if (!name || !phone || !city || !address) {
+                    showToast('Please fill in all required fields.');
+                    return;
+                }
+
+                const orderNum = 'JQ' + String(Math.floor(10000 + Math.random() * 90000));
+                let itemsList = '';
+                cart.forEach((item, index) => {
+                    itemsList += `${index + 1}. ${item.name} × ${item.quantity} = Rs. ${(item.price * item.quantity).toLocaleString()}\n`;
+                });
+                const total = Cart.getTotal();
+
+                const waMessage =
+                    `Hello JAMQRA LUXE,\n\nI would like to place an order.\n\n` +
+                    `Order Ref: #${orderNum}\n` +
+                    `Customer: ${name}\n` +
+                    `Phone: ${phone}\n` +
+                    `WhatsApp: ${whatsapp || phone}\n` +
+                    `City: ${city}\n` +
+                    `Address: ${address}\n\n` +
+                    `Items:\n${itemsList}\n` +
+                    `Total Amount: Rs. ${total.toLocaleString()}\n` +
+                    `Payment Method: Cash on Delivery\n\n` +
+                    `Please confirm my order.`;
+
+                const waURL = `https://wa.me/923704558965?text=${encodeURIComponent(waMessage)}`;
+
+                const confirmDetails = document.getElementById('confirmationDetails');
+                if (confirmDetails) {
+                    confirmDetails.innerHTML = `
+                        <p><strong>Order Ref:</strong> #${orderNum}</p>
+                        <p><strong>Name:</strong> ${name}</p>
+                        <p><strong>Phone:</strong> ${phone}</p>
+                        <p><strong>City:</strong> ${city}</p>
+                        <p><strong>Address:</strong> ${address}</p>
+                        <p><strong>Total:</strong> Rs. ${total.toLocaleString()} (Cash on Delivery)</p>
+                    `;
+                }
+
+                document.getElementById('waSupportBtn').href = waURL;
+
+                Cart.clear();
+                Cart.updateUI();
+
+                window.open(waURL, '_blank');
+                showPage('order-confirmation');
+                checkoutForm.reset();
+            });
+        }
+
+        document.addEventListener('click', (e) => {
+            const nav = document.getElementById('navLinks');
+            const hamburger = document.querySelector('.hamburger-btn');
+            if (nav.classList.contains('active') &&
+                !nav.contains(e.target) &&
+                !hamburger.contains(e.target)) {
+                nav.classList.remove('active');
+            }
+        });
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            document.getElementById('searchBar').classList.remove('active');
+            document.getElementById('navLinks').classList.remove('active');
+        }
+    });
+
+    console.log('✨ JAMQRA LUXE — Feel Elegant. Feel You.');
+</script>
+</body>
+</html>
