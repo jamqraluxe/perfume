@@ -1920,34 +1920,53 @@ COMPLETE JAVASCRIPT — Fully Functional E-Commerce Engine
     }];
 
     // ============================================================
-    // CART ENGINE (LocalStorage) — Silent Add / No Popup
+    // CART ENGINE (LocalStorage)
     // ============================================================
     const Cart = {
         getItems() {
             try {
-                return JSON.parse(localStorage.getItem('jamqra_cart')) || [];
-            } catch { return []; }
+                const data = localStorage.getItem('jamqra_cart');
+                return data ? JSON.parse(data) : [];
+            } catch (e) {
+                return [];
+            }
         },
 
         save(cart) {
-            localStorage.setItem('jamqra_cart', JSON.stringify(cart));
+            try {
+                localStorage.setItem('jamqra_cart', JSON.stringify(cart));
+            } catch (e) {
+                console.warn('Could not save cart:', e);
+            }
             this.updateUI();
         },
 
-        // 🔥 SILENT ADD — NO ALERT, NO TOAST
         add(productId, qty = 1) {
             const cart = this.getItems();
             const product = PRODUCTS.find(p => p.id === productId);
-            if (!product) return;
+            if (!product) {
+                console.warn('Product not found:', productId);
+                return;
+            }
 
             const existing = cart.find(i => i.id === productId);
             if (existing) {
                 existing.quantity += qty;
             } else {
-                cart.push({ ...product, quantity: qty });
+                // Create a clean copy with only the needed properties
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    originalPrice: product.originalPrice,
+                    image: product.image,
+                    description: product.description,
+                    category: product.category,
+                    badge: product.badge,
+                    quantity: qty
+                });
             }
             this.save(cart);
-            // ⛔ NO alert / NO toast — silently added
         },
 
         updateQty(productId, delta) {
@@ -1965,7 +1984,6 @@ COMPLETE JAVASCRIPT — Fully Functional E-Commerce Engine
             let cart = this.getItems();
             cart = cart.filter(i => i.id !== productId);
             this.save(cart);
-            // Silent removal — no toast
         },
 
         getTotal() {
@@ -1983,13 +2001,15 @@ COMPLETE JAVASCRIPT — Fully Functional E-Commerce Engine
 
         updateUI() {
             const count = this.getCount();
-            document.querySelectorAll('#cartBadge').forEach(el => el.textContent = count);
+            document.querySelectorAll('#cartBadge').forEach(el => {
+                el.textContent = count;
+            });
             renderCheckoutCart();
         }
     };
 
     // ============================================================
-    // TOAST NOTIFICATION (only for non-cart actions)
+    // TOAST NOTIFICATION
     // ============================================================
     function showToast(msg) {
         const existing = document.querySelector('.toast-msg');
@@ -2023,7 +2043,8 @@ COMPLETE JAVASCRIPT — Fully Functional E-Commerce Engine
             if (a.dataset.page === pageId) a.classList.add('active');
         });
 
-        document.getElementById('navLinks').classList.remove('active');
+        const navLinks = document.getElementById('navLinks');
+        if (navLinks) navLinks.classList.remove('active');
     }
 
     // ============================================================
@@ -2090,7 +2111,7 @@ COMPLETE JAVASCRIPT — Fully Functional E-Commerce Engine
             <div class="product-card">
                 <span class="product-badge">${p.badge}</span>
                 <div class="product-thumb" onclick="openProductDetail('${p.id}')">
-                    <img src="${p.image}" alt="${p.name}" loading="lazy">
+                    <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2214%22%3ENo Image%3C/text%3E%3C/svg%3E'">
                 </div>
                 <h3 class="product-title">${p.name}</h3>
                 <p class="product-desc">${p.description}</p>
@@ -2129,7 +2150,7 @@ COMPLETE JAVASCRIPT — Fully Functional E-Commerce Engine
         const container = document.getElementById('productDetailContent');
         container.innerHTML = `
             <div class="detail-image">
-                <img src="${p.image}" alt="${p.name}">
+                <img src="${p.image}" alt="${p.name}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2214%22%3ENo Image%3C/text%3E%3C/svg%3E'">
             </div>
             <div class="detail-info">
                 <span class="sub-tag">JAMQRA LUXE</span>
@@ -2162,10 +2183,10 @@ COMPLETE JAVASCRIPT — Fully Functional E-Commerce Engine
     }
 
     // ============================================================
-    // BUY NOW — Silent Add → Direct Checkout
+    // BUY NOW — Add to Cart → Go to Checkout
     // ============================================================
     function buyNow(productId) {
-        Cart.add(productId); // silent add — no popup
+        Cart.add(productId);
         showPage('checkout');
     }
 
@@ -2207,8 +2228,9 @@ COMPLETE JAVASCRIPT — Fully Functional E-Commerce Engine
     // SEARCH
     // ============================================================
     function toggleSearch() {
-        document.getElementById('searchBar').classList.toggle('active');
-        if (document.getElementById('searchBar').classList.contains('active')) {
+        const bar = document.getElementById('searchBar');
+        bar.classList.toggle('active');
+        if (bar.classList.contains('active')) {
             document.getElementById('searchInput').focus();
         }
     }
@@ -2238,14 +2260,15 @@ COMPLETE JAVASCRIPT — Fully Functional E-Commerce Engine
     // ============================================================
     // CHECKOUT FORM SUBMIT
     // ============================================================
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', function() {
+        // Render initial products
         renderProducts(PRODUCTS.slice(0, 6), 'homeProductGrid');
         renderShopProducts();
         Cart.updateUI();
 
         const checkoutForm = document.getElementById('checkoutForm');
         if (checkoutForm) {
-            checkoutForm.addEventListener('submit', (e) => {
+            checkoutForm.addEventListener('submit', function(e) {
                 e.preventDefault();
 
                 const cart = Cart.getItems();
@@ -2310,22 +2333,25 @@ COMPLETE JAVASCRIPT — Fully Functional E-Commerce Engine
             });
         }
 
-        document.addEventListener('click', (e) => {
+        // Close mobile menu on outside click
+        document.addEventListener('click', function(e) {
             const nav = document.getElementById('navLinks');
             const hamburger = document.querySelector('.hamburger-btn');
-            if (nav.classList.contains('active') &&
+            if (nav && nav.classList.contains('active') &&
                 !nav.contains(e.target) &&
                 !hamburger.contains(e.target)) {
                 nav.classList.remove('active');
             }
         });
-    });
 
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            document.getElementById('searchBar').classList.remove('active');
-            document.getElementById('navLinks').classList.remove('active');
-        }
+        // Close search on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.getElementById('searchBar').classList.remove('active');
+                const nav = document.getElementById('navLinks');
+                if (nav) nav.classList.remove('active');
+            }
+        });
     });
 
     console.log('✨ JAMQRA LUXE — Feel Elegant. Feel You.');
