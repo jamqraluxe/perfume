@@ -3,8 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JAMQRA LUXE | Premium Fragrances Pakistan</title>
-    <meta name="description" content="Feel Elegant. Feel You. Discover luxury long-lasting perfumes for men and women. Free delivery across Pakistan.">
+
+    <!-- ============================================================
+    PRIMARY SEO META TAGS
+    ============================================================ -->
+    <title>JAMQRA LUXE — Premium Fragrances Pakistan | Feel Elegant. Feel You.</title>
+    <meta name="description" content="Discover luxury long-lasting perfumes for men and women. Free delivery across Pakistan. 20% off on all fragrances. Shop now at JAMQRA LUXE.">
+    <link rel="canonical" href="https://jamqraluxe.com/">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="JAMQRA LUXE — Premium Fragrances Pakistan">
+    <meta property="og:description" content="Feel Elegant. Feel You. Luxury perfumes for him & her. Free delivery all over Pakistan. Shop now.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jamqraluxe.com/">
+    <meta property="og:image" content="https://jamqraluxe.com/images/hero-bottle.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="JAMQRA LUXE — Premium Fragrances Pakistan">
+    <meta name="twitter:description" content="Luxury perfumes for men and women. Free delivery across Pakistan. 20% OFF.">
+    <meta name="twitter:image" content="https://jamqraluxe.com/images/hero-bottle.jpg">
+
+    <!-- Theme color -->
+    <meta name="theme-color" content="#FFF9F5">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,6 +91,18 @@
         }
         ul {
             list-style: none;
+        }
+
+        /* Screen reader only */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
         }
 
         /* ============================================================
@@ -1346,20 +1382,20 @@
     <!-- ============================================================
     TOP ANNOUNCEMENT BAR
     ============================================================ -->
-    <div class="announcement-bar">
+    <div class="announcement-bar" role="banner">
         🚚 FREE DELIVERY ALL OVER PAKISTAN
     </div>
 
     <!-- ============================================================
     HEADER / NAVIGATION
     ============================================================ -->
-    <header class="site-header">
-        <a href="#" onclick="showPage('home')" class="brand-logo">
+    <header class="site-header" role="banner">
+        <a href="#" onclick="showPage('home')" class="brand-logo" aria-label="JAMQRA LUXE Home">
             JAMQRA
             <span>LUXE</span>
         </a>
 
-        <nav>
+        <nav aria-label="Main Navigation">
             <ul class="nav-links" id="navLinks">
                 <li><a href="#" onclick="showPage('home')" class="active" data-page="home">HOME</a></li>
                 <li><a href="#" onclick="showPage('shop')" data-page="shop">SHOP</a></li>
@@ -1384,155 +1420,158 @@
     <!-- ============================================================
     SEARCH OVERLAY
     ============================================================ -->
-    <div id="searchBar" class="search-overlay">
+    <div id="searchBar" class="search-overlay" role="search">
         <input type="text" id="searchInput" placeholder="Search fragrances (e.g., Noir, Rose, Oud)..." onkeyup="handleSearch()">
         <button onclick="toggleSearch()" class="btn-secondary" style="padding:10px 20px;">✕</button>
     </div>
 
     <!-- ============================================================
-    MAIN CONTENT — PAGE VIEWS
+    MAIN CONTENT — PAGE VIEWS (SPA)
     ============================================================ -->
-    <main id="mainContent">
+    <main id="mainContent" role="main">
 
         <!-- ==================== HOME ==================== -->
-        <section id="page-home" class="page-view active">
+        <section id="page-home" class="page-view active" aria-label="Homepage">
+            <article>
+                <h1 class="sr-only">JAMQRA LUXE – Premium Fragrances</h1>
 
-            <div class="hero">
-                <div class="hero-content">
-                    <span class="sub-tag">JAMQRA LUXE</span>
-                    <h1 class="hero-title">
-                        FEEL ELEGANT.
-                        <span class="italic">Feel You.</span>
-                    </h1>
-                    <p class="hero-desc">Premium Fragrances for Him &amp; Her</p>
-                    <div class="price-wrap">
-                        <span class="price-old">Rs. 2,500</span>
-                        <span class="price-new">Rs. 2,000</span>
-                        <span class="badge-discount">20% OFF</span>
-                    </div>
-                    <div style="margin-bottom:28px;">
-                        <button class="btn-primary" onclick="showPage('shop')">BUY NOW</button>
-                    </div>
-                    <ul class="hero-checklist">
-                        <li>Long Lasting</li>
-                        <li>Premium Quality</li>
-                        <li>Made for You</li>
-                    </ul>
-                </div>
-                <div class="hero-media">
-                    <div class="hero-img-box">
-                        <img src="images/hero-bottle.jpg" alt="JAMQRA LUXE Premium Perfume" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22440%22 height=%22440%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22440%22 height=%22440%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2220%22%3EHero Image%3C/text%3E%3C/svg%3E'">
-                    </div>
-                </div>
-            </div>
-
-            <div class="trust-bar">
-                <div class="trust-item">
-                    <span class="trust-icon">🚚</span>
-                    <div><strong>FREE DELIVERY</strong><p>All Over Pakistan</p></div>
-                </div>
-                <div class="trust-item">
-                    <span class="trust-icon">🛡️</span>
-                    <div><strong>100% ORIGINAL</strong><p>Premium Quality</p></div>
-                </div>
-                <div class="trust-item">
-                    <span class="trust-icon">🏷️</span>
-                    <div><strong>DEALS &amp; OFFERS</strong><p>Sales &amp; Save</p></div>
-                </div>
-                <div class="trust-item">
-                    <span class="trust-icon">💵</span>
-                    <div><strong>CASH ON DELIVERY</strong><p>Available</p></div>
-                </div>
-            </div>
-
-            <div class="section-padding">
-                <h2 class="section-title">SHOP BY CATEGORY</h2>
-                <div class="category-grid">
-                    <div class="category-card" onclick="filterByCategory('for-him')">
-                        <div>
-                            <h3>FOR HIM</h3>
-                            <p>Bold &amp; Confident</p>
-                            <button class="btn-secondary" onclick="event.stopPropagation(); filterByCategory('for-him')">SHOP NOW</button>
+                <div class="hero">
+                    <div class="hero-content">
+                        <span class="sub-tag">JAMQRA LUXE</span>
+                        <h2 class="hero-title">
+                            FEEL ELEGANT.
+                            <span class="italic">Feel You.</span>
+                        </h2>
+                        <p class="hero-desc">Premium Fragrances for Him &amp; Her</p>
+                        <div class="price-wrap">
+                            <span class="price-old">Rs. 2,500</span>
+                            <span class="price-new">Rs. 2,000</span>
+                            <span class="badge-discount">20% OFF</span>
                         </div>
-                        <img src="images/category-him.jpg" alt="For Him Perfume" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2290%22 height=%22120%22%3E%3Crect fill=%22%23f0f0f0%22 width=%2290%22 height=%22120%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2212%22%3ENo Image%3C/text%3E%3C/svg%3E'">
-                    </div>
-                    <div class="category-card" onclick="filterByCategory('for-her')">
-                        <div>
-                            <h3>FOR HER</h3>
-                            <p>Elegant &amp; Graceful</p>
-                            <button class="btn-secondary" onclick="event.stopPropagation(); filterByCategory('for-her')">SHOP NOW</button>
+                        <div style="margin-bottom:28px;">
+                            <button class="btn-primary" onclick="showPage('shop')">BUY NOW</button>
                         </div>
-                        <img src="images/hero-bottle.jpg" alt="For Her Perfume" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2290%22 height=%22120%22%3E%3Crect fill=%22%23f0f0f0%22 width=%2290%22 height=%22120%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2212%22%3ENo Image%3C/text%3E%3C/svg%3E'">
+                        <ul class="hero-checklist">
+                            <li>Long Lasting</li>
+                            <li>Premium Quality</li>
+                            <li>Made for You</li>
+                        </ul>
                     </div>
-                    <div class="category-card" onclick="filterByCategory('all')">
-                        <div>
-                            <h3>BEST SELLERS</h3>
-                            <p>Our Most Loved</p>
-                            <button class="btn-secondary" onclick="event.stopPropagation(); filterByCategory('all')">SHOP NOW</button>
+                    <div class="hero-media">
+                        <div class="hero-img-box">
+                            <img src="images/hero-bottle.jpg" alt="JAMQRA LUXE Premium Perfume Bottle" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22440%22 height=%22440%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22440%22 height=%22440%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2220%22%3EHero%20Image%3C/text%3E%3C/svg%3E'">
                         </div>
-                        <img src="images/category-gold.jpg" alt="Best Seller Perfume" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2290%22 height=%22120%22%3E%3Crect fill=%22%23f0f0f0%22 width=%2290%22 height=%22120%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2212%22%3ENo Image%3C/text%3E%3C/svg%3E'">
                     </div>
                 </div>
-            </div>
 
-            <div class="section-padding" style="padding-top:0;">
-                <div class="promo-wrapper">
-                    <div class="promo-card">
-                        <div class="promo-card-content">
-                            <span class="sub-tag">SPECIAL OFFER</span>
-                            <h2>20% OFF</h2>
-                            <p>ON ALL PERFUMES</p>
-                            <button class="btn-primary" onclick="showPage('shop')">SHOP NOW</button>
-                        </div>
-                        <img src="images/hero-bottle.jpg" alt="Special Offer" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22110%22 height=%22110%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22110%22 height=%22110%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2212%22%3ENo Image%3C/text%3E%3C/svg%3E'">
+                <div class="trust-bar">
+                    <div class="trust-item">
+                        <span class="trust-icon">🚚</span>
+                        <div><strong>FREE DELIVERY</strong><p>All Over Pakistan</p></div>
                     </div>
-                    <div class="promo-card">
-                        <div class="promo-card-content">
-                            <span class="sub-tag">TESTER OFFER</span>
-                            <h2>6 TESTERS</h2>
-                            <p>ONLY RS. 500</p>
-                            <button class="btn-primary" onclick="buyNow('jamqra-testers')">BUY NOW</button>
-                        </div>
-                        <img src="images/collection-all.jpg" alt="Tester Pack" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22110%22 height=%22110%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22110%22 height=%22110%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2212%22%3ENo Image%3C/text%3E%3C/svg%3E'">
+                    <div class="trust-item">
+                        <span class="trust-icon">🛡️</span>
+                        <div><strong>100% ORIGINAL</strong><p>Premium Quality</p></div>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-icon">🏷️</span>
+                        <div><strong>DEALS &amp; OFFERS</strong><p>Sales &amp; Save</p></div>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-icon">💵</span>
+                        <div><strong>CASH ON DELIVERY</strong><p>Available</p></div>
                     </div>
                 </div>
-            </div>
 
-            <div class="section-padding" style="background:#FFF; border-top:1px solid var(--border-color);">
-                <h2 class="section-title">OUR SIGNATURE FRAGRANCES</h2>
-                <p class="section-sub">Timeless scents crafted for every mood</p>
-                <div class="product-grid" id="homeProductGrid"></div>
-            </div>
-
-            <div class="section-padding why-us-bg">
-                <h2 class="section-title">WHY CHOOSE JAMQRA LUXE?</h2>
-                <div class="why-us-grid">
-                    <div class="why-card">
-                        <span>💧</span>
-                        <h4>LONG LASTING</h4>
-                        <p>Premium Oils</p>
-                    </div>
-                    <div class="why-card">
-                        <span>🎁</span>
-                        <h4>PREMIUM PACKAGING</h4>
-                        <p>Luxury Experience</p>
-                    </div>
-                    <div class="why-card">
-                        <span>✨</span>
-                        <h4>PERFECT GIFT</h4>
-                        <p>For Loved Ones</p>
-                    </div>
-                    <div class="why-card">
-                        <span>🇵🇰</span>
-                        <h4>MADE FOR PAKISTAN</h4>
-                        <p>Loved Nationwide</p>
+                <div class="section-padding">
+                    <h2 class="section-title">SHOP BY CATEGORY</h2>
+                    <div class="category-grid">
+                        <div class="category-card" onclick="filterByCategory('for-him')">
+                            <div>
+                                <h3>FOR HIM</h3>
+                                <p>Bold &amp; Confident</p>
+                                <button class="btn-secondary" onclick="event.stopPropagation(); filterByCategory('for-him')">SHOP NOW</button>
+                            </div>
+                            <img src="images/category-him.jpg" alt="For Him Perfume" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2290%22 height=%22120%22%3E%3Crect fill=%22%23f0f0f0%22 width=%2290%22 height=%22120%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2212%22%3ENo%20Image%3C/text%3E%3C/svg%3E'">
+                        </div>
+                        <div class="category-card" onclick="filterByCategory('for-her')">
+                            <div>
+                                <h3>FOR HER</h3>
+                                <p>Elegant &amp; Graceful</p>
+                                <button class="btn-secondary" onclick="event.stopPropagation(); filterByCategory('for-her')">SHOP NOW</button>
+                            </div>
+                            <img src="images/hero-bottle.jpg" alt="For Her Perfume" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2290%22 height=%22120%22%3E%3Crect fill=%22%23f0f0f0%22 width=%2290%22 height=%22120%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2212%22%3ENo%20Image%3C/text%3E%3C/svg%3E'">
+                        </div>
+                        <div class="category-card" onclick="filterByCategory('all')">
+                            <div>
+                                <h3>BEST SELLERS</h3>
+                                <p>Our Most Loved</p>
+                                <button class="btn-secondary" onclick="event.stopPropagation(); filterByCategory('all')">SHOP NOW</button>
+                            </div>
+                            <img src="images/category-gold.jpg" alt="Best Seller Perfume" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2290%22 height=%22120%22%3E%3Crect fill=%22%23f0f0f0%22 width=%2290%22 height=%22120%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2212%22%3ENo%20Image%3C/text%3E%3C/svg%3E'">
+                        </div>
                     </div>
                 </div>
-            </div>
+
+                <div class="section-padding" style="padding-top:0;">
+                    <div class="promo-wrapper">
+                        <div class="promo-card">
+                            <div class="promo-card-content">
+                                <span class="sub-tag">SPECIAL OFFER</span>
+                                <h2>20% OFF</h2>
+                                <p>ON ALL PERFUMES</p>
+                                <button class="btn-primary" onclick="showPage('shop')">SHOP NOW</button>
+                            </div>
+                            <img src="images/hero-bottle.jpg" alt="Special Offer" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22110%22 height=%22110%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22110%22 height=%22110%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2212%22%3ENo%20Image%3C/text%3E%3C/svg%3E'">
+                        </div>
+                        <div class="promo-card">
+                            <div class="promo-card-content">
+                                <span class="sub-tag">TESTER OFFER</span>
+                                <h2>6 TESTERS</h2>
+                                <p>ONLY RS. 500</p>
+                                <button class="btn-primary" onclick="buyNow('jamqra-testers')">BUY NOW</button>
+                            </div>
+                            <img src="images/collection-all.jpg" alt="Tester Pack" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22110%22 height=%22110%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22110%22 height=%22110%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2212%22%3ENo%20Image%3C/text%3E%3C/svg%3E'">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-padding" style="background:#FFF; border-top:1px solid var(--border-color);">
+                    <h2 class="section-title">OUR SIGNATURE FRAGRANCES</h2>
+                    <p class="section-sub">Timeless scents crafted for every mood</p>
+                    <div class="product-grid" id="homeProductGrid"></div>
+                </div>
+
+                <div class="section-padding why-us-bg">
+                    <h2 class="section-title">WHY CHOOSE JAMQRA LUXE?</h2>
+                    <div class="why-us-grid">
+                        <div class="why-card">
+                            <span>💧</span>
+                            <h4>LONG LASTING</h4>
+                            <p>Premium Oils</p>
+                        </div>
+                        <div class="why-card">
+                            <span>🎁</span>
+                            <h4>PREMIUM PACKAGING</h4>
+                            <p>Luxury Experience</p>
+                        </div>
+                        <div class="why-card">
+                            <span>✨</span>
+                            <h4>PERFECT GIFT</h4>
+                            <p>For Loved Ones</p>
+                        </div>
+                        <div class="why-card">
+                            <span>🇵🇰</span>
+                            <h4>MADE FOR PAKISTAN</h4>
+                            <p>Loved Nationwide</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
         </section>
 
         <!-- ==================== SHOP ==================== -->
-        <section id="page-shop" class="page-view">
+        <section id="page-shop" class="page-view" aria-label="Shop all products">
             <div class="section-padding">
                 <h1 class="section-title">ALL PRODUCTS</h1>
                 <div class="shop-controls">
@@ -1553,7 +1592,7 @@
         </section>
 
         <!-- ==================== PRODUCT DETAIL ==================== -->
-        <section id="page-product" class="page-view">
+        <section id="page-product" class="page-view" aria-label="Product details">
             <div class="section-padding">
                 <div class="product-detail-container" id="productDetailContent">
                     <!-- Rendered dynamically -->
@@ -1562,40 +1601,40 @@
         </section>
 
         <!-- ==================== CHECKOUT ==================== -->
-        <section id="page-checkout" class="page-view">
+        <section id="page-checkout" class="page-view" aria-label="Checkout">
             <div class="section-padding">
                 <h1 class="section-title">CHECKOUT</h1>
                 <div class="checkout-layout">
                     <form id="checkoutForm" class="checkout-form">
                         <h3>Customer Delivery Details</h3>
                         <div class="form-group">
-                            <label>Full Name *</label>
+                            <label for="fullName">Full Name *</label>
                             <input type="text" id="fullName" required placeholder="e.g. Ali Khan">
                         </div>
                         <div class="form-group flex-2">
                             <div>
-                                <label>Mobile Number *</label>
+                                <label for="phone">Mobile Number *</label>
                                 <input type="tel" id="phone" required placeholder="0300 1234567">
                             </div>
                             <div>
-                                <label>WhatsApp Number *</label>
+                                <label for="whatsapp">WhatsApp Number *</label>
                                 <input type="tel" id="whatsapp" required placeholder="0300 1234567">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Email Address (Optional)</label>
+                            <label for="email">Email Address (Optional)</label>
                             <input type="email" id="email" placeholder="ali@gmail.com">
                         </div>
                         <div class="form-group">
-                            <label>City *</label>
+                            <label for="city">City *</label>
                             <input type="text" id="city" required placeholder="Lahore, Karachi, Islamabad...">
                         </div>
                         <div class="form-group">
-                            <label>Complete Delivery Address *</label>
+                            <label for="address">Complete Delivery Address *</label>
                             <textarea id="address" rows="3" required placeholder="House No, Street, Sector / Area"></textarea>
                         </div>
                         <div class="form-group">
-                            <label>Additional Notes (Optional)</label>
+                            <label for="notes">Additional Notes (Optional)</label>
                             <input type="text" id="notes" placeholder="Special instructions for rider...">
                         </div>
                         <button type="submit" class="btn-primary full-width">CONFIRM ORDER VIA WHATSAPP</button>
@@ -1616,7 +1655,7 @@
         </section>
 
         <!-- ==================== ORDER CONFIRMATION ==================== -->
-        <section id="page-order-confirmation" class="page-view">
+        <section id="page-order-confirmation" class="page-view" aria-label="Order confirmation">
             <div class="section-padding">
                 <div class="confirmation-box">
                     <span class="success-icon">✨</span>
@@ -1632,7 +1671,7 @@
         </section>
 
         <!-- ==================== ABOUT ==================== -->
-        <section id="page-about" class="page-view">
+        <section id="page-about" class="page-view" aria-label="About us">
             <div class="section-padding" style="max-width:800px; margin:0 auto;">
                 <h1 class="section-title">ABOUT JAMQRA LUXE</h1>
                 <p style="margin-bottom:16px; font-size:16px; text-align:center; color:var(--text-muted);">
@@ -1648,7 +1687,7 @@
         </section>
 
         <!-- ==================== CONTACT ==================== -->
-        <section id="page-contact" class="page-view">
+        <section id="page-contact" class="page-view" aria-label="Contact us">
             <div class="section-padding" style="max-width:800px; margin:0 auto;">
                 <h1 class="section-title">CONTACT US</h1>
                 <div style="text-align:center; font-size:15px; line-height:2.2;">
@@ -1676,7 +1715,7 @@
     <!-- ============================================================
     FOOTER
     ============================================================ -->
-    <footer class="site-footer">
+    <footer class="site-footer" role="contentinfo">
         <div class="footer-grid">
             <div class="footer-col">
                 <div class="brand-logo" style="text-align:left; margin-bottom:12px;">
@@ -1738,26 +1777,79 @@
     <a href="https://wa.me/923704558965?text=Hello%20JAMQRA%20LUXE%2C%20I%20am%20interested%20in%20your%20perfumes."
     class="whatsapp-float"
     target="_blank"
+    rel="noopener"
     aria-label="Contact on WhatsApp">
     💬
 </a>
 
 <!-- ============================================================
-LIGHTBOX OVERLAY (for images & videos)
+LIGHTBOX OVERLAY
 ============================================================ -->
 <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox()">
-    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">✕</button>
     <div class="lightbox-content" onclick="event.stopPropagation()" id="lightboxContent">
         <!-- dynamically loaded -->
     </div>
 </div>
 
 <!-- ============================================================
-COMPLETE JAVASCRIPT — With Review System & Image Mapping
+SEO: JSON-LD STRUCTURED DATA
+============================================================ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "JAMQRA LUXE",
+  "url": "https://jamqraluxe.com/",
+  "logo": "https://jamqraluxe.com/images/logo.png",
+  "description": "Premium luxury fragrances for men and women. Free delivery across Pakistan. Cash on delivery.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "PK"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+923704558965",
+    "contactType": "Sales",
+    "availableLanguage": ["en", "ur"]
+  },
+  "sameAs": [
+    "https://wa.me/923704558965"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "JAMQRA LUXE",
+  "url": "https://jamqraluxe.com/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://jamqraluxe.com/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<script type="application/ld+json" id="breadcrumbJson">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jamqraluxe.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Shop", "item": "https://jamqraluxe.com/#shop" }
+  ]
+}
+</script>
+
+<!-- ============================================================
+COMPLETE JAVASCRIPT — With Review System, Product Schema & Image Mapping
 ============================================================ -->
 <script>
     // ============================================================
-    // PRODUCT CATALOG — All images now use consistent filenames
+    // PRODUCT CATALOG — All images use consistent filenames
     // ============================================================
     const PRODUCTS = [{
         id: "jamqra-rose",
@@ -2116,6 +2208,48 @@ COMPLETE JAVASCRIPT — With Review System & Image Mapping
     }
 
     // ============================================================
+    // INJECT PRODUCT SCHEMA (SEO)
+    // ============================================================
+    function injectProductSchema(product, reviews, stats) {
+        const container = document.getElementById('productSchemaContainer');
+        if (!container) return;
+
+        const reviewSchema = reviews.map(r => ({
+            "@type": "Review",
+            "author": { "@type": "Person", "name": r.name },
+            "reviewRating": { "@type": "Rating", "ratingValue": r.rating, "bestRating": 5 },
+            "reviewBody": r.text,
+            "datePublished": r.date || new Date().toISOString().split('T')[0]
+        }));
+
+        const schema = {
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": product.name,
+            "description": product.description,
+            "image": product.image,
+            "sku": product.id,
+            "brand": { "@type": "Brand", "name": "JAMQRA LUXE" },
+            "offers": {
+                "@type": "Offer",
+                "price": product.price,
+                "priceCurrency": "PKR",
+                "availability": "https://schema.org/InStock",
+                "url": `https://jamqraluxe.com/#product/${product.id}`
+            },
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": stats.avg.toFixed(1),
+                "reviewCount": stats.count,
+                "bestRating": 5
+            },
+            "review": reviewSchema
+        };
+
+        container.innerHTML = `<script type="application/ld+json">${JSON.stringify(schema, null, 2)}<\/script>`;
+    }
+
+    // ============================================================
     // RENDER PRODUCT DETAIL WITH REVIEWS
     // ============================================================
     function openProductDetail(productId) {
@@ -2129,6 +2263,9 @@ COMPLETE JAVASCRIPT — With Review System & Image Mapping
         const avg = stats.avg;
         const count = stats.count;
         const dist = stats.distribution;
+
+        // Inject Product Schema for SEO
+        injectProductSchema(p, reviews, stats);
 
         let breakdownHTML = '';
         const maxCount = Math.max(...Object.values(dist), 1);
@@ -2156,7 +2293,7 @@ COMPLETE JAVASCRIPT — With Review System & Image Mapping
                 r.images.forEach(img => {
                     mediaHTML += `
                         <div class="media-item" onclick="event.stopPropagation(); openLightbox('image','${img}')">
-                            <img src="${img}" alt="Customer photo" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22%3E%3Crect fill=%22%23f0f0f0%22 width=%2280%22 height=%2280%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2210%22%3ENo Image%3C/text%3E%3C/svg%3E'">
+                            <img src="${img}" alt="Customer photo" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22%3E%3Crect fill=%22%23f0f0f0%22 width=%2280%22 height=%2280%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2210%22%3ENo%20Image%3C/text%3E%3C/svg%3E'">
                         </div>
                     `;
                 });
@@ -2167,7 +2304,7 @@ COMPLETE JAVASCRIPT — With Review System & Image Mapping
                     mediaHTML += `
                         <div class="review-media">
                             <div class="media-item" onclick="event.stopPropagation(); openLightbox('video','${v.url}','${v.poster || ''}')">
-                                <img src="${v.poster || v.thumbnail || 'images/hero-bottle.jpg'}" alt="Video thumbnail" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22%3E%3Crect fill=%22%23f0f0f0%22 width=%2280%22 height=%2280%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2210%22%3ENo Image%3C/text%3E%3C/svg%3E'">
+                                <img src="${v.poster || v.thumbnail || 'images/hero-bottle.jpg'}" alt="Video thumbnail" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22%3E%3Crect fill=%22%23f0f0f0%22 width=%2280%22 height=%2280%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2210%22%3ENo%20Image%3C/text%3E%3C/svg%3E'">
                                 <span class="play-icon">▶</span>
                             </div>
                         </div>
@@ -2198,7 +2335,7 @@ COMPLETE JAVASCRIPT — With Review System & Image Mapping
         const container = document.getElementById('productDetailContent');
         container.innerHTML = `
             <div class="detail-image">
-                <img src="${p.image}" alt="${p.name}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22400%22 height=%22400%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2220%22%3ENo Image%3C/text%3E%3C/svg%3E'">
+                <img src="${p.image}" alt="${p.name}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22400%22 height=%22400%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2220%22%3ENo%20Image%3C/text%3E%3C/svg%3E'">
             </div>
             <div class="detail-info">
                 <span class="sub-tag">JAMQRA LUXE</span>
@@ -2243,7 +2380,7 @@ COMPLETE JAVASCRIPT — With Review System & Image Mapping
 
                 <!-- Reviews Section -->
                 <div class="reviews-section">
-                    <h3 class="section-title-sm">Customer Reviews</h3>
+                    <h2 class="section-title-sm">Customer Reviews</h2>
                     <div style="margin-bottom:16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
                         <span style="font-size:14px;font-weight:600;">${avg.toFixed(1)} out of 5</span>
                         <span style="color:var(--star-color);font-size:16px;">${renderStarRating(avg, 16)}</span>
@@ -2443,7 +2580,7 @@ COMPLETE JAVASCRIPT — With Review System & Image Mapping
             <div class="product-card">
                 <span class="product-badge">${p.badge}</span>
                 <div class="product-thumb" onclick="openProductDetail('${p.id}')">
-                    <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2214%22%3ENo Image%3C/text%3E%3C/svg%3E'">
+                    <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2214%22%3ENo%20Image%3C/text%3E%3C/svg%3E'">
                 </div>
                 <h3 class="product-title">${p.name}</h3>
                 <p class="product-desc">${p.description}</p>
@@ -2625,7 +2762,7 @@ COMPLETE JAVASCRIPT — With Review System & Image Mapping
         }
     });
 
-    console.log('✨ JAMQRA LUXE — Feel Elegant. Feel You. (with Reviews & Image System)');
+    console.log('✨ JAMQRA LUXE — Feel Elegant. Feel You. (SEO + Reviews + Image System)');
 </script>
 </body>
 </html>
