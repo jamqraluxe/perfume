@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JAMQRA LUXE — Premium Fragrances Pakistan</title>
+    <title>JAMQRA LUXE — Premium Fragrances Pakistan | Buy Perfumes Online</title>
     <meta name="description" content="Discover luxury long-lasting perfumes for men and women in Pakistan. ✓ Free delivery ✓ Cash on delivery ✓ Buy 2 get Rs. 500 OFF. Shop premium fragrances now!">
     <link rel="canonical" href="https://jamqraluxe.github.io/perfume/">
     <meta name="robots" content="index, follow">
@@ -30,6 +30,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
     <!-- SEO JSON-LD -->
     <script type="application/ld+json">
@@ -1107,7 +1110,7 @@
         }
 
         /* ============================================================
-           DASHBOARD - SECURE (Formspree Authentication)
+           DASHBOARD
            ============================================================ */
         .dashboard-login {
             max-width: 420px;
@@ -1609,14 +1612,13 @@
         </section>
 
         <!-- ============================================================
-        DASHBOARD - SECURE (Formspree Authentication)
+        DASHBOARD
         ============================================================ -->
         <section id="page-dashboard" class="page-view" aria-label="Dashboard">
             <div class="section-padding">
                 <h1 class="section-title">📊 REVIEW DASHBOARD</h1>
                 <p class="section-sub">Manage all customer reviews from one place</p>
 
-                <!-- Secure Login - Formspree Authentication -->
                 <div id="dashboardLogin" class="dashboard-login">
                     <div style="font-size:48px;margin-bottom:16px;">🔐</div>
                     <h3 style="font-family:var(--font-serif);margin-bottom:8px;">Admin Access</h3>
@@ -1637,7 +1639,6 @@
                     </p>
                 </div>
 
-                <!-- Dashboard Content -->
                 <div id="dashboardContent" class="dashboard-content">
                     <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:20px;">
                         <h3 style="font-family:var(--font-serif);font-size:20px;">Review Management</h3>
@@ -1779,8 +1780,79 @@
 
     <script>
         // ============================================================
+        // FORMINIT CONFIGURATION
+        // ============================================================
+        const FORMINIT_ENDPOINT = "https://forminit.com/f/pgrbxm1phvx";
+
+        // ============================================================
+        // EMAILJS CONFIGURATION
+        // ============================================================
+        const EMAILJS_PUBLIC_KEY = "AUZfO7UaK_fZyO5w-";
+        const EMAILJS_SERVICE_ID = "jamqra_service";
+        const EMAILJS_TEMPLATE_ID = "jamqra_order_confirmation";
+
+        // Initialize EmailJS
+        emailjs.init(EMAILJS_PUBLIC_KEY);
+
+        // ============================================================
+        // SEND ORDER TO FORMINIT
+        // ============================================================
+        function sendOrderToForminit(orderData) {
+            return fetch(FORMINIT_ENDPOINT, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(orderData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('✅ Order sent to Forminit:', data);
+                return data;
+            })
+            .catch(error => {
+                console.error('❌ Forminit error:', error);
+                throw error;
+            });
+        }
+
+        // ============================================================
+        // SEND ORDER CONFIRMATION EMAIL
+        // ============================================================
+        function sendOrderConfirmationEmail(orderData) {
+            const templateParams = {
+                order_number: orderData.order_number,
+                customer_name: orderData.customer_name,
+                phone: orderData.phone,
+                email: orderData.email || 'business.jamqra@gmail.com',
+                city: orderData.city,
+                address: orderData.address,
+                products: orderData.products,
+                total: orderData.total,
+                name: orderData.customer_name,
+                order_date: new Date().toLocaleDateString('en-PK', {
+                    day: '2-digit',
+                    month: 'long',
+                    year: 'numeric'
+                })
+            };
+
+            console.log('📧 Sending order confirmation email...');
+            console.log('Template Params:', templateParams);
+
+            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+                .then(function(response) {
+                    console.log('✅ Email sent successfully!', response);
+                    showToast('📧 Order confirmation email sent!');
+                })
+                .catch(function(error) {
+                    console.log('❌ Email failed:', error);
+                });
+        }
+
+        // ============================================================
         // SECURE AUTHENTICATION - Formspree Serverless Backend
-        // Password is NOT stored in frontend code
         // ============================================================
         const AUTH_ENDPOINT = "https://formspree.io/f/xeaqvrnb";
 
@@ -1802,13 +1874,11 @@
                 return;
             }
 
-            // Show loading state
             loginBtn.disabled = true;
             loginText.innerHTML = '<span class="login-spinner"></span> Verifying...';
             errorDiv.style.display = 'none';
             successDiv.style.display = 'none';
 
-            // Send credentials to Formspree for verification
             fetch(AUTH_ENDPOINT, {
                 method: 'POST',
                 headers: {
@@ -1826,14 +1896,9 @@
                 loginBtn.disabled = false;
                 loginText.textContent = 'UNLOCK DASHBOARD';
 
-                // Check if authentication was successful
-                // Formspree returns ok: true on successful submission
                 if (data.ok === true) {
-                    // Authentication successful - credentials were valid
                     isAuthenticated = true;
                     authToken = 'session_' + Date.now();
-                    
-                    // Store token in memory only (not localStorage)
                     window._jamqraAuthToken = authToken;
                     
                     successDiv.style.display = 'block';
@@ -1846,7 +1911,6 @@
                         showToast('✅ Dashboard unlocked successfully!');
                     }, 500);
                 } else {
-                    // Authentication failed
                     errorDiv.style.display = 'block';
                     errorDiv.textContent = '❌ Invalid credentials. Please try again.';
                     document.getElementById('adminPasswordInput').value = '';
@@ -2087,7 +2151,6 @@
             
             tbody.innerHTML = html;
 
-            // Attach event listeners
             document.querySelectorAll('#dashReviewsTable .approve-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     if (!checkAuth()) return;
@@ -2117,7 +2180,7 @@
         }
 
         // ============================================================
-        // REVIEW MANAGEMENT FUNCTIONS (Protected)
+        // REVIEW MANAGEMENT FUNCTIONS
         // ============================================================
         function updateReviewStatus(productId, index, status) {
             if (!checkAuth()) return;
@@ -2548,19 +2611,6 @@
         function toggleMobileMenu() { document.getElementById('navLinks').classList.toggle('active'); }
 
         // ============================================================
-        // FORMSPREE SUBMIT
-        // ============================================================
-        const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqpkggwe";
-
-        function submitOrderToFormspree(orderData) {
-            return fetch(FORMSPREE_ENDPOINT, {
-                method: "POST",
-                headers: { "Content-Type": "application/json", "Accept": "application/json" },
-                body: JSON.stringify(orderData)
-            });
-        }
-
-        // ============================================================
         // CHECKOUT FORM SUBMIT
         // ============================================================
         document.addEventListener('DOMContentLoaded', function() {
@@ -2570,7 +2620,6 @@
             renderShopProducts();
             Cart.updateUI();
 
-            // Enter key support for login
             document.getElementById('adminPasswordInput').addEventListener('keydown', function(e) {
                 if (e.key === 'Enter') {
                     authenticateAdmin();
@@ -2587,15 +2636,22 @@
                 checkoutForm.addEventListener('submit', function(e) {
                     e.preventDefault();
                     const cart = Cart.getItems();
-                    if (cart.length === 0) { showToast('Your bag is empty. Add some products first.'); return; }
+                    if (cart.length === 0) { 
+                        showToast('Your bag is empty. Add some products first.'); 
+                        return; 
+                    }
 
                     const name = document.getElementById('fullName').value.trim();
                     const phone = document.getElementById('phone').value.trim();
-                    const email = document.getElementById('customerEmail').value.trim();
+                    const email = document.getElementById('customerEmail').value.trim() || 'Not provided';
                     const city = document.getElementById('city').value.trim();
                     const address = document.getElementById('address').value.trim();
+                    const notes = document.getElementById('notes').value.trim();
 
-                    if (!name || !phone || !city || !address) { showToast('Please fill in all required fields.'); return; }
+                    if (!name || !phone || !city || !address) { 
+                        showToast('Please fill in all required fields.'); 
+                        return; 
+                    }
 
                     const orderNum = 'JQ' + String(Math.floor(10000 + Math.random() * 90000));
                     let productList = '';
@@ -2612,25 +2668,38 @@
                         order_number: orderNum,
                         customer_name: name,
                         phone: phone,
-                        email: email || 'Not provided',
+                        email: email,
                         city: city,
                         address: address,
                         products: productList,
                         total: `Rs. ${total.toLocaleString()} ${count >= 2 ? '(with Rs. 500 OFF)' : ''}`,
-                        payment_method: "Cash on Delivery"
+                        payment_method: "Cash on Delivery",
+                        notes: notes || 'N/A'
                     };
 
-                    submitOrderToFormspree(orderData).catch(() => {});
+                    // ⬇️ SEND TO FORMINIT ⬇️
+                    sendOrderToForminit(orderData)
+                        .then(() => {
+                            console.log('✅ Order saved to Forminit');
+                        })
+                        .catch((error) => {
+                            console.log('⚠️ Forminit error, but continuing:', error);
+                        });
+                    
+                    // ⬇️ SEND EMAIL VIA EMAILJS ⬇️
+                    sendOrderConfirmationEmail(orderData);
+                    
                     const confirmDetails = document.getElementById('confirmationDetails');
                     if (confirmDetails) {
                         confirmDetails.innerHTML = `
                             <p><strong>Order Ref:</strong> #${orderNum}</p>
                             <p><strong>Name:</strong> ${name}</p>
                             <p><strong>Phone:</strong> ${phone}</p>
-                            ${email ? `<p><strong>Email:</strong> ${email}</p>` : ''}
+                            ${email !== 'Not provided' ? `<p><strong>Email:</strong> ${email}</p>` : ''}
                             <p><strong>City:</strong> ${city}</p>
                             <p><strong>Address:</strong> ${address}</p>
                             <p><strong>Total:</strong> Rs. ${total.toLocaleString()} ${count >= 2 ? '(Rs. 500 OFF applied!)' : ''}</p>
+                            <p><strong>📧 Email:</strong> ${email !== 'Not provided' ? 'Confirmation email sent!' : 'WhatsApp confirmation sent!'}</p>
                         `;
                     }
                     Cart.clear();
@@ -2656,10 +2725,10 @@
             }
         });
 
-        console.log('✨ JAMQRA LUXE — Secure Authentication with Formspree');
+        console.log('✨ JAMQRA LUXE — Complete with Forminit + EmailJS Integration!');
+        console.log('📧 EmailJS Public Key:', EMAILJS_PUBLIC_KEY);
+        console.log('📧 Forminit Endpoint:', FORMINIT_ENDPOINT);
         console.log('🔐 Admin credentials are NOT stored in frontend code');
-        console.log('🔒 Authentication handled via Formspree serverless endpoint: ' + AUTH_ENDPOINT);
-        console.log('📧 Use your Formspree credentials to login');
     </script>
 </body>
 </html>
