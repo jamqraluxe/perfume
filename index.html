@@ -1444,9 +1444,7 @@
                     <div class="trust-item"><span class="trust-icon">💵</span><div><strong>CASH ON DELIVERY</strong><p>Available</p></div></div>
                 </div>
 
-                <!-- ============================================================
-                DEAL SECTION WITH REAL PRODUCT IMAGES
-                ============================================================ -->
+                <!-- DEAL SECTION WITH REAL PRODUCT IMAGES -->
                 <div class="deal-section" id="dealSection">
                     <div class="deal-wrap">
                         <div class="deal-content">
@@ -1460,28 +1458,22 @@
                             </div>
                             <button class="btn-primary btn-gold" onclick="showPage('shop')">SHOP NOW</button>
                         </div>
-                        <!-- DEAL VISUAL WITH REAL PRODUCT IMAGES -->
                         <div class="deal-visual">
-                            <!-- Product 1 - ROSE -->
                             <div class="deal-product">
                                 <img src="images/jamqra-rose.jpg" alt="JAMQRA LUXE ROSE">
                                 <span class="label">ROSE</span>
                             </div>
                             <span class="plus">+</span>
-                            <!-- Product 2 - BLUE -->
                             <div class="deal-product">
                                 <img src="images/jamqra-blue.jpg" alt="JAMQRA LUXE BLUE">
                                 <span class="label">BLUE</span>
                             </div>
                             <span class="equals">=</span>
-                            <!-- Savings Box -->
                             <div class="savings-box">
                                 <span class="amount">Rs. 500</span>
                                 <span class="label">OFF</span>
                             </div>
-                            <!-- Free Badge -->
                             <span class="free-badge">🎁 FREE</span>
-                            <!-- Saving Text -->
                             <span class="saving-text">Buy 2<br>Save 500</span>
                         </div>
                     </div>
@@ -1659,7 +1651,7 @@
         </section>
 
         <!-- ============================================================
-        DASHBOARD - Password Protected with Change Password
+        DASHBOARD - Password Protected with Change Password & Fixed Approval
         ============================================================ -->
         <section id="page-dashboard" class="page-view" aria-label="Dashboard">
             <div class="section-padding">
@@ -1893,13 +1885,23 @@
         // ============================================================
         // REVIEW DATA
         // ============================================================
-        const REVIEWS_STORAGE_KEY = 'jamqra_product_reviews_v5';
+        const REVIEWS_STORAGE_KEY = 'jamqra_product_reviews_v6';
 
         function getProductReviews(productId) {
-            try { const all = JSON.parse(localStorage.getItem(REVIEWS_STORAGE_KEY)) || {}; return all[productId] || []; } catch { return []; }
+            try { 
+                const all = JSON.parse(localStorage.getItem(REVIEWS_STORAGE_KEY)) || {}; 
+                return all[productId] || []; 
+            } catch { 
+                return []; 
+            }
         }
+
         function setProductReviews(productId, reviews) {
-            try { const all = JSON.parse(localStorage.getItem(REVIEWS_STORAGE_KEY)) || {}; all[productId] = reviews; localStorage.setItem(REVIEWS_STORAGE_KEY, JSON.stringify(all)); } catch {}
+            try { 
+                const all = JSON.parse(localStorage.getItem(REVIEWS_STORAGE_KEY)) || {}; 
+                all[productId] = reviews; 
+                localStorage.setItem(REVIEWS_STORAGE_KEY, JSON.stringify(all)); 
+            } catch {}
         }
 
         // ============================================================
@@ -1937,7 +1939,8 @@
             for (let i = 0; i < count; i++) {
                 const review = shuffled[i];
                 const daysAgo = Math.floor(Math.random() * 60);
-                const date = new Date(); date.setDate(date.getDate() - daysAgo);
+                const date = new Date(); 
+                date.setDate(date.getDate() - daysAgo);
                 selected.push({
                     name: review.name,
                     rating: review.rating,
@@ -1949,6 +1952,7 @@
                     videos: []
                 });
             }
+            // Add pending reviews for testing approval
             if (selected.length > 0) {
                 selected[0].status = 'pending';
                 if (selected.length > 1) selected[1].status = 'pending';
@@ -2027,6 +2031,111 @@
             showToast('🔑 Password updated successfully!');
         }
 
+        // ============================================================
+        // REVIEW MANAGEMENT FUNCTIONS - FIXED
+        // ============================================================
+        function updateReviewStatus(productId, index, status) {
+            if (!isDashboardUnlocked) { 
+                showToast('🔒 Please login first!'); 
+                return; 
+            }
+            
+            const reviews = getProductReviews(productId);
+            
+            if (!reviews[index]) {
+                showToast('❌ Review not found!');
+                return;
+            }
+            
+            reviews[index].status = status;
+            setProductReviews(productId, reviews);
+            renderDashboard();
+            showToast(`✅ Review ${status}!`);
+        }
+
+        function deleteReview(productId, index) {
+            if (!isDashboardUnlocked) { 
+                showToast('🔒 Please login first!'); 
+                return; 
+            }
+            
+            if (!confirm('Are you sure you want to delete this review?')) {
+                return;
+            }
+            
+            const reviews = getProductReviews(productId);
+            
+            if (!reviews[index]) {
+                showToast('❌ Review not found!');
+                return;
+            }
+            
+            reviews.splice(index, 1);
+            setProductReviews(productId, reviews);
+            renderDashboard();
+            showToast('🗑️ Review deleted!');
+        }
+
+        function deleteAllReviews() {
+            if (!isDashboardUnlocked) { 
+                showToast('🔒 Please login first!'); 
+                return; 
+            }
+            
+            if (!confirm('⚠️ Are you sure you want to delete ALL reviews? This cannot be undone!')) {
+                return;
+            }
+            
+            PRODUCTS.forEach(p => {
+                setProductReviews(p.id, []);
+            });
+            
+            renderDashboard();
+            showToast('🗑️ All reviews deleted!');
+        }
+
+        function exportReviews() {
+            if (!isDashboardUnlocked) { 
+                showToast('🔒 Please login first!'); 
+                return; 
+            }
+            
+            let allReviews = [];
+            PRODUCTS.forEach(p => {
+                const reviews = getProductReviews(p.id);
+                reviews.forEach(r => {
+                    allReviews.push({
+                        product: p.name,
+                        customer: r.name,
+                        rating: r.rating,
+                        review: r.text,
+                        date: r.date || 'N/A',
+                        status: r.status || 'pending'
+                    });
+                });
+            });
+            
+            if (allReviews.length === 0) {
+                showToast('No reviews to export!');
+                return;
+            }
+            
+            const csv = 'Product,Customer,Rating,Review,Date,Status\n' + 
+                allReviews.map(r => `"${r.product}","${r.customer}",${r.rating},"${r.review}","${r.date}","${r.status}"`).join('\n');
+            
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'jamqra_reviews_export.csv';
+            a.click();
+            URL.revokeObjectURL(url);
+            showToast('📥 Reviews exported!');
+        }
+
+        // ============================================================
+        // DASHBOARD RENDER - FIXED
+        // ============================================================
         function renderDashboard() {
             if (!isDashboardUnlocked) return;
 
@@ -2037,12 +2146,13 @@
             let allReviews = [];
             PRODUCTS.forEach(p => {
                 const reviews = getProductReviews(p.id);
-                reviews.forEach(r => {
+                reviews.forEach((r, idx) => {
                     allReviews.push({
                         ...r,
                         productId: p.id,
                         productName: p.name,
-                        status: r.status || 'pending'
+                        status: r.status || 'pending',
+                        index: idx
                     });
                 });
             });
@@ -2073,88 +2183,60 @@
                 return;
             }
 
-            tbody.innerHTML = allReviews.map((r, i) => `
-                <tr>
-                    <td>${i + 1}</td>
-                    <td style="font-weight:500;">${r.productName}</td>
-                    <td>${r.name}</td>
-                    <td style="text-align:center;color:var(--star-color);">${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}</td>
-                    <td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${r.text}</td>
-                    <td style="text-align:center;">
-                        <span class="status-badge ${r.status || 'pending'}">${r.status || 'pending'}</span>
-                    </td>
-                    <td style="text-align:center;">
-                        <div class="admin-actions">
-                            ${r.status !== 'approved' ? `<button class="approve-btn" onclick="updateReviewStatus('${r.productId}', ${i}, 'approved')">✅</button>` : ''}
-                            ${r.status !== 'rejected' ? `<button class="reject-btn" onclick="updateReviewStatus('${r.productId}', ${i}, 'rejected')">❌</button>` : ''}
-                            <button class="delete-btn" onclick="deleteReview('${r.productId}', ${i})">🗑️</button>
-                        </div>
-                    </td>
-                </tr>
-            `).join('');
-        }
-
-        function updateReviewStatus(productId, index, status) {
-            if (!isDashboardUnlocked) { showToast('🔒 Please login first!'); return; }
-            const reviews = getProductReviews(productId);
-            if (reviews[index]) {
-                reviews[index].status = status;
-                setProductReviews(productId, reviews);
-                renderDashboard();
-                showToast(`✅ Review ${status}!`);
-            }
-        }
-
-        function deleteReview(productId, index) {
-            if (!isDashboardUnlocked) { showToast('🔒 Please login first!'); return; }
-            if (!confirm('Are you sure you want to delete this review?')) return;
-            const reviews = getProductReviews(productId);
-            reviews.splice(index, 1);
-            setProductReviews(productId, reviews);
-            renderDashboard();
-            showToast('🗑️ Review deleted!');
-        }
-
-        function deleteAllReviews() {
-            if (!isDashboardUnlocked) { showToast('🔒 Please login first!'); return; }
-            if (!confirm('⚠️ Are you sure you want to delete ALL reviews? This cannot be undone!')) return;
-            PRODUCTS.forEach(p => {
-                setProductReviews(p.id, []);
+            let html = '';
+            allReviews.forEach((r, i) => {
+                let stars = '';
+                for (let s = 0; s < 5; s++) {
+                    stars += s < r.rating ? '★' : '☆';
+                }
+                
+                html += `
+                    <tr>
+                        <td>${i + 1}</td>
+                        <td style="font-weight:500;">${r.productName}</td>
+                        <td>${r.name}</td>
+                        <td style="text-align:center;color:var(--star-color);">${stars}</td>
+                        <td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${r.text}</td>
+                        <td style="text-align:center;">
+                            <span class="status-badge ${r.status}">${r.status}</span>
+                        </td>
+                        <td style="text-align:center;">
+                            <div class="admin-actions">
+                                ${r.status !== 'approved' ? `<button class="approve-btn" data-product="${r.productId}" data-index="${r.index}">✅</button>` : ''}
+                                ${r.status !== 'rejected' ? `<button class="reject-btn" data-product="${r.productId}" data-index="${r.index}">❌</button>` : ''}
+                                <button class="delete-btn" data-product="${r.productId}" data-index="${r.index}">🗑️</button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
             });
-            renderDashboard();
-            showToast('🗑️ All reviews deleted!');
-        }
+            
+            tbody.innerHTML = html;
 
-        function exportReviews() {
-            if (!isDashboardUnlocked) { showToast('🔒 Please login first!'); return; }
-            let allReviews = [];
-            PRODUCTS.forEach(p => {
-                const reviews = getProductReviews(p.id);
-                reviews.forEach(r => {
-                    allReviews.push({
-                        product: p.name,
-                        customer: r.name,
-                        rating: r.rating,
-                        review: r.text,
-                        date: r.date || 'N/A',
-                        status: r.status || 'pending'
-                    });
+            // Attach event listeners using data attributes
+            document.querySelectorAll('#dashReviewsTable .approve-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const productId = this.getAttribute('data-product');
+                    const index = parseInt(this.getAttribute('data-index'));
+                    updateReviewStatus(productId, index, 'approved');
                 });
             });
-            if (allReviews.length === 0) {
-                showToast('No reviews to export!');
-                return;
-            }
-            const csv = 'Product,Customer,Rating,Review,Date,Status\n' + 
-                allReviews.map(r => `"${r.product}","${r.customer}",${r.rating},"${r.review}","${r.date}","${r.status}"`).join('\n');
-            const blob = new Blob([csv], { type: 'text/csv' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'jamqra_reviews_export.csv';
-            a.click();
-            URL.revokeObjectURL(url);
-            showToast('📥 Reviews exported!');
+
+            document.querySelectorAll('#dashReviewsTable .reject-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const productId = this.getAttribute('data-product');
+                    const index = parseInt(this.getAttribute('data-index'));
+                    updateReviewStatus(productId, index, 'rejected');
+                });
+            });
+
+            document.querySelectorAll('#dashReviewsTable .delete-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const productId = this.getAttribute('data-product');
+                    const index = parseInt(this.getAttribute('data-index'));
+                    deleteReview(productId, index);
+                });
+            });
         }
 
         // ============================================================
@@ -2190,7 +2272,7 @@
             if (!p) return;
             generateSampleReviews(p);
             const reviews = getProductReviews(p.id);
-            const approvedReviews = reviews.filter(r => r.status !== 'rejected');
+            const approvedReviews = reviews.filter(r => r.status === 'approved');
             const stats = getRatingStats(p.id);
             const avg = stats.avg, count = stats.count, dist = stats.distribution;
 
@@ -2610,9 +2692,10 @@
             }
         });
 
-        console.log('✨ JAMQRA LUXE — Complete with Real Product Images in Deal Section!');
+        console.log('✨ JAMQRA LUXE — Complete with Fixed Review Approval System!');
         console.log('🔐 Default Password: admin123');
         console.log('🔄 You can change password from dashboard after login.');
+        console.log('✅ Approve/Reject/Delete buttons are now working properly!');
     </script>
 </body>
 </html>
