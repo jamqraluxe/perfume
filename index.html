@@ -54,7 +54,7 @@
 
     <style>
         /* ============================================================
-           ROOT VARIABLES — Premium Soft Luxury Palette
+           ROOT VARIABLES
            ============================================================ */
         :root {
             --bg-primary: #FFF9F5;
@@ -76,15 +76,7 @@
             --star-empty: #E0D6D0;
         }
 
-        /* ============================================================
-           RESET & BASE
-           ============================================================ */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             background-color: var(--bg-primary);
             color: var(--text-dark);
@@ -92,24 +84,10 @@
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            cursor: pointer;
-        }
-        button {
-            cursor: pointer;
-            font-family: var(--font-sans);
-        }
-        img {
-            max-width: 100%;
-            display: block;
-        }
-        ul {
-            list-style: none;
-        }
-
+        a { text-decoration: none; color: inherit; cursor: pointer; }
+        button { cursor: pointer; font-family: var(--font-sans); }
+        img { max-width: 100%; display: block; }
+        ul { list-style: none; }
         .sr-only {
             position: absolute;
             width: 1px;
@@ -122,7 +100,7 @@
         }
 
         /* ============================================================
-           TOP ANNOUNCEMENT BAR
+           ANNOUNCEMENT BAR
            ============================================================ */
         .announcement-bar {
             background: var(--accent-soft-pink);
@@ -137,7 +115,7 @@
         }
 
         /* ============================================================
-           HEADER / NAVIGATION
+           HEADER
            ============================================================ */
         .site-header {
             position: sticky;
@@ -153,14 +131,11 @@
             align-items: center;
             transition: var(--transition);
         }
-
         .brand-logo {
             font-family: var(--font-serif);
             font-size: 24px;
             letter-spacing: 4px;
-            text-decoration: none;
             color: var(--text-dark);
-            text-align: center;
             font-weight: 700;
             line-height: 1;
             cursor: pointer;
@@ -173,14 +148,12 @@
             margin-top: 2px;
             color: var(--text-muted);
         }
-
         .nav-links {
             display: flex;
             gap: 28px;
             list-style: none;
         }
         .nav-links a {
-            text-decoration: none;
             color: var(--text-dark);
             font-size: 11px;
             letter-spacing: 1.8px;
@@ -200,31 +173,20 @@
             transition: var(--transition);
         }
         .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
-        .nav-links a:hover {
-            color: var(--accent-rose);
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
+        .nav-links a.active::after { width: 100%; }
+        .nav-links a:hover { color: var(--accent-rose); }
+        .header-actions { display: flex; align-items: center; gap: 16px; }
         .icon-btn {
             background: none;
             border: none;
             font-size: 20px;
             cursor: pointer;
             position: relative;
-            transition: var(--transition);
             padding: 4px;
             border-radius: 50%;
+            transition: var(--transition);
         }
-        .icon-btn:hover {
-            background: var(--accent-soft-pink);
-        }
+        .icon-btn:hover { background: var(--accent-soft-pink); }
         .hamburger-btn {
             display: none;
             background: none;
@@ -247,26 +209,20 @@
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            letter-spacing: 0;
         }
 
         /* ============================================================
            PAGE VIEWS
            ============================================================ */
-        .page-view {
-            display: none;
-            animation: fadeIn 0.4s ease;
-        }
-        .page-view.active {
-            display: block;
-        }
+        .page-view { display: none; animation: fadeIn 0.4s ease; }
+        .page-view.active { display: block; }
         @keyframes fadeIn {
             0% { opacity: 0; transform: translateY(12px); }
             100% { opacity: 1; transform: translateY(0); }
         }
 
         /* ============================================================
-           HERO SECTION
+           HERO
            ============================================================ */
         .hero {
             display: flex;
@@ -288,11 +244,7 @@
             background: radial-gradient(ellipse at 70% 50%, rgba(217, 108, 108, 0.05) 0%, transparent 70%);
             pointer-events: none;
         }
-        .hero-content {
-            flex: 1;
-            position: relative;
-            z-index: 1;
-        }
+        .hero-content { flex: 1; position: relative; z-index: 1; }
         .sub-tag {
             letter-spacing: 3px;
             color: var(--accent-rose);
@@ -308,12 +260,7 @@
             letter-spacing: 1px;
             font-weight: 700;
         }
-        .hero-title .italic {
-            font-style: italic;
-            font-weight: 400;
-            display: block;
-            margin-top: 2px;
-        }
+        .hero-title .italic { font-style: italic; font-weight: 400; display: block; margin-top: 2px; }
         .hero-desc {
             color: var(--text-muted);
             font-size: 17px;
@@ -321,7 +268,6 @@
             font-weight: 300;
         }
         .hero-checklist {
-            list-style: none;
             display: flex;
             gap: 28px;
             margin-bottom: 28px;
@@ -329,11 +275,7 @@
             font-weight: 500;
             flex-wrap: wrap;
         }
-        .hero-checklist li {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
+        .hero-checklist li { display: flex; align-items: center; gap: 6px; }
         .hero-checklist li::before {
             content: '✓';
             color: var(--accent-rose);
@@ -347,16 +289,8 @@
             margin-bottom: 28px;
             flex-wrap: wrap;
         }
-        .price-old {
-            text-decoration: line-through;
-            color: var(--text-muted);
-            font-size: 17px;
-        }
-        .price-new {
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
+        .price-old { text-decoration: line-through; color: var(--text-muted); font-size: 17px; }
+        .price-new { font-size: 32px; font-weight: 700; color: var(--text-dark); }
         .badge-discount {
             background: var(--accent-rose);
             color: #FFF;
@@ -366,13 +300,7 @@
             font-weight: 600;
             letter-spacing: 0.5px;
         }
-        .hero-media {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            position: relative;
-            z-index: 1;
-        }
+        .hero-media { flex: 1; display: flex; justify-content: center; position: relative; z-index: 1; }
         .hero-img-box {
             width: 100%;
             max-width: 440px;
@@ -382,14 +310,7 @@
             background: #FFF;
             padding: 20px;
         }
-        .hero-img-box img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-
+        .hero-img-box img { width: 100%; height: auto; display: block; object-fit: cover; border-radius: 4px; }
         .deal-badge-hero {
             display: inline-block;
             background: var(--accent-gold);
@@ -404,12 +325,7 @@
         }
 
         /* Social Icons */
-        .social-icons {
-            display: flex;
-            gap: 14px;
-            margin-top: 16px;
-            flex-wrap: wrap;
-        }
+        .social-icons { display: flex; gap: 14px; margin-top: 16px; flex-wrap: wrap; }
         .social-icons a {
             display: inline-flex;
             align-items: center;
@@ -417,15 +333,11 @@
             width: 44px;
             height: 44px;
             border-radius: 50%;
-            text-decoration: none;
             font-size: 20px;
             transition: all 0.3s ease;
             color: #FFF;
         }
-        .social-icons a:hover {
-            transform: scale(1.12);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-        }
+        .social-icons a:hover { transform: scale(1.12); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
         .social-icons .fb { background: #1877F2; }
         .social-icons .ig { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
         .social-icons .tt { background: #000; border: 2px solid #ff0050; }
@@ -438,13 +350,11 @@
             background: var(--accent-rose);
             color: #FFF;
             padding: 14px 36px;
-            text-decoration: none;
             text-transform: uppercase;
             font-size: 10px;
             letter-spacing: 2.5px;
             border: none;
             border-radius: 4px;
-            cursor: pointer;
             font-weight: 600;
             transition: var(--transition);
         }
@@ -453,35 +363,23 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 24px rgba(217, 108, 108, 0.25);
         }
-        .btn-gold {
-            background: var(--accent-gold);
-        }
-        .btn-gold:hover {
-            background: #b8962e;
-        }
+        .btn-gold { background: var(--accent-gold); }
+        .btn-gold:hover { background: #b8962e; }
         .btn-secondary {
             display: inline-block;
             background: transparent;
             color: var(--text-dark);
             border: 1px solid var(--text-dark);
             padding: 12px 28px;
-            text-decoration: none;
             text-transform: uppercase;
             font-size: 10px;
             letter-spacing: 2px;
             border-radius: 4px;
-            cursor: pointer;
             font-weight: 600;
             transition: var(--transition);
         }
-        .btn-secondary:hover {
-            background: var(--text-dark);
-            color: #FFF;
-        }
-        .full-width {
-            width: 100%;
-            text-align: center;
-        }
+        .btn-secondary:hover { background: var(--text-dark); color: #FFF; }
+        .full-width { width: 100%; text-align: center; }
 
         /* ============================================================
            TRUST BAR
@@ -495,24 +393,10 @@
             border-top: 1px solid var(--border-color);
             border-bottom: 1px solid var(--border-color);
         }
-        .trust-item {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-        .trust-icon {
-            font-size: 24px;
-        }
-        .trust-item strong {
-            display: block;
-            font-size: 11px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        .trust-item p {
-            font-size: 11px;
-            color: var(--text-muted);
-        }
+        .trust-item { display: flex; align-items: center; gap: 14px; }
+        .trust-icon { font-size: 24px; }
+        .trust-item strong { display: block; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
+        .trust-item p { font-size: 11px; color: var(--text-muted); }
 
         /* ============================================================
            DEAL SECTION
@@ -546,9 +430,7 @@
             opacity: 0.04;
             pointer-events: none;
         }
-        .deal-section .deal-content {
-            flex: 1;
-        }
+        .deal-section .deal-content { flex: 1; }
         .deal-section .deal-content .deal-tag {
             font-size: 11px;
             letter-spacing: 3px;
@@ -605,25 +487,11 @@
             border-radius: 30% 30% 20% 20% / 40% 40% 15% 15%;
             box-shadow: 0 8px 24px rgba(0,0,0,0.04);
         }
-        .deal-section .deal-visual .mini-bottle.pink {
-            background: linear-gradient(145deg, #f0ded6, #dbb8ae);
-        }
-        .deal-section .deal-visual .mini-bottle.gold {
-            background: linear-gradient(145deg, #d4c5a9, #b8a080);
-        }
-        .deal-section .deal-visual .mini-bottle.blue {
-            background: linear-gradient(145deg, #2c3e50, #1a252f);
-        }
-        .deal-section .deal-visual .plus {
-            font-size: 24px;
-            color: var(--text-muted);
-            font-weight: 300;
-        }
-        .deal-section .deal-visual .equals {
-            font-size: 20px;
-            color: var(--accent-gold);
-            font-weight: 700;
-        }
+        .deal-section .deal-visual .mini-bottle.pink { background: linear-gradient(145deg, #f0ded6, #dbb8ae); }
+        .deal-section .deal-visual .mini-bottle.gold { background: linear-gradient(145deg, #d4c5a9, #b8a080); }
+        .deal-section .deal-visual .mini-bottle.blue { background: linear-gradient(145deg, #2c3e50, #1a252f); }
+        .deal-section .deal-visual .plus { font-size: 24px; color: var(--text-muted); font-weight: 300; }
+        .deal-section .deal-visual .equals { font-size: 20px; color: var(--accent-gold); font-weight: 700; }
         .deal-section .deal-visual .saving-text {
             background: var(--accent-soft-pink);
             padding: 10px 18px;
@@ -637,9 +505,7 @@
         /* ============================================================
            SECTION UTILITIES
            ============================================================ */
-        .section-padding {
-            padding: 70px 5%;
-        }
+        .section-padding { padding: 70px 5%; }
         .section-title {
             font-family: var(--font-serif);
             text-align: center;
@@ -659,7 +525,7 @@
         }
 
         /* ============================================================
-           PRODUCT GRID — 3 products, larger cards
+           PRODUCT GRID
            ============================================================ */
         .product-grid {
             display: grid;
@@ -703,15 +569,8 @@
             cursor: pointer;
             background: var(--bg-primary);
         }
-        .product-thumb img {
-            max-height: 100%;
-            width: auto;
-            object-fit: contain;
-            transition: var(--transition);
-        }
-        .product-card:hover .product-thumb img {
-            transform: scale(1.04);
-        }
+        .product-thumb img { max-height: 100%; width: auto; object-fit: contain; transition: var(--transition); }
+        .product-card:hover .product-thumb img { transform: scale(1.04); }
         .product-title {
             font-family: var(--font-serif);
             font-size: 20px;
@@ -724,21 +583,10 @@
             height: 36px;
             overflow: hidden;
         }
-        .product-card .price-wrap {
-            justify-content: center;
-            margin-bottom: 14px;
-        }
-        .product-card .price-new {
-            font-size: 22px;
-        }
-        .product-card .price-old {
-            font-size: 15px;
-        }
-        .card-actions {
-            display: flex;
-            gap: 8px;
-            margin-top: 12px;
-        }
+        .product-card .price-wrap { justify-content: center; margin-bottom: 14px; }
+        .product-card .price-new { font-size: 22px; }
+        .product-card .price-old { font-size: 15px; }
+        .card-actions { display: flex; gap: 8px; margin-top: 12px; }
         .card-actions button {
             flex: 1;
             padding: 10px 5px;
@@ -746,14 +594,8 @@
             letter-spacing: 1.5px;
             border-radius: 4px;
         }
-        .card-actions .btn-secondary {
-            padding: 10px 5px;
-            font-size: 9px;
-        }
-        .card-actions .btn-primary {
-            padding: 10px 5px;
-            font-size: 9px;
-        }
+        .card-actions .btn-secondary { padding: 10px 5px; font-size: 9px; }
+        .card-actions .btn-primary { padding: 10px 5px; font-size: 9px; }
 
         /* ============================================================
            WHY US
@@ -769,24 +611,12 @@
             gap: 24px;
             text-align: center;
         }
-        .why-card span {
-            font-size: 30px;
-            display: block;
-            margin-bottom: 8px;
-        }
-        .why-card h4 {
-            font-size: 12px;
-            letter-spacing: 1px;
-            margin-bottom: 3px;
-            text-transform: uppercase;
-        }
-        .why-card p {
-            font-size: 11px;
-            color: var(--text-muted);
-        }
+        .why-card span { font-size: 30px; display: block; margin-bottom: 8px; }
+        .why-card h4 { font-size: 12px; letter-spacing: 1px; margin-bottom: 3px; text-transform: uppercase; }
+        .why-card p { font-size: 11px; color: var(--text-muted); }
 
         /* ============================================================
-           PRODUCT DETAIL — with reviews
+           PRODUCT DETAIL
            ============================================================ */
         .product-detail-container {
             display: grid;
@@ -797,22 +627,15 @@
             border: 1px solid var(--border-color);
             padding: 40px;
         }
-        .product-detail-container .detail-image {
-            text-align: center;
-        }
+        .product-detail-container .detail-image { text-align: center; }
         .product-detail-container .detail-image img {
             max-width: 100%;
             max-height: 420px;
             border-radius: 6px;
             object-fit: contain;
         }
-        .product-detail-container .detail-info .hero-title {
-            font-size: 34px;
-            margin: 6px 0 8px;
-        }
-        .product-detail-container .detail-info .price-wrap {
-            margin-bottom: 18px;
-        }
+        .product-detail-container .detail-info .hero-title { font-size: 34px; margin: 6px 0 8px; }
+        .product-detail-container .detail-info .price-wrap { margin-bottom: 18px; }
         .product-detail-container .detail-notes {
             background: var(--bg-primary);
             padding: 16px 20px;
@@ -821,12 +644,8 @@
             border-radius: 6px;
             border-left: 3px solid var(--accent-rose);
         }
-        .product-detail-container .detail-notes p {
-            margin-bottom: 3px;
-        }
-        .product-detail-container .detail-notes p:last-child {
-            margin-bottom: 0;
-        }
+        .product-detail-container .detail-notes p { margin-bottom: 3px; }
+        .product-detail-container .detail-notes p:last-child { margin-bottom: 0; }
 
         .rating-summary {
             display: flex;
@@ -843,23 +662,10 @@
             flex-direction: column;
             align-items: center;
         }
-        .rating-big .stars {
-            font-size: 22px;
-            letter-spacing: 2px;
-            color: var(--star-color);
-        }
-        .rating-big .avg {
-            font-size: 28px;
-            font-weight: 700;
-        }
-        .rating-big .count {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-        .rating-breakdown {
-            flex: 1;
-            min-width: 160px;
-        }
+        .rating-big .stars { font-size: 22px; letter-spacing: 2px; color: var(--star-color); }
+        .rating-big .avg { font-size: 28px; font-weight: 700; }
+        .rating-big .count { font-size: 12px; color: var(--text-muted); }
+        .rating-breakdown { flex: 1; min-width: 160px; }
         .rating-breakdown .bar-row {
             display: flex;
             align-items: center;
@@ -909,9 +715,7 @@
             border: 1px solid var(--border-color);
             transition: var(--transition);
         }
-        .review-card:hover {
-            border-color: var(--accent-rose);
-        }
+        .review-card:hover { border-color: var(--accent-rose); }
         .review-card .review-header {
             display: flex;
             justify-content: space-between;
@@ -920,10 +724,7 @@
             gap: 8px;
             margin-bottom: 6px;
         }
-        .review-card .review-header .name {
-            font-weight: 600;
-            font-size: 14px;
-        }
+        .review-card .review-header .name { font-weight: 600; font-size: 14px; }
         .review-card .review-header .verified {
             font-size: 10px;
             color: var(--accent-rose);
@@ -933,66 +734,16 @@
             font-weight: 500;
             letter-spacing: 0.5px;
         }
-        .review-card .review-stars {
-            color: var(--star-color);
-            font-size: 14px;
-            letter-spacing: 1px;
-        }
-        .review-card .review-date {
-            font-size: 11px;
-            color: var(--text-muted);
-        }
-        .review-card .review-text {
-            font-size: 13px;
-            color: var(--text-dark);
-            margin: 8px 0 12px;
-            line-height: 1.7;
-        }
-        .review-media {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 8px;
-        }
-        .review-media .media-item {
-            width: 80px;
-            height: 80px;
-            border-radius: 6px;
-            overflow: hidden;
-            cursor: pointer;
-            border: 1px solid var(--border-color);
-            transition: var(--transition);
-            position: relative;
-            background: #FFF;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .review-media .media-item:hover {
-            transform: scale(1.04);
-            border-color: var(--accent-rose);
-        }
-        .review-media .media-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .review-media .media-item .play-icon {
-            position: absolute;
-            font-size: 28px;
-            color: rgba(255, 255, 255, 0.85);
-            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
-            pointer-events: none;
-        }
+        .review-card .review-stars { color: var(--star-color); font-size: 14px; letter-spacing: 1px; }
+        .review-card .review-date { font-size: 11px; color: var(--text-muted); }
+        .review-card .review-text { font-size: 13px; color: var(--text-dark); margin: 8px 0 12px; line-height: 1.7; }
 
         .review-form {
             margin-top: 30px;
             border-top: 1px solid var(--border-color);
             padding-top: 20px;
         }
-        .review-form .form-group {
-            margin-bottom: 12px;
-        }
+        .review-form .form-group { margin-bottom: 12px; }
         .review-form .form-group label {
             font-size: 12px;
             font-weight: 600;
@@ -1031,13 +782,8 @@
             transition: var(--transition);
         }
         .review-form .star-rating span:hover,
-        .review-form .star-rating span.active {
-            color: var(--star-color);
-        }
-        .review-form .file-input-wrap {
-            display: block;
-            margin-top: 5px;
-        }
+        .review-form .star-rating span.active { color: var(--star-color); }
+        .review-form .file-input-wrap { display: block; margin-top: 5px; }
 
         .lightbox-overlay {
             position: fixed;
@@ -1053,9 +799,7 @@
             padding: 20px;
             cursor: pointer;
         }
-        .lightbox-overlay.active {
-            display: flex;
-        }
+        .lightbox-overlay.active { display: flex; }
         .lightbox-overlay .lightbox-content {
             max-width: 90vw;
             max-height: 90vh;
@@ -1089,9 +833,7 @@
             transition: var(--transition);
             z-index: 10;
         }
-        .lightbox-overlay .lightbox-close:hover {
-            background: rgba(0, 0, 0, 0.8);
-        }
+        .lightbox-overlay .lightbox-close:hover { background: rgba(0, 0, 0, 0.8); }
 
         /* ============================================================
            CHECKOUT
@@ -1112,9 +854,7 @@
             margin-bottom: 20px;
             font-size: 20px;
         }
-        .form-group {
-            margin-bottom: 16px;
-        }
+        .form-group { margin-bottom: 16px; }
         .flex-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -1207,9 +947,7 @@
             padding: 40px 44px;
             text-align: center;
         }
-        .success-icon {
-            font-size: 48px;
-        }
+        .success-icon { font-size: 48px; }
         .confirmation-box h1 {
             font-family: var(--font-serif);
             margin: 14px 0 6px;
@@ -1224,12 +962,8 @@
             border-radius: 6px;
             border-left: 4px solid var(--accent-rose);
         }
-        .order-ref-card p {
-            margin-bottom: 4px;
-        }
-        .order-ref-card p:last-child {
-            margin-bottom: 0;
-        }
+        .order-ref-card p { margin-bottom: 4px; }
+        .order-ref-card p:last-child { margin-bottom: 0; }
 
         .newsletter-section {
             background: var(--accent-soft-pink);
@@ -1281,28 +1015,17 @@
             text-transform: uppercase;
             font-weight: 600;
         }
-        .footer-col ul {
-            list-style: none;
-        }
+        .footer-col ul { list-style: none; }
         .footer-col a {
             color: var(--text-muted);
-            text-decoration: none;
             font-size: 12px;
             line-height: 2.2;
             transition: var(--transition);
             cursor: pointer;
         }
-        .footer-col a:hover {
-            color: var(--accent-rose);
-        }
-        .footer-col .brand-logo {
-            text-align: left;
-            margin-bottom: 12px;
-        }
-        .footer-col p {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
+        .footer-col a:hover { color: var(--accent-rose); }
+        .footer-col .brand-logo { text-align: left; margin-bottom: 12px; }
+        .footer-col p { font-size: 12px; color: var(--text-muted); }
         .footer-bottom {
             text-align: center;
             font-size: 11px;
@@ -1315,20 +1038,7 @@
             flex-wrap: wrap;
             gap: 12px;
         }
-        .footer-bottom .payment-icons {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-        .footer-bottom .payment-icons span {
-            background: var(--bg-primary);
-            padding: 4px 14px;
-            border-radius: 4px;
-            font-size: 10px;
-            font-weight: 500;
-        }
 
-        /* Social Footer Icons */
         .footer-social-icons {
             display: flex;
             gap: 12px;
@@ -1342,14 +1052,11 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            text-decoration: none;
             font-size: 18px;
             color: #FFF;
             transition: all 0.3s ease;
         }
-        .footer-social-icons a:hover {
-            transform: scale(1.1);
-        }
+        .footer-social-icons a:hover { transform: scale(1.1); }
         .footer-social-icons .fb { background: #1877F2; }
         .footer-social-icons .ig { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
         .footer-social-icons .tt { background: #000; border: 2px solid #ff0050; }
@@ -1368,7 +1075,6 @@
             justify-content: center;
             box-shadow: 0 4px 24px rgba(37, 211, 102, 0.3);
             z-index: 999;
-            text-decoration: none;
             font-size: 28px;
             transition: var(--transition);
         }
@@ -1383,10 +1089,7 @@
             padding: 14px 5%;
             border-bottom: 1px solid var(--border-color);
         }
-        .search-overlay.active {
-            display: flex;
-            gap: 10px;
-        }
+        .search-overlay.active { display: flex; gap: 10px; }
         .search-overlay input {
             flex: 1;
             padding: 10px 16px;
@@ -1418,7 +1121,51 @@
             max-width: 90%;
         }
 
-        /* Dashboard Table */
+        /* ============================================================
+           DASHBOARD
+           ============================================================ */
+        .dashboard-login {
+            max-width: 420px;
+            margin: 0 auto;
+            background: #FFF;
+            padding: 40px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+        .dashboard-login input {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 14px;
+            margin-bottom: 16px;
+            text-align: center;
+            font-family: var(--font-sans);
+        }
+        .dashboard-login input:focus {
+            border-color: var(--accent-rose);
+            outline: none;
+        }
+        .dashboard-login .error-msg {
+            color: #f44336;
+            font-size: 13px;
+            margin-top: 10px;
+            display: none;
+        }
+        .dashboard-content { display: none; }
+        .dashboard-content.active { display: block; }
+
+        .stat-card {
+            background: #FFF;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+        .stat-card .number { font-size: 28px; font-weight: 700; }
+        .stat-card .label { font-size: 12px; color: var(--text-muted); }
+
         .dashboard-table {
             width: 100%;
             border-collapse: collapse;
@@ -1435,9 +1182,7 @@
             padding: 12px 16px;
             border-bottom: 1px solid var(--border-color);
         }
-        .dashboard-table tr:hover {
-            background: var(--bg-primary);
-        }
+        .dashboard-table tr:hover { background: var(--bg-primary); }
         .status-badge {
             padding: 4px 12px;
             border-radius: 20px;
@@ -1449,21 +1194,21 @@
         .status-badge.pending { background: #FF9800; }
         .status-badge.rejected { background: #f44336; }
 
-        .stat-card {
-            background: #FFF;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            text-align: center;
+        .admin-actions { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
+        .admin-actions button {
+            padding: 4px 10px;
+            border: none;
+            border-radius: 4px;
+            font-size: 10px;
+            color: #FFF;
+            cursor: pointer;
+            transition: var(--transition);
         }
-        .stat-card .number {
-            font-size: 28px;
-            font-weight: 700;
-        }
-        .stat-card .label {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
+        .admin-actions button:hover { transform: scale(1.05); }
+        .admin-actions .approve-btn { background: #4CAF50; }
+        .admin-actions .reject-btn { background: #f44336; }
+        .admin-actions .delete-btn { background: #D96C6C; }
+        .admin-actions .delete-btn:hover { background: #c0392b; }
 
         /* ============================================================
            RESPONSIVE
@@ -1517,7 +1262,6 @@
             .rating-summary { flex-direction: column; align-items: stretch; }
             .rating-big { flex-direction: row; gap: 16px; justify-content: center; }
             .review-card { padding: 16px 18px; }
-            .review-media .media-item { width: 64px; height: 64px; }
             .deal-section .deal-visual .mini-bottle { width: 40px; height: 64px; }
             .social-icons { justify-content: center; }
             .footer-social-icons { justify-content: center; }
@@ -1545,12 +1289,12 @@
             .trust-bar { grid-template-columns: 1fr 1fr; gap: 12px; }
             .why-us-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
             .review-card { padding: 14px 16px; }
-            .review-media .media-item { width: 60px; height: 60px; }
             .social-icons { justify-content: center; }
             .footer-social-icons { justify-content: center; }
             .dashboard-table { font-size: 9px; }
             .dashboard-table th, .dashboard-table td { padding: 4px 6px; }
             .stat-card .number { font-size: 18px; }
+            .dashboard-login { padding: 24px 20px; }
         }
     </style>
 </head>
@@ -1597,7 +1341,6 @@
             <article>
                 <h1 class="sr-only">JAMQRA LUXE – Premium Fragrances Pakistan</h1>
 
-                <!-- Hero -->
                 <div class="hero">
                     <div class="hero-content">
                         <div class="deal-badge-hero">🎁 Buy 2 Get Rs. 500 OFF</div>
@@ -1618,7 +1361,6 @@
                             <li>Premium Quality</li>
                             <li>Made for You</li>
                         </ul>
-                        <!-- SOCIAL MEDIA ICONS - HERO SECTION -->
                         <div class="social-icons">
                             <a href="https://www.facebook.com/share/1G3nNj5RT4/" target="_blank" class="fb" aria-label="Facebook">📘</a>
                             <a href="https://www.instagram.com/jamqraluxe.pk" target="_blank" class="ig" aria-label="Instagram">📸</a>
@@ -1632,7 +1374,6 @@
                     </div>
                 </div>
 
-                <!-- Trust Bar -->
                 <div class="trust-bar">
                     <div class="trust-item"><span class="trust-icon">🚚</span><div><strong>FREE DELIVERY</strong><p>All Over Pakistan</p></div></div>
                     <div class="trust-item"><span class="trust-icon">🛡️</span><div><strong>100% ORIGINAL</strong><p>Premium Quality</p></div></div>
@@ -1640,7 +1381,6 @@
                     <div class="trust-item"><span class="trust-icon">💵</span><div><strong>CASH ON DELIVERY</strong><p>Available</p></div></div>
                 </div>
 
-                <!-- DEAL SECTION -->
                 <div class="deal-section" id="dealSection">
                     <div class="deal-wrap">
                         <div class="deal-content">
@@ -1665,14 +1405,12 @@
                     </div>
                 </div>
 
-                <!-- Products Section -->
                 <div class="section-padding" style="background:#FFF; border-top:1px solid var(--border-color);">
                     <h2 class="section-title">OUR SIGNATURE FRAGRANCES</h2>
                     <p class="section-sub">Timeless scents crafted for every mood</p>
                     <div class="product-grid" id="homeProductGrid"></div>
                 </div>
 
-                <!-- Why Choose Us -->
                 <div class="section-padding why-us-bg">
                     <h2 class="section-title">WHY CHOOSE JAMQRA LUXE?</h2>
                     <div class="why-us-grid">
@@ -1683,7 +1421,6 @@
                     </div>
                 </div>
 
-                <!-- Brand Story -->
                 <div class="section-padding" style="background:var(--bg-primary);">
                     <div style="max-width:700px; margin:0 auto; text-align:center;">
                         <span class="sub-tag">Our Promise</span>
@@ -1693,11 +1430,6 @@
                             We use the finest ingredients to create scents that linger, that speak without words, 
                             and that make you feel elegant, confident, and truly yourself.
                         </p>
-                        <div style="margin-top:20px; display:flex; justify-content:center; gap:30px; flex-wrap:wrap;">
-                            <div><span style="font-size:28px; font-weight:700; color:var(--accent-rose);">100+</span><br><span style="font-size:12px; color:var(--text-muted);">Happy Customers</span></div>
-                            <div><span style="font-size:28px; font-weight:700; color:var(--accent-rose);">4.8★</span><br><span style="font-size:12px; color:var(--text-muted);">Average Rating</span></div>
-                            <div><span style="font-size:28px; font-weight:700; color:var(--accent-rose);">100%</span><br><span style="font-size:12px; color:var(--text-muted);">Original</span></div>
-                        </div>
                     </div>
                 </div>
             </article>
@@ -1824,9 +1556,6 @@
                 <p style="font-size:16px; text-align:center; color:var(--text-muted);">
                     Our perfumes combine rich East-meets-West oil blends that leave an elegant, unforgettable scent trail all day long.
                 </p>
-                <p style="font-size:16px; text-align:center; color:var(--text-muted); margin-top:12px;">
-                    <span style="font-family:var(--font-serif); font-size:20px; color:var(--accent-rose);">— Feel Elegant. Feel You. —</span>
-                </p>
             </div>
         </section>
 
@@ -1848,77 +1577,105 @@
         </section>
 
         <!-- ============================================================
-        DASHBOARD - Review Management
+        DASHBOARD - Password Protected with Change Password
         ============================================================ -->
         <section id="page-dashboard" class="page-view" aria-label="Dashboard">
             <div class="section-padding">
                 <h1 class="section-title">📊 REVIEW DASHBOARD</h1>
                 <p class="section-sub">Manage all customer reviews from one place</p>
 
-                <!-- Stats Cards -->
-                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;margin-bottom:30px;">
-                    <div class="stat-card">
-                        <div class="number" style="color:var(--accent-rose);" id="dashTotalReviews">0</div>
-                        <div class="label">Total Reviews</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="number" style="color:#4CAF50;" id="dashAvgRating">0.0</div>
-                        <div class="label">Average Rating</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="number" style="color:#FF9800;" id="dashPendingReviews">0</div>
-                        <div class="label">Pending Reviews</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="number" style="color:#4CAF50;" id="dashApprovedReviews">0</div>
-                        <div class="label">Approved Reviews</div>
-                    </div>
+                <!-- Password Login -->
+                <div id="dashboardLogin" class="dashboard-login">
+                    <div style="font-size:48px;margin-bottom:16px;">🔐</div>
+                    <h3 style="font-family:var(--font-serif);margin-bottom:8px;">Admin Access</h3>
+                    <p style="font-size:13px;color:var(--text-muted);margin-bottom:20px;">Enter password to access review dashboard</p>
+                    <input type="password" id="adminPassword" placeholder="Enter admin password..." onkeydown="if(event.key==='Enter') verifyAdminPassword()">
+                    <button class="btn-primary full-width" onclick="verifyAdminPassword()">UNLOCK DASHBOARD</button>
+                    <div id="dashboardError" class="error-msg">❌ Incorrect password! Please try again.</div>
+                    <p style="font-size:11px;color:var(--text-muted);margin-top:16px;">Default password: <strong style="color:var(--accent-rose);">admin123</strong></p>
+                    <p style="font-size:10px;color:var(--text-muted);">(You can change password from dashboard after login)</p>
                 </div>
 
-                <!-- Filters -->
-                <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:20px;align-items:center;">
-                    <select id="dashProductFilter" onchange="renderDashboard()" style="padding:10px 14px;border:1px solid var(--border-color);border-radius:4px;background:#FFF;font-size:13px;">
-                        <option value="all">All Products</option>
-                        <option value="jamqra-rose">JAMQRA LUXE ROSE</option>
-                        <option value="jamqra-golden">JAMQRA LUXE GOLDEN</option>
-                        <option value="jamqra-blue">JAMQRA LUXE BLUE</option>
-                    </select>
-                    <select id="dashStatusFilter" onchange="renderDashboard()" style="padding:10px 14px;border:1px solid var(--border-color);border-radius:4px;background:#FFF;font-size:13px;">
-                        <option value="all">All Status</option>
-                        <option value="pending">Pending</option>
-                        <option value="approved">Approved</option>
-                        <option value="rejected">Rejected</option>
-                    </select>
-                    <select id="dashRatingFilter" onchange="renderDashboard()" style="padding:10px 14px;border:1px solid var(--border-color);border-radius:4px;background:#FFF;font-size:13px;">
-                        <option value="all">All Ratings</option>
-                        <option value="5">5 Stars ⭐⭐⭐⭐⭐</option>
-                        <option value="4">4 Stars ⭐⭐⭐⭐</option>
-                        <option value="3">3 Stars ⭐⭐⭐</option>
-                        <option value="2">2 Stars ⭐⭐</option>
-                        <option value="1">1 Star ⭐</option>
-                    </select>
-                    <button onclick="exportReviews()" class="btn-primary" style="padding:10px 20px;font-size:10px;">📥 Export CSV</button>
-                    <button onclick="deleteAllReviews()" class="btn-secondary" style="padding:10px 20px;font-size:10px;border-color:#D96C6C;color:#D96C6C;">🗑️ Delete All</button>
-                </div>
+                <!-- Dashboard Content -->
+                <div id="dashboardContent" class="dashboard-content">
 
-                <!-- Reviews Table -->
-                <div style="background:#FFF;border-radius:8px;border:1px solid var(--border-color);overflow-x:auto;">
-                    <table class="dashboard-table">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Product</th>
-                                <th>Customer</th>
-                                <th style="text-align:center;">Rating</th>
-                                <th>Review</th>
-                                <th style="text-align:center;">Status</th>
-                                <th style="text-align:center;">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody id="dashReviewsTable">
-                            <tr><td colspan="7" style="text-align:center;padding:40px;color:var(--text-muted);">No reviews found.</td></tr>
-                        </tbody>
-                    </table>
+                    <!-- Password Change Section -->
+                    <div style="background:#FFF;border-radius:8px;border:1px solid var(--border-color);padding:20px;margin-bottom:20px;">
+                        <h4 style="font-family:var(--font-serif);margin-bottom:12px;">🔑 Change Admin Password</h4>
+                        <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;">
+                            <input type="password" id="newPasswordInput" placeholder="Enter new password..." style="flex:1;min-width:180px;padding:10px 14px;border:1px solid var(--border-color);border-radius:4px;font-size:13px;">
+                            <input type="password" id="confirmPasswordInput" placeholder="Confirm new password..." style="flex:1;min-width:180px;padding:10px 14px;border:1px solid var(--border-color);border-radius:4px;font-size:13px;">
+                            <button onclick="changeAdminPassword()" class="btn-primary" style="padding:10px 24px;font-size:10px;">🔄 Update</button>
+                        </div>
+                        <div id="passwordChangeMsg" style="margin-top:8px;font-size:12px;display:none;"></div>
+                    </div>
+
+                    <!-- Stats Cards -->
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;margin-bottom:25px;">
+                        <div class="stat-card">
+                            <div class="number" style="color:var(--accent-rose);" id="dashTotalReviews">0</div>
+                            <div class="label">Total Reviews</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="number" style="color:#4CAF50;" id="dashAvgRating">0.0</div>
+                            <div class="label">Average Rating</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="number" style="color:#FF9800;" id="dashPendingReviews">0</div>
+                            <div class="label">Pending</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="number" style="color:#4CAF50;" id="dashApprovedReviews">0</div>
+                            <div class="label">Approved</div>
+                        </div>
+                    </div>
+
+                    <!-- Filters -->
+                    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px;align-items:center;">
+                        <select id="dashProductFilter" onchange="renderDashboard()" style="padding:8px 12px;border:1px solid var(--border-color);border-radius:4px;background:#FFF;font-size:12px;">
+                            <option value="all">All Products</option>
+                            <option value="jamqra-rose">ROSE</option>
+                            <option value="jamqra-golden">GOLDEN</option>
+                            <option value="jamqra-blue">BLUE</option>
+                        </select>
+                        <select id="dashStatusFilter" onchange="renderDashboard()" style="padding:8px 12px;border:1px solid var(--border-color);border-radius:4px;background:#FFF;font-size:12px;">
+                            <option value="all">All Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="approved">Approved</option>
+                            <option value="rejected">Rejected</option>
+                        </select>
+                        <select id="dashRatingFilter" onchange="renderDashboard()" style="padding:8px 12px;border:1px solid var(--border-color);border-radius:4px;background:#FFF;font-size:12px;">
+                            <option value="all">All Ratings</option>
+                            <option value="5">⭐⭐⭐⭐⭐</option>
+                            <option value="4">⭐⭐⭐⭐</option>
+                            <option value="3">⭐⭐⭐</option>
+                            <option value="2">⭐⭐</option>
+                            <option value="1">⭐</option>
+                        </select>
+                        <button onclick="exportReviews()" class="btn-primary" style="padding:8px 16px;font-size:9px;">📥 Export</button>
+                        <button onclick="deleteAllReviews()" class="btn-secondary" style="padding:8px 16px;font-size:9px;border-color:#D96C6C;color:#D96C6C;">🗑️ Delete All</button>
+                        <button onclick="logoutDashboard()" class="btn-secondary" style="padding:8px 16px;font-size:9px;">🚪 Logout</button>
+                    </div>
+
+                    <!-- Reviews Table -->
+                    <div style="background:#FFF;border-radius:8px;border:1px solid var(--border-color);overflow-x:auto;">
+                        <table class="dashboard-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Product</th>
+                                    <th>Customer</th>
+                                    <th style="text-align:center;">Rating</th>
+                                    <th>Review</th>
+                                    <th style="text-align:center;">Status</th>
+                                    <th style="text-align:center;">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="dashReviewsTable">
+                                <tr><td colspan="7" style="text-align:center;padding:30px;color:var(--text-muted);">No reviews found.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1940,7 +1697,7 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <div class="brand-logo" style="text-align:left; margin-bottom:12px;">JAMQRA <span>LUXE</span></div>
-                <p style="color:var(--text-muted); font-size:12px; margin-bottom:14px;">Luxury Fragrances crafted with passion and precision for every moment &amp; every you.</p>
+                <p style="color:var(--text-muted); font-size:12px; margin-bottom:14px;">Luxury Fragrances crafted with passion and precision.</p>
                 <p style="font-size:12px; color:var(--text-dark);">📞 <a href="tel:03704558965" style="color:var(--text-dark);">0370 4558965</a></p>
                 <p style="font-size:12px; color:var(--text-dark);">✉️ <a href="mailto:business.jamqra@gmail.com" style="color:var(--text-dark);">business.jamqra@gmail.com</a></p>
             </div>
@@ -1954,9 +1711,7 @@
             <div class="footer-col"><h4>CUSTOMER CARE</h4><ul>
                 <li><a onclick="showToast('Order tracking info sent via WhatsApp.')">Track Order</a></li>
                 <li><a onclick="showToast('Easy returns & exchanges within 7 days.')">Return &amp; Refund</a></li>
-                <li><a onclick="showToast('Free shipping across Pakistan on all orders.')">Shipping Policy</a></li>
-                <li><a onclick="showToast('Terms & conditions available on request.')">Terms &amp; Conditions</a></li>
-                <li><a onclick="showToast('Privacy policy available on request.')">Privacy Policy</a></li>
+                <li><a onclick="showToast('Free shipping across Pakistan.')">Shipping Policy</a></li>
             </ul></div>
             <div class="footer-col">
                 <h4>FOLLOW US</h4>
@@ -1999,7 +1754,18 @@
 
     <script>
         // ============================================================
-        // PRODUCT CATALOG — 3 Products
+        // ADMIN PASSWORD - CHANGE THIS!
+        // ============================================================
+        const DEFAULT_ADMIN_PASSWORD = "admin123";
+
+        // Get saved password from localStorage or use default
+        function getAdminPassword() {
+            const saved = localStorage.getItem('jamqra_admin_password');
+            return saved || DEFAULT_ADMIN_PASSWORD;
+        }
+
+        // ============================================================
+        // PRODUCT CATALOG
         // ============================================================
         const PRODUCTS = [
             { 
@@ -2010,16 +1776,10 @@
                 originalPrice: 2500, 
                 badge: "20% OFF", 
                 image: "images/jamqra-rose.jpg", 
-                description: "Fresh blooming Bulgarian Rose with soft floral and amber notes. Perfect for women who love elegance.", 
+                description: "Fresh blooming Bulgarian Rose with soft floral and amber notes.", 
                 topNotes: "Peony, Peach", 
                 heartNotes: "Bulgarian Rose, Jasmine", 
-                baseNotes: "Musk, Vanilla",
-                // Product Schema
-                schema: {
-                    name: "JAMQRA LUXE ROSE",
-                    description: "Fresh blooming Bulgarian Rose with soft floral and amber notes. Perfect for women who love elegance.",
-                    image: "https://jamqraluxe.github.io/perfume/images/jamqra-rose.jpg"
-                }
+                baseNotes: "Musk, Vanilla"
             },
             { 
                 id: "jamqra-golden", 
@@ -2029,15 +1789,10 @@
                 originalPrice: 2500, 
                 badge: "20% OFF", 
                 image: "images/jamqra-golden.jpg", 
-                description: "Warm amber and rich vanilla with a touch of spice. A unisex masterpiece for all occasions.", 
+                description: "Warm amber and rich vanilla with a touch of spice.", 
                 topNotes: "Amber, Vanilla", 
                 heartNotes: "Cinnamon, Clove", 
-                baseNotes: "Sandalwood, Musk",
-                schema: {
-                    name: "JAMQRA LUXE GOLDEN",
-                    description: "Warm amber and rich vanilla with a touch of spice. A unisex masterpiece for all occasions.",
-                    image: "https://jamqraluxe.github.io/perfume/images/jamqra-golden.jpg"
-                }
+                baseNotes: "Sandalwood, Musk" 
             },
             { 
                 id: "jamqra-blue", 
@@ -2047,60 +1802,17 @@
                 originalPrice: 2500, 
                 badge: "20% OFF", 
                 image: "images/jamqra-blue.jpg", 
-                description: "A bold, magnetic aquatic-woody combination for modern men who command attention.", 
+                description: "A bold, magnetic aquatic-woody combination for modern men.", 
                 topNotes: "Bergamot, Fresh Citrus", 
                 heartNotes: "Cedarwood, Aquatic Accords", 
-                baseNotes: "Dark Amber, Oakmoss",
-                schema: {
-                    name: "JAMQRA LUXE BLUE",
-                    description: "A bold, magnetic aquatic-woody combination for modern men who command attention.",
-                    image: "https://jamqraluxe.github.io/perfume/images/jamqra-blue.jpg"
-                }
+                baseNotes: "Dark Amber, Oakmoss" 
             }
         ];
 
         // ============================================================
-        // PRODUCT SCHEMA - Inject into page
+        // REVIEW DATA
         // ============================================================
-        function injectProductSchemas() {
-            PRODUCTS.forEach((p, index) => {
-                const reviews = getProductReviews(p.id);
-                const stats = getRatingStats(p.id);
-                const avgRating = stats.avg || 4.8;
-                const reviewCount = stats.count || 120;
-
-                const schema = {
-                    "@context": "https://schema.org",
-                    "@type": "Product",
-                    "name": p.schema.name,
-                    "image": p.schema.image,
-                    "description": p.schema.description,
-                    "brand": { "@type": "Brand", "name": "JAMQRA LUXE" },
-                    "offers": {
-                        "@type": "Offer",
-                        "price": p.price,
-                        "priceCurrency": "PKR",
-                        "availability": "https://schema.org/InStock",
-                        "url": `https://jamqraluxe.github.io/perfume/#product-${p.id}`
-                    },
-                    "aggregateRating": {
-                        "@type": "AggregateRating",
-                        "ratingValue": avgRating.toFixed(1),
-                        "reviewCount": reviewCount
-                    }
-                };
-
-                const script = document.createElement('script');
-                script.type = 'application/ld+json';
-                script.textContent = JSON.stringify(schema);
-                document.head.appendChild(script);
-            });
-        }
-
-        // ============================================================
-        // REVIEW DATA (localStorage)
-        // ============================================================
-        const REVIEWS_STORAGE_KEY = 'jamqra_product_reviews_v4';
+        const REVIEWS_STORAGE_KEY = 'jamqra_product_reviews_v5';
 
         function getProductReviews(productId) {
             try { const all = JSON.parse(localStorage.getItem(REVIEWS_STORAGE_KEY)) || {}; return all[productId] || []; } catch { return []; }
@@ -2110,7 +1822,7 @@
         }
 
         // ============================================================
-        // SAMPLE REVIEW GENERATOR
+        // SAMPLE REVIEWS
         // ============================================================
         function generateSampleReviews(product) {
             if (getProductReviews(product.id).length > 0) return;
@@ -2121,38 +1833,26 @@
                     { name: 'Fatima Noor', rating: 5, text: 'This is the most beautiful rose fragrance I\'ve ever worn.' },
                     { name: 'Sana Tariq', rating: 4, text: 'Really lovely floral scent with a warm vanilla dry-down.' },
                     { name: 'Zara Malik', rating: 5, text: 'I bought this after smelling it on my friend and I\'m obsessed.' },
-                    { name: 'Hira Shah', rating: 4, text: 'Beautiful fragrance! The peony and peach top notes are so fresh.' },
-                    { name: 'Mehwish Akhtar', rating: 5, text: 'This perfume is pure elegance in a bottle.' },
-                    { name: 'Iqra Asif', rating: 5, text: 'I\'m a huge fan of rose scents and this one is top-tier.' },
-                    { name: 'Nadia Anwar', rating: 5, text: 'The packaging alone made me feel like I bought something really special.' },
-                    { name: 'Mahnoor Sheikh', rating: 4, text: 'Really pretty scent. It\'s very feminine and wearable.' },
-                    { name: 'Sadia Khan', rating: 5, text: 'This is my new go-to for date nights.' }
+                    { name: 'Mehwish Akhtar', rating: 5, text: 'This perfume is pure elegance in a bottle.' }
                 ],
                 'jamqra-golden': [
                     { name: 'Bilal Ahmed', rating: 5, text: 'This is a masterpiece. The amber and vanilla are so warm and inviting.' },
                     { name: 'Ayesha Khan', rating: 5, text: 'Pure luxury. The amber note is so rich and the vanilla adds a beautiful sweetness.' },
-                    { name: 'Fatima Noor', rating: 5, text: 'This fragrance is absolutely stunning.' },
-                    { name: 'Hamza Ali', rating: 4, text: 'Really lovely scent. The cinnamon and clove add a nice spice to the amber.' },
-                    { name: 'Usman Riaz', rating: 5, text: 'This is a masterpiece. The sandalwood and musk base is so smooth.' },
-                    { name: 'Zara Malik', rating: 5, text: 'I love how versatile this is. It works for both men and women equally well.' },
-                    { name: 'Omar Farooq', rating: 5, text: 'Incredible fragrance with amazing longevity.' },
-                    { name: 'Sana Tariq', rating: 4, text: 'Very nice and well-balanced. The spice notes are subtle but present.' }
+                    { name: 'Hamza Ali', rating: 4, text: 'Really lovely scent. The cinnamon and clove add a nice spice.' },
+                    { name: 'Usman Riaz', rating: 5, text: 'The sandalwood and musk base is so smooth.' }
                 ],
                 'jamqra-blue': [
                     { name: 'Bilal Ahmed', rating: 5, text: 'This is a beast of a fragrance. The aquatic-woody blend is perfect.' },
                     { name: 'Hamza Ali', rating: 5, text: 'Absolutely incredible scent. The cedarwood and aquatic notes make it so unique.' },
-                    { name: 'Usman Riaz', rating: 4, text: 'Really good fragrance with excellent longevity.' },
                     { name: 'Omar Farooq', rating: 5, text: 'This is my signature scent now.' },
-                    { name: 'Saad Hussain', rating: 5, text: 'I\'ve been wearing this for a few weeks and I\'m blown away.' },
-                    { name: 'Ali Raza', rating: 4, text: 'Very nice fragrance with a great price point.' },
-                    { name: 'Fahad Mirza', rating: 5, text: 'This is the kind of scent that gets you noticed.' }
+                    { name: 'Saad Hussain', rating: 5, text: 'I\'ve been wearing this for a few weeks and I\'m blown away.' }
                 ]
             };
 
             const pool = reviewPools[product.id] || reviewPools['jamqra-rose'];
             const selected = [];
             const shuffled = [...pool].sort(() => Math.random() - 0.5);
-            const count = Math.min(10, shuffled.length);
+            const count = Math.min(8, shuffled.length);
             for (let i = 0; i < count; i++) {
                 const review = shuffled[i];
                 const daysAgo = Math.floor(Math.random() * 60);
@@ -2168,38 +1868,98 @@
                     videos: []
                 });
             }
+            // Add 1-2 pending reviews for demo
+            if (selected.length > 0) {
+                selected[0].status = 'pending';
+                if (selected.length > 1) selected[1].status = 'pending';
+            }
             setProductReviews(product.id, selected);
         }
 
         // ============================================================
-        // REVIEW HELPER
+        // DASHBOARD - PASSWORD PROTECTED
         // ============================================================
-        function getRatingStats(productId) {
-            const reviews = getProductReviews(productId);
-            const approved = reviews.filter(r => r.status !== 'rejected');
-            if (approved.length === 0) return { avg: 0, count: 0, distribution: { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 } };
-            const sum = approved.reduce((a, r) => a + r.rating, 0);
-            const avg = sum / approved.length;
-            const dist = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
-            approved.forEach(r => { if (r.rating >= 1 && r.rating <= 5) dist[r.rating]++; });
-            return { avg, count: approved.length, distribution: dist };
+        let isDashboardUnlocked = false;
+
+        function verifyAdminPassword() {
+            const input = document.getElementById('adminPassword');
+            const error = document.getElementById('dashboardError');
+            const password = input.value.trim();
+            const validPassword = getAdminPassword();
+
+            if (password === validPassword) {
+                isDashboardUnlocked = true;
+                document.getElementById('dashboardLogin').style.display = 'none';
+                document.getElementById('dashboardContent').classList.add('active');
+                renderDashboard();
+                showToast('✅ Dashboard unlocked!');
+                input.value = '';
+                error.style.display = 'none';
+            } else {
+                error.style.display = 'block';
+                input.value = '';
+                input.focus();
+                showToast('❌ Incorrect password!');
+            }
         }
 
-        function renderStarRating(rating, size = 14) {
-            const full = Math.floor(rating);
-            const half = rating - full >= 0.5 ? 1 : 0;
-            let html = '';
-            for (let i = 0; i < full; i++) html += `<span style="color:var(--star-color);font-size:${size}px;">★</span>`;
-            if (half) html += `<span style="color:var(--star-color);font-size:${size}px;">★</span>`;
-            const empty = 5 - full - half;
-            for (let i = 0; i < empty; i++) html += `<span style="color:var(--star-empty);font-size:${size}px;">★</span>`;
-            return html;
+        function logoutDashboard() {
+            isDashboardUnlocked = false;
+            document.getElementById('dashboardLogin').style.display = 'block';
+            document.getElementById('dashboardContent').classList.remove('active');
+            document.getElementById('adminPassword').value = '';
+            document.getElementById('dashboardError').style.display = 'none';
+            showToast('🔒 Logged out of dashboard');
         }
 
         // ============================================================
-        // DASHBOARD FUNCTIONS
+        // CHANGE ADMIN PASSWORD
+        // ============================================================
+        function changeAdminPassword() {
+            const newPass = document.getElementById('newPasswordInput').value.trim();
+            const confirmPass = document.getElementById('confirmPasswordInput').value.trim();
+            const msg = document.getElementById('passwordChangeMsg');
+
+            if (!newPass || !confirmPass) {
+                msg.style.display = 'block';
+                msg.style.color = '#f44336';
+                msg.textContent = '⚠️ Please enter both password fields!';
+                return;
+            }
+
+            if (newPass.length < 4) {
+                msg.style.display = 'block';
+                msg.style.color = '#f44336';
+                msg.textContent = '⚠️ Password must be at least 4 characters!';
+                return;
+            }
+
+            if (newPass !== confirmPass) {
+                msg.style.display = 'block';
+                msg.style.color = '#f44336';
+                msg.textContent = '❌ Passwords do not match!';
+                return;
+            }
+
+            // Save new password to localStorage
+            localStorage.setItem('jamqra_admin_password', newPass);
+            
+            msg.style.display = 'block';
+            msg.style.color = '#4CAF50';
+            msg.textContent = '✅ Password changed successfully! New password: ' + newPass;
+            
+            document.getElementById('newPasswordInput').value = '';
+            document.getElementById('confirmPasswordInput').value = '';
+            
+            showToast('🔑 Password updated successfully!');
+        }
+
+        // ============================================================
+        // DASHBOARD RENDER
         // ============================================================
         function renderDashboard() {
+            if (!isDashboardUnlocked) return;
+
             const productFilter = document.getElementById('dashProductFilter').value;
             const statusFilter = document.getElementById('dashStatusFilter').value;
             const ratingFilter = document.getElementById('dashRatingFilter').value;
@@ -2242,7 +2002,7 @@
             // Render table
             const tbody = document.getElementById('dashReviewsTable');
             if (allReviews.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;padding:40px;color:var(--text-muted);">No reviews found.</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;padding:30px;color:var(--text-muted);">No reviews found.</td></tr>`;
                 return;
             }
 
@@ -2257,45 +2017,52 @@
                         <span class="status-badge ${r.status || 'pending'}">${r.status || 'pending'}</span>
                     </td>
                     <td style="text-align:center;">
-                        <div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap;">
-                            ${r.status !== 'approved' ? `<button onclick="updateReviewStatus('${r.productId}', ${i}, 'approved')" style="background:#4CAF50;color:#FFF;border:none;padding:4px 10px;border-radius:4px;font-size:10px;cursor:pointer;">✅ Approve</button>` : ''}
-                            ${r.status !== 'rejected' ? `<button onclick="updateReviewStatus('${r.productId}', ${i}, 'rejected')" style="background:#f44336;color:#FFF;border:none;padding:4px 10px;border-radius:4px;font-size:10px;cursor:pointer;">❌ Reject</button>` : ''}
-                            <button onclick="deleteReview('${r.productId}', ${i})" style="background:#D96C6C;color:#FFF;border:none;padding:4px 10px;border-radius:4px;font-size:10px;cursor:pointer;">🗑️</button>
+                        <div class="admin-actions">
+                            ${r.status !== 'approved' ? `<button class="approve-btn" onclick="updateReviewStatus('${r.productId}', ${i}, 'approved')">✅</button>` : ''}
+                            ${r.status !== 'rejected' ? `<button class="reject-btn" onclick="updateReviewStatus('${r.productId}', ${i}, 'rejected')">❌</button>` : ''}
+                            <button class="delete-btn" onclick="deleteReview('${r.productId}', ${i})">🗑️</button>
                         </div>
                     </td>
                 </tr>
             `).join('');
         }
 
+        // ============================================================
+        // REVIEW MANAGEMENT FUNCTIONS
+        // ============================================================
         function updateReviewStatus(productId, index, status) {
+            if (!isDashboardUnlocked) { showToast('🔒 Please login first!'); return; }
             const reviews = getProductReviews(productId);
             if (reviews[index]) {
                 reviews[index].status = status;
                 setProductReviews(productId, reviews);
                 renderDashboard();
-                showToast(`Review ${status}!`);
+                showToast(`✅ Review ${status}!`);
             }
         }
 
         function deleteReview(productId, index) {
+            if (!isDashboardUnlocked) { showToast('🔒 Please login first!'); return; }
             if (!confirm('Are you sure you want to delete this review?')) return;
             const reviews = getProductReviews(productId);
             reviews.splice(index, 1);
             setProductReviews(productId, reviews);
             renderDashboard();
-            showToast('Review deleted!');
+            showToast('🗑️ Review deleted!');
         }
 
         function deleteAllReviews() {
+            if (!isDashboardUnlocked) { showToast('🔒 Please login first!'); return; }
             if (!confirm('⚠️ Are you sure you want to delete ALL reviews? This cannot be undone!')) return;
             PRODUCTS.forEach(p => {
                 setProductReviews(p.id, []);
             });
             renderDashboard();
-            showToast('All reviews deleted!');
+            showToast('🗑️ All reviews deleted!');
         }
 
         function exportReviews() {
+            if (!isDashboardUnlocked) { showToast('🔒 Please login first!'); return; }
             let allReviews = [];
             PRODUCTS.forEach(p => {
                 const reviews = getProductReviews(p.id);
@@ -2323,11 +2090,36 @@
             a.download = 'jamqra_reviews_export.csv';
             a.click();
             URL.revokeObjectURL(url);
-            showToast('Reviews exported!');
+            showToast('📥 Reviews exported!');
         }
 
         // ============================================================
-        // PRODUCT DETAIL RENDER
+        // RATING HELPER
+        // ============================================================
+        function getRatingStats(productId) {
+            const reviews = getProductReviews(productId);
+            const approved = reviews.filter(r => r.status !== 'rejected');
+            if (approved.length === 0) return { avg: 0, count: 0, distribution: { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 } };
+            const sum = approved.reduce((a, r) => a + r.rating, 0);
+            const avg = sum / approved.length;
+            const dist = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
+            approved.forEach(r => { if (r.rating >= 1 && r.rating <= 5) dist[r.rating]++; });
+            return { avg, count: approved.length, distribution: dist };
+        }
+
+        function renderStarRating(rating, size = 14) {
+            const full = Math.floor(rating);
+            const half = rating - full >= 0.5 ? 1 : 0;
+            let html = '';
+            for (let i = 0; i < full; i++) html += `<span style="color:var(--star-color);font-size:${size}px;">★</span>`;
+            if (half) html += `<span style="color:var(--star-color);font-size:${size}px;">★</span>`;
+            const empty = 5 - full - half;
+            for (let i = 0; i < empty; i++) html += `<span style="color:var(--star-empty);font-size:${size}px;">★</span>`;
+            return html;
+        }
+
+        // ============================================================
+        // PRODUCT DETAIL
         // ============================================================
         function openProductDetail(productId) {
             const p = PRODUCTS.find(item => item.id === productId);
@@ -2374,10 +2166,6 @@
                         <div class="form-group">
                             <label for="reviewText">Your Review *</label>
                             <textarea id="reviewText" rows="3" required placeholder="Share your experience..."></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="reviewImage">Upload Image (Optional)</label>
-                            <input type="file" id="reviewImage" accept="image/*" class="file-input-wrap">
                         </div>
                         <button type="submit" class="btn-primary" style="padding:10px 28px;">SUBMIT REVIEW</button>
                     </form>
@@ -2451,27 +2239,19 @@
                 const name = document.getElementById('reviewName').value.trim();
                 const rating = parseInt(document.getElementById('reviewRating').value);
                 const text = document.getElementById('reviewText').value.trim();
-                const fileInput = document.getElementById('reviewImage');
                 if (!name || rating === 0 || !text) { showToast('Please fill in all required fields and select a rating.'); return; }
-                if (fileInput.files && fileInput.files[0]) {
-                    const reader = new FileReader();
-                    reader.onload = function(e) { addReview(name, rating, text, e.target.result); };
-                    reader.readAsDataURL(fileInput.files[0]);
-                } else { addReview(name, rating, text, null); }
-                function addReview(name, rating, text, image) {
-                    const reviews = getProductReviews(p.id);
-                    reviews.push({ 
-                        name, rating, text, 
-                        date: new Date().toISOString().split('T')[0], 
-                        verified: false, 
-                        status: 'pending',
-                        images: image ? [image] : [], 
-                        videos: [] 
-                    });
-                    setProductReviews(p.id, reviews);
-                    openProductDetail(p.id);
-                    showToast('Thank you! Your review is pending approval.');
-                }
+                const reviews = getProductReviews(p.id);
+                reviews.push({ 
+                    name, rating, text, 
+                    date: new Date().toISOString().split('T')[0], 
+                    verified: false, 
+                    status: 'pending',
+                    images: [], 
+                    videos: [] 
+                });
+                setProductReviews(p.id, reviews);
+                openProductDetail(p.id);
+                showToast('Thank you! Your review is pending approval.');
             });
 
             showPage('product');
@@ -2554,7 +2334,6 @@
             document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
             document.querySelectorAll('.nav-links a').forEach(a => { if (a.dataset.page === pageId) a.classList.add('active'); });
             document.getElementById('navLinks').classList.remove('active');
-            if (pageId === 'dashboard') renderDashboard();
         }
 
         // ============================================================
@@ -2688,7 +2467,6 @@
         // ============================================================
         document.addEventListener('DOMContentLoaded', function() {
             PRODUCTS.forEach(p => generateSampleReviews(p));
-            injectProductSchemas();
 
             renderProducts(PRODUCTS.slice(0, 3), 'homeProductGrid');
             renderShopProducts();
@@ -2769,7 +2547,9 @@
             }
         });
 
-        console.log('✨ JAMQRA LUXE — Complete with SEO + Dashboard + Product Schema');
+        console.log('✨ JAMQRA LUXE — Complete with Password Protected Dashboard!');
+        console.log('🔐 Default Password: admin123');
+        console.log('🔄 You can change password from dashboard after login.');
     </script>
 </body>
 </html>
