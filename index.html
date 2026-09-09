@@ -381,6 +381,33 @@
             margin-bottom: 12px;
         }
 
+        /* Social Icons */
+        .social-icons {
+            display: flex;
+            gap: 14px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            color: #FFF;
+        }
+        .social-icons a:hover {
+            transform: scale(1.12);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        .social-icons .fb { background: #1877F2; }
+        .social-icons .ig { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+        .social-icons .tt { background: #000; border: 2px solid #ff0050; }
+
         /* ============================================================
            BUTTONS
            ============================================================ */
@@ -1279,6 +1306,32 @@
             font-weight: 500;
         }
 
+        /* Social Footer Icons */
+        .footer-social-icons {
+            display: flex;
+            gap: 12px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+        .footer-social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 18px;
+            color: #FFF;
+            transition: all 0.3s ease;
+        }
+        .footer-social-icons a:hover {
+            transform: scale(1.1);
+        }
+        .footer-social-icons .fb { background: #1877F2; }
+        .footer-social-icons .ig { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+        .footer-social-icons .tt { background: #000; border: 2px solid #ff0050; }
+
         .whatsapp-float {
             position: fixed;
             bottom: 24px;
@@ -1357,6 +1410,8 @@
             .product-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
             .deal-section .deal-wrap { flex-direction: column; text-align: center; padding: 30px 24px; }
             .deal-section .deal-visual { flex-wrap: wrap; justify-content: center; }
+            .social-icons { justify-content: center; }
+            .footer-social-icons { justify-content: center; }
         }
 
         @media (max-width: 768px) {
@@ -1393,6 +1448,8 @@
             .review-card { padding: 16px 18px; }
             .review-media .media-item { width: 64px; height: 64px; }
             .deal-section .deal-visual .mini-bottle { width: 40px; height: 64px; }
+            .social-icons { justify-content: center; }
+            .footer-social-icons { justify-content: center; }
         }
 
         @media (max-width: 480px) {
@@ -1417,6 +1474,8 @@
             .why-us-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
             .review-card { padding: 14px 16px; }
             .review-media .media-item { width: 60px; height: 60px; }
+            .social-icons { justify-content: center; }
+            .footer-social-icons { justify-content: center; }
         }
     </style>
 </head>
@@ -1481,6 +1540,12 @@
                             <li>Premium Quality</li>
                             <li>Made for You</li>
                         </ul>
+                        <!-- SOCIAL MEDIA ICONS - HERO SECTION -->
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/share/1G3nNj5RT4/" target="_blank" class="fb" aria-label="Facebook">📘</a>
+                            <a href="https://www.instagram.com/jamqraluxe.pk" target="_blank" class="ig" aria-label="Instagram">📸</a>
+                            <a href="https://www.tiktok.com/@jamqraluxe.pk" target="_blank" class="tt" aria-label="TikTok">🎵</a>
+                        </div>
                     </div>
                     <div class="hero-media">
                         <div class="hero-img-box">
@@ -1684,6 +1749,9 @@
                 <div style="text-align:center; font-size:15px; line-height:2.2;">
                     <p><strong>📞 WhatsApp:</strong> <a href="https://wa.me/923704558965" target="_blank" style="color:var(--accent-rose);">0370 4558965</a></p>
                     <p><strong>✉️ Email:</strong> <a href="mailto:business.jamqra@gmail.com" style="color:var(--accent-rose);">business.jamqra@gmail.com</a></p>
+                    <p><strong>📘 Facebook:</strong> <a href="https://www.facebook.com/share/1G3nNj5RT4/" target="_blank" style="color:var(--accent-rose);">JAMQRA LUXE</a></p>
+                    <p><strong>📸 Instagram:</strong> <a href="https://www.instagram.com/jamqraluxe.pk" target="_blank" style="color:var(--accent-rose);">@jamqraluxe.pk</a></p>
+                    <p><strong>🎵 TikTok:</strong> <a href="https://www.tiktok.com/@jamqraluxe.pk" target="_blank" style="color:var(--accent-rose);">@jamqraluxe.pk</a></p>
                     <p><strong>📍 Location:</strong> Delivery Available All Over Pakistan</p>
                 </div>
             </div>
@@ -1723,6 +1791,14 @@
                 <li><a onclick="showToast('Terms & conditions available on request.')">Terms &amp; Conditions</a></li>
                 <li><a onclick="showToast('Privacy policy available on request.')">Privacy Policy</a></li>
             </ul></div>
+            <div class="footer-col">
+                <h4>FOLLOW US</h4>
+                <div class="footer-social-icons">
+                    <a href="https://www.facebook.com/share/1G3nNj5RT4/" target="_blank" class="fb" aria-label="Facebook">📘</a>
+                    <a href="https://www.instagram.com/jamqraluxe.pk" target="_blank" class="ig" aria-label="Instagram">📸</a>
+                    <a href="https://www.tiktok.com/@jamqraluxe.pk" target="_blank" class="tt" aria-label="TikTok">🎵</a>
+                </div>
+            </div>
             <div class="footer-col"><h4>PAYMENT METHODS</h4>
                 <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:4px;">
                     <span style="background:var(--bg-primary); padding:4px 16px; border-radius:4px; font-size:11px; font-weight:500;">VISA</span>
@@ -1765,7 +1841,11 @@
         "description": "Premium luxury fragrances for men and women. Free delivery across Pakistan. Cash on delivery.",
         "address": { "@type": "PostalAddress", "addressCountry": "PK" },
         "contactPoint": { "@type": "ContactPoint", "telephone": "+923704558965", "contactType": "Sales", "availableLanguage": ["en", "ur"] },
-        "sameAs": ["https://wa.me/923704558965"]
+        "sameAs": [
+            "https://www.facebook.com/share/1G3nNj5RT4/",
+            "https://www.instagram.com/jamqraluxe.pk",
+            "https://www.tiktok.com/@jamqraluxe.pk"
+        ]
     }
     </script>
 
