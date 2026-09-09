@@ -4,26 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JAMQRA LUXE — Premium Fragrances Pakistan</title>
-    <meta name="description" content="Discover luxury long-lasting perfumes for men and women. Free delivery across Pakistan. 20% off on all fragrances. Shop now at JAMQRA LUXE.">
+    <meta name="description" content="Discover luxury long-lasting perfumes for men and women. Free delivery across Pakistan. Buy 2 get Rs. 500 OFF.">
     <link rel="canonical" href="https://jamqraluxe.com/">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content="JAMQRA LUXE — Premium Fragrances Pakistan">
-    <meta property="og:description" content="Feel Elegant. Feel You. Luxury perfumes for him & her. Free delivery all over Pakistan. Shop now.">
+    <meta property="og:description" content="Luxury perfumes. Buy 2 get Rs. 500 OFF. Free delivery all over Pakistan.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jamqraluxe.com/">
     <meta property="og:image" content="https://jamqraluxe.com/images/hero-bottle.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="JAMQRA LUXE — Premium Fragrances Pakistan">
-    <meta name="twitter:description" content="Luxury perfumes for men and women. Free delivery across Pakistan. 20% OFF.">
+    <meta name="twitter:description" content="Luxury perfumes. Buy 2 get Rs. 500 OFF.">
     <meta name="twitter:image" content="https://jamqraluxe.com/images/hero-bottle.jpg">
 
-    <!-- Theme color -->
     <meta name="theme-color" content="#FFF9F5">
 
     <!-- Google Fonts -->
@@ -254,9 +251,23 @@
             gap: 50px;
             background: linear-gradient(135deg, #FFF9F5 0%, #FCEEEB 100%);
             min-height: 80vh;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 50%;
+            height: 120%;
+            background: radial-gradient(ellipse at 70% 50%, rgba(217, 108, 108, 0.05) 0%, transparent 70%);
+            pointer-events: none;
         }
         .hero-content {
             flex: 1;
+            position: relative;
+            z-index: 1;
         }
         .sub-tag {
             letter-spacing: 3px;
@@ -335,6 +346,8 @@
             flex: 1;
             display: flex;
             justify-content: center;
+            position: relative;
+            z-index: 1;
         }
         .hero-img-box {
             width: 100%;
@@ -351,6 +364,20 @@
             display: block;
             object-fit: cover;
             border-radius: 4px;
+        }
+
+        /* ---- Deal Badge on Hero ---- */
+        .deal-badge-hero {
+            display: inline-block;
+            background: var(--accent-gold);
+            color: #FFF;
+            padding: 8px 20px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 30px;
+            margin-bottom: 12px;
         }
 
         /* ============================================================
@@ -375,6 +402,12 @@
             background: var(--accent-rose-hover);
             transform: translateY(-2px);
             box-shadow: 0 8px 24px rgba(217, 108, 108, 0.25);
+        }
+        .btn-gold {
+            background: var(--accent-gold);
+        }
+        .btn-gold:hover {
+            background: #b8962e;
         }
         .btn-secondary {
             display: inline-block;
@@ -432,6 +465,126 @@
         }
 
         /* ============================================================
+           DEAL SECTION — Buy 2 Get Rs. 500 OFF
+           ============================================================ */
+        .deal-section {
+            padding: 60px 5%;
+            background: linear-gradient(135deg, #FCEEEB 0%, #FFF9F5 100%);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .deal-section .deal-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #FFF;
+            border-radius: var(--radius);
+            padding: 40px 48px;
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+        .deal-section .deal-wrap::before {
+            content: '🎁';
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            font-size: 120px;
+            opacity: 0.04;
+            pointer-events: none;
+        }
+        .deal-section .deal-content {
+            flex: 1;
+        }
+        .deal-section .deal-content .deal-tag {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+        .deal-section .deal-content h2 {
+            font-family: var(--font-serif);
+            font-size: 36px;
+            margin: 6px 0 4px;
+            line-height: 1.1;
+        }
+        .deal-section .deal-content .deal-desc {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .deal-section .deal-content .deal-price {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 12px 0 18px;
+        }
+        .deal-section .deal-content .deal-price .normal {
+            font-size: 16px;
+            color: var(--text-muted);
+            text-decoration: line-through;
+        }
+        .deal-section .deal-content .deal-price .saving {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--accent-rose);
+        }
+        .deal-section .deal-content .deal-price .badge {
+            background: var(--accent-gold);
+            color: #FFF;
+            padding: 4px 16px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .deal-section .deal-visual {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .deal-section .deal-visual .mini-bottle {
+            width: 50px;
+            height: 80px;
+            border-radius: 30% 30% 20% 20% / 40% 40% 15% 15%;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+        }
+        .deal-section .deal-visual .mini-bottle.pink {
+            background: linear-gradient(145deg, #f0ded6, #dbb8ae);
+        }
+        .deal-section .deal-visual .mini-bottle.gold {
+            background: linear-gradient(145deg, #d4c5a9, #b8a080);
+        }
+        .deal-section .deal-visual .mini-bottle.blue {
+            background: linear-gradient(145deg, #2c3e50, #1a252f);
+        }
+        .deal-section .deal-visual .plus {
+            font-size: 24px;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+        .deal-section .deal-visual .equals {
+            font-size: 20px;
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+        .deal-section .deal-visual .saving-text {
+            background: var(--accent-soft-pink);
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent-rose);
+            border: 1px dashed var(--accent-rose);
+        }
+
+        /* ============================================================
            SECTION UTILITIES
            ============================================================ */
         .section-padding {
@@ -456,104 +609,16 @@
         }
 
         /* ============================================================
-           CATEGORY GRID
-           ============================================================ */
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 28px;
-        }
-        .category-card {
-            background: #FFF;
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius);
-            padding: 28px 30px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transition: var(--transition);
-            cursor: pointer;
-            gap: 16px;
-        }
-        .category-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--accent-rose);
-        }
-        .category-card h3 {
-            font-family: var(--font-serif);
-            font-size: 20px;
-            margin-bottom: 4px;
-            letter-spacing: 1px;
-        }
-        .category-card p {
-            color: var(--text-muted);
-            font-size: 12px;
-            margin-bottom: 14px;
-        }
-        .category-card img {
-            width: 90px;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 6px;
-        }
-        .category-card .btn-secondary {
-            padding: 8px 20px;
-            font-size: 9px;
-        }
-
-        /* ============================================================
-           PROMO CARDS
-           ============================================================ */
-        .promo-wrapper {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 28px;
-        }
-        .promo-card {
-            background: #FFF;
-            padding: 32px 34px;
-            border-radius: var(--radius);
-            border: 1px solid var(--border-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px;
-            transition: var(--transition);
-        }
-        .promo-card:hover {
-            box-shadow: var(--shadow-hover);
-        }
-        .promo-card-content h2 {
-            font-family: var(--font-serif);
-            font-size: 34px;
-            line-height: 1.1;
-            margin: 6px 0 4px;
-        }
-        .promo-card-content p {
-            font-size: 12px;
-            letter-spacing: 2px;
-            color: var(--text-dark);
-            margin-bottom: 16px;
-            font-weight: 600;
-        }
-        .promo-card img {
-            width: 110px;
-            height: auto;
-            object-fit: contain;
-        }
-
-        /* ============================================================
-           PRODUCT GRID
+           PRODUCT GRID — 3 products, larger cards
            ============================================================ */
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 28px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
         }
         .product-card {
             background: #FFF;
-            padding: 20px 20px 24px;
+            padding: 24px 24px 28px;
             border-radius: var(--radius);
             border: 1px solid var(--border-color);
             position: relative;
@@ -562,7 +627,7 @@
         }
         .product-card:hover {
             box-shadow: var(--shadow-hover);
-            transform: translateY(-4px);
+            transform: translateY(-6px);
             border-color: var(--accent-rose);
         }
         .product-badge {
@@ -572,13 +637,13 @@
             background: var(--accent-rose);
             color: #FFF;
             font-size: 9px;
-            padding: 4px 10px;
+            padding: 4px 12px;
             border-radius: 3px;
             font-weight: 600;
             letter-spacing: 0.5px;
         }
         .product-thumb {
-            height: 220px;
+            height: 250px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -599,14 +664,14 @@
         }
         .product-title {
             font-family: var(--font-serif);
-            font-size: 18px;
+            font-size: 20px;
             margin-bottom: 4px;
         }
         .product-desc {
-            font-size: 11px;
+            font-size: 12px;
             color: var(--text-muted);
             margin-bottom: 14px;
-            height: 32px;
+            height: 36px;
             overflow: hidden;
         }
         .product-card .price-wrap {
@@ -614,10 +679,10 @@
             margin-bottom: 14px;
         }
         .product-card .price-new {
-            font-size: 20px;
+            font-size: 22px;
         }
         .product-card .price-old {
-            font-size: 14px;
+            font-size: 15px;
         }
         .card-actions {
             display: flex;
@@ -626,61 +691,18 @@
         }
         .card-actions button {
             flex: 1;
-            padding: 9px 5px;
+            padding: 10px 5px;
             font-size: 9px;
             letter-spacing: 1.5px;
             border-radius: 4px;
         }
         .card-actions .btn-secondary {
-            padding: 9px 5px;
+            padding: 10px 5px;
             font-size: 9px;
         }
         .card-actions .btn-primary {
-            padding: 9px 5px;
+            padding: 10px 5px;
             font-size: 9px;
-        }
-
-        /* ============================================================
-           SHOP CONTROLS
-           ============================================================ */
-        .shop-controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 32px;
-            flex-wrap: wrap;
-            gap: 14px;
-        }
-        .filter-tabs {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-        .tab-btn {
-            background: transparent;
-            border: 1px solid var(--border-color);
-            padding: 8px 20px;
-            cursor: pointer;
-            font-size: 11px;
-            border-radius: 4px;
-            transition: var(--transition);
-            font-weight: 500;
-            letter-spacing: 0.5px;
-        }
-        .tab-btn.active,
-        .tab-btn:hover {
-            background: var(--accent-rose);
-            color: #FFF;
-            border-color: var(--accent-rose);
-        }
-        .sort-dropdown {
-            padding: 9px 16px;
-            border: 1px solid var(--border-color);
-            background: #FFF;
-            font-size: 11px;
-            border-radius: 4px;
-            font-weight: 500;
-            color: var(--text-dark);
         }
 
         /* ============================================================
@@ -714,7 +736,7 @@
         }
 
         /* ============================================================
-           PRODUCT DETAIL — ENHANCED WITH REVIEWS
+           PRODUCT DETAIL — with reviews
            ============================================================ */
         .product-detail-container {
             display: grid;
@@ -756,7 +778,6 @@
             margin-bottom: 0;
         }
 
-        /* ---- Rating Summary ---- */
         .rating-summary {
             display: flex;
             align-items: center;
@@ -819,7 +840,6 @@
             font-size: 11px;
         }
 
-        /* ---- Reviews Section ---- */
         .reviews-section {
             margin-top: 40px;
             border-top: 2px solid var(--border-color);
@@ -831,7 +851,6 @@
             margin-bottom: 20px;
         }
 
-        /* ---- Review Card ---- */
         .review-card {
             background: var(--bg-primary);
             border-radius: var(--radius);
@@ -879,7 +898,6 @@
             margin: 8px 0 12px;
             line-height: 1.7;
         }
-        /* Review Media */
         .review-media {
             display: flex;
             flex-wrap: wrap;
@@ -917,7 +935,61 @@
             pointer-events: none;
         }
 
-        /* ---- Lightbox / Modal ---- */
+        /* ---- Review Form ---- */
+        .review-form {
+            margin-top: 30px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+        .review-form .form-group {
+            margin-bottom: 12px;
+        }
+        .review-form .form-group label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .review-form .form-group input,
+        .review-form .form-group textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-family: var(--font-sans);
+            font-size: 13px;
+            background: var(--bg-primary);
+            transition: var(--transition);
+        }
+        .review-form .form-group input:focus,
+        .review-form .form-group textarea:focus {
+            border-color: var(--accent-rose);
+            outline: none;
+            background: #FFF;
+            box-shadow: 0 0 0 3px rgba(217, 108, 108, 0.08);
+        }
+        .review-form .star-rating {
+            display: flex;
+            gap: 5px;
+            font-size: 28px;
+            cursor: pointer;
+        }
+        .review-form .star-rating span {
+            color: var(--star-empty);
+            transition: var(--transition);
+        }
+        .review-form .star-rating span:hover,
+        .review-form .star-rating span.active {
+            color: var(--star-color);
+        }
+        .review-form .file-input-wrap {
+            display: block;
+            margin-top: 5px;
+        }
+
         .lightbox-overlay {
             position: fixed;
             top: 0;
@@ -1077,9 +1149,6 @@
             font-weight: 500;
         }
 
-        /* ============================================================
-           ORDER CONFIRMATION
-           ============================================================ */
         .confirmation-box {
             max-width: 600px;
             margin: 0 auto;
@@ -1113,9 +1182,6 @@
             margin-bottom: 0;
         }
 
-        /* ============================================================
-           NEWSLETTER
-           ============================================================ */
         .newsletter-section {
             background: var(--accent-soft-pink);
             text-align: center;
@@ -1147,9 +1213,6 @@
             outline: none;
         }
 
-        /* ============================================================
-           FOOTER
-           ============================================================ */
         .site-footer {
             background: #FFF;
             color: var(--text-dark);
@@ -1216,9 +1279,6 @@
             font-weight: 500;
         }
 
-        /* ============================================================
-           FLOATING WHATSAPP BUTTON (Support Chat)
-           ============================================================ */
         .whatsapp-float {
             position: fixed;
             bottom: 24px;
@@ -1242,9 +1302,6 @@
             box-shadow: 0 8px 32px rgba(37, 211, 102, 0.4);
         }
 
-        /* ============================================================
-           SEARCH OVERLAY
-           ============================================================ */
         .search-overlay {
             display: none;
             background: #FFF;
@@ -1267,9 +1324,6 @@
             outline: none;
         }
 
-        /* ============================================================
-           TOAST
-           ============================================================ */
         .toast-msg {
             position: fixed;
             bottom: 100px;
@@ -1300,6 +1354,9 @@
             .hero-img-box { max-width: 340px; margin: 0 auto; }
             .checkout-layout { grid-template-columns: 1fr; }
             .product-detail-container { grid-template-columns: 1fr; padding: 28px; }
+            .product-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+            .deal-section .deal-wrap { flex-direction: column; text-align: center; padding: 30px 24px; }
+            .deal-section .deal-visual { flex-wrap: wrap; justify-content: center; }
         }
 
         @media (max-width: 768px) {
@@ -1321,13 +1378,9 @@
             .hero-title { font-size: 36px; }
             .hero-title .italic { font-size: 28px; }
             .section-title { font-size: 24px; letter-spacing: 2px; }
-            .category-card { flex-direction: column; text-align: center; padding: 24px; }
-            .category-card img { width: 80px; height: 100px; }
-            .promo-card { flex-direction: column; text-align: center; padding: 28px; }
-            .promo-card img { width: 90px; }
-            .product-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 18px; }
-            .shop-controls { flex-direction: column; align-items: stretch; }
-            .filter-tabs { justify-content: center; }
+            .product-grid { grid-template-columns: 1fr 1fr; gap: 18px; }
+            .deal-section .deal-content h2 { font-size: 28px; }
+            .deal-section .deal-content .deal-price .saving { font-size: 22px; }
             .flex-2 { grid-template-columns: 1fr; }
             .checkout-form { padding: 24px 20px; }
             .order-summary-box { padding: 24px 20px; }
@@ -1337,20 +1390,24 @@
             .whatsapp-float { width: 50px; height: 50px; font-size: 24px; bottom: 18px; right: 18px; }
             .rating-summary { flex-direction: column; align-items: stretch; }
             .rating-big { flex-direction: row; gap: 16px; justify-content: center; }
+            .review-card { padding: 16px 18px; }
+            .review-media .media-item { width: 64px; height: 64px; }
+            .deal-section .deal-visual .mini-bottle { width: 40px; height: 64px; }
         }
 
         @media (max-width: 480px) {
             .hero-title { font-size: 28px; }
             .hero-title .italic { font-size: 22px; }
             .price-new { font-size: 24px; }
-            .product-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
-            .product-card { padding: 14px 12px 18px; }
-            .product-thumb { height: 160px; }
-            .product-title { font-size: 15px; }
-            .product-card .price-new { font-size: 16px; }
-            .product-card .price-old { font-size: 12px; }
+            .product-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+            .product-card { padding: 18px 16px 22px; }
+            .product-thumb { height: 200px; }
+            .product-title { font-size: 18px; }
+            .deal-section .deal-content h2 { font-size: 24px; }
+            .deal-section .deal-content .deal-price .saving { font-size: 20px; }
+            .deal-section .deal-wrap { padding: 24px 18px; }
             .card-actions { flex-direction: column; }
-            .card-actions button { padding: 8px 5px; font-size: 8px; }
+            .card-actions button { padding: 10px 5px; font-size: 9px; }
             .category-grid { grid-template-columns: 1fr; }
             .promo-wrapper { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; gap: 24px; }
@@ -1359,7 +1416,7 @@
             .trust-bar { grid-template-columns: 1fr 1fr; gap: 12px; }
             .why-us-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
             .review-card { padding: 14px 16px; }
-            .review-media .media-item { width: 64px; height: 64px; }
+            .review-media .media-item { width: 60px; height: 60px; }
         }
     </style>
 </head>
@@ -1377,9 +1434,7 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="#" onclick="showPage('home')" class="active" data-page="home">HOME</a></li>
                 <li><a href="#" onclick="showPage('shop')" data-page="shop">SHOP</a></li>
-                <li><a href="#" onclick="filterByCategory('for-him')" data-page="for-him">FOR HIM</a></li>
-                <li><a href="#" onclick="filterByCategory('for-her')" data-page="for-her">FOR HER</a></li>
-                <li><a href="#" onclick="filterByCategory('testers')" data-page="testers">TESTERS</a></li>
+                <li><a href="#" onclick="filterByCategory('all')" data-page="shop">PERFUMES</a></li>
                 <li><a href="#" onclick="showPage('about')" data-page="about">ABOUT</a></li>
                 <li><a href="#" onclick="showPage('contact')" data-page="contact">CONTACT</a></li>
             </ul>
@@ -1404,8 +1459,11 @@
         <section id="page-home" class="page-view active" aria-label="Homepage">
             <article>
                 <h1 class="sr-only">JAMQRA LUXE – Premium Fragrances</h1>
+
+                <!-- Hero -->
                 <div class="hero">
                     <div class="hero-content">
+                        <div class="deal-badge-hero">🎁 Buy 2 Get Rs. 500 OFF</div>
                         <span class="sub-tag">JAMQRA LUXE</span>
                         <h2 class="hero-title">FEEL ELEGANT.<span class="italic">Feel You.</span></h2>
                         <p class="hero-desc">Premium Fragrances for Him &amp; Her</p>
@@ -1414,7 +1472,10 @@
                             <span class="price-new">Rs. 2,000</span>
                             <span class="badge-discount">20% OFF</span>
                         </div>
-                        <div style="margin-bottom:28px;"><button class="btn-primary" onclick="showPage('shop')">BUY NOW</button></div>
+                        <div style="margin-bottom:28px;">
+                            <button class="btn-primary" onclick="showPage('shop')">SHOP NOW</button>
+                            <button class="btn-secondary" onclick="document.getElementById('dealSection').scrollIntoView({behavior:'smooth'})" style="margin-left:12px;">VIEW DEAL</button>
+                        </div>
                         <ul class="hero-checklist">
                             <li>Long Lasting</li>
                             <li>Premium Quality</li>
@@ -1428,6 +1489,7 @@
                     </div>
                 </div>
 
+                <!-- Trust Bar -->
                 <div class="trust-bar">
                     <div class="trust-item"><span class="trust-icon">🚚</span><div><strong>FREE DELIVERY</strong><p>All Over Pakistan</p></div></div>
                     <div class="trust-item"><span class="trust-icon">🛡️</span><div><strong>100% ORIGINAL</strong><p>Premium Quality</p></div></div>
@@ -1435,53 +1497,39 @@
                     <div class="trust-item"><span class="trust-icon">💵</span><div><strong>CASH ON DELIVERY</strong><p>Available</p></div></div>
                 </div>
 
-                <div class="section-padding">
-                    <h2 class="section-title">SHOP BY CATEGORY</h2>
-                    <div class="category-grid">
-                        <div class="category-card" onclick="filterByCategory('for-him')">
-                            <div><h3>FOR HIM</h3><p>Bold &amp; Confident</p><button class="btn-secondary" onclick="event.stopPropagation(); filterByCategory('for-him')">SHOP NOW</button></div>
-                            <img src="images/category-him.jpg" alt="For Him Perfume" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2290%22 height=%22120%22%3E%3Crect fill=%22%23f0f0f0%22 width=%2290%22 height=%22120%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2212%22%3ENo%20Image%3C/text%3E%3C/svg%3E'">
+                <!-- DEAL SECTION — Buy 2 Get Rs. 500 OFF -->
+                <div class="deal-section" id="dealSection">
+                    <div class="deal-wrap">
+                        <div class="deal-content">
+                            <div class="deal-tag">🔥 Limited Time Offer</div>
+                            <h2>Buy 2 Perfumes</h2>
+                            <p class="deal-desc">Get <strong>Rs. 500 OFF</strong> on your total bill</p>
+                            <div class="deal-price">
+                                <span class="normal">Regular: Rs. 4,000</span>
+                                <span class="saving">You Pay: Rs. 3,500</span>
+                                <span class="badge">Save Rs. 500</span>
+                            </div>
+                            <button class="btn-primary btn-gold" onclick="showPage('shop')">SHOP NOW</button>
                         </div>
-                        <div class="category-card" onclick="filterByCategory('for-her')">
-                            <div><h3>FOR HER</h3><p>Elegant &amp; Graceful</p><button class="btn-secondary" onclick="event.stopPropagation(); filterByCategory('for-her')">SHOP NOW</button></div>
-                            <img src="images/hero-bottle.jpg" alt="For Her Perfume" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2290%22 height=%22120%22%3E%3Crect fill=%22%23f0f0f0%22 width=%2290%22 height=%22120%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2212%22%3ENo%20Image%3C/text%3E%3C/svg%3E'">
-                        </div>
-                        <div class="category-card" onclick="filterByCategory('all')">
-                            <div><h3>BEST SELLERS</h3><p>Our Most Loved</p><button class="btn-secondary" onclick="event.stopPropagation(); filterByCategory('all')">SHOP NOW</button></div>
-                            <img src="images/category-gold.jpg" alt="Best Seller Perfume" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2290%22 height=%22120%22%3E%3Crect fill=%22%23f0f0f0%22 width=%2290%22 height=%22120%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2212%22%3ENo%20Image%3C/text%3E%3C/svg%3E'">
+                        <div class="deal-visual">
+                            <div class="mini-bottle pink"></div>
+                            <span class="plus">+</span>
+                            <div class="mini-bottle blue"></div>
+                            <span class="equals">=</span>
+                            <div class="mini-bottle gold"></div>
+                            <span class="saving-text">Rs. 500 OFF</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="section-padding" style="padding-top:0;">
-                    <div class="promo-wrapper">
-                        <div class="promo-card">
-                            <div class="promo-card-content">
-                                <span class="sub-tag">SPECIAL OFFER</span>
-                                <h2>20% OFF</h2>
-                                <p>ON ALL PERFUMES</p>
-                                <button class="btn-primary" onclick="showPage('shop')">SHOP NOW</button>
-                            </div>
-                            <img src="images/hero-bottle.jpg" alt="Special Offer" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22110%22 height=%22110%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22110%22 height=%22110%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2212%22%3ENo%20Image%3C/text%3E%3C/svg%3E'">
-                        </div>
-                        <div class="promo-card">
-                            <div class="promo-card-content">
-                                <span class="sub-tag">TESTER OFFER</span>
-                                <h2>6 TESTERS</h2>
-                                <p>ONLY RS. 500</p>
-                                <button class="btn-primary" onclick="buyNow('jamqra-testers')">BUY NOW</button>
-                            </div>
-                            <img src="images/collection-all.jpg" alt="Tester Pack" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22110%22 height=%22110%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22110%22 height=%22110%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2212%22%3ENo%20Image%3C/text%3E%3C/svg%3E'">
-                        </div>
-                    </div>
-                </div>
-
+                <!-- Products Section -->
                 <div class="section-padding" style="background:#FFF; border-top:1px solid var(--border-color);">
                     <h2 class="section-title">OUR SIGNATURE FRAGRANCES</h2>
                     <p class="section-sub">Timeless scents crafted for every mood</p>
                     <div class="product-grid" id="homeProductGrid"></div>
                 </div>
 
+                <!-- Why Choose Us -->
                 <div class="section-padding why-us-bg">
                     <h2 class="section-title">WHY CHOOSE JAMQRA LUXE?</h2>
                     <div class="why-us-grid">
@@ -1491,19 +1539,37 @@
                         <div class="why-card"><span>🇵🇰</span><h4>MADE FOR PAKISTAN</h4><p>Loved Nationwide</p></div>
                     </div>
                 </div>
+
+                <!-- Extra: Testimonial / Brand Story -->
+                <div class="section-padding" style="background:var(--bg-primary);">
+                    <div style="max-width:700px; margin:0 auto; text-align:center;">
+                        <span class="sub-tag">Our Promise</span>
+                        <h2 style="font-family:var(--font-serif); font-size:28px; margin:12px 0;">Crafted with Passion</h2>
+                        <p style="color:var(--text-muted); font-size:15px; line-height:1.8;">
+                            Every JAMQRA LUXE fragrance is a blend of tradition and modern artistry. 
+                            We use the finest ingredients to create scents that linger, that speak without words, 
+                            and that make you feel elegant, confident, and truly yourself.
+                        </p>
+                        <div style="margin-top:20px; display:flex; justify-content:center; gap:30px; flex-wrap:wrap;">
+                            <div><span style="font-size:28px; font-weight:700; color:var(--accent-rose);">100+</span><br><span style="font-size:12px; color:var(--text-muted);">Happy Customers</span></div>
+                            <div><span style="font-size:28px; font-weight:700; color:var(--accent-rose);">4.8★</span><br><span style="font-size:12px; color:var(--text-muted);">Average Rating</span></div>
+                            <div><span style="font-size:28px; font-weight:700; color:var(--accent-rose);">10+</span><br><span style="font-size:12px; color:var(--text-muted);">Fragrances</span></div>
+                        </div>
+                    </div>
+                </div>
             </article>
         </section>
 
         <!-- SHOP PAGE -->
         <section id="page-shop" class="page-view" aria-label="Shop all products">
             <div class="section-padding">
-                <h1 class="section-title">ALL PRODUCTS</h1>
-                <div class="shop-controls">
+                <h1 class="section-title">OUR PERFUMES</h1>
+                <div class="shop-controls" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:32px; flex-wrap:wrap; gap:14px;">
                     <div class="filter-tabs">
                         <button class="tab-btn active" onclick="filterProducts('all', this)">All</button>
-                        <button class="tab-btn" onclick="filterProducts('for-him', this)">For Him</button>
                         <button class="tab-btn" onclick="filterProducts('for-her', this)">For Her</button>
-                        <button class="tab-btn" onclick="filterProducts('testers', this)">Testers</button>
+                        <button class="tab-btn" onclick="filterProducts('for-him', this)">For Him</button>
+                        <button class="tab-btn" onclick="filterProducts('unisex', this)">Unisex</button>
                     </div>
                     <select id="sortSelect" onchange="sortProducts()" class="sort-dropdown">
                         <option value="featured">Featured</option>
@@ -1544,8 +1610,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="customerEmail">Email Address *</label>
-                            <input type="email" id="customerEmail" required placeholder="customer@example.com">
+                            <label for="customerEmail">Email Address (Optional)</label>
+                            <input type="email" id="customerEmail" placeholder="customer@example.com">
                         </div>
                         <div class="form-group">
                             <label for="city">City *</label>
@@ -1571,6 +1637,9 @@
                         <hr style="margin:14px 0; border:none; border-top:1px solid var(--border-color);">
                         <div class="summary-row" style="font-size:18px; font-weight:bold;"><span>Total</span><span id="totalVal">Rs. 0</span></div>
                         <div class="payment-method-badge">💳 Payment Method: <strong>CASH ON DELIVERY</strong></div>
+                        <div style="margin-top:12px; background:var(--accent-soft-pink); padding:10px; border-radius:4px; font-size:12px; text-align:center; border:1px dashed var(--accent-rose);">
+                            🎁 <strong>Buy 2 get Rs. 500 OFF</strong> — Add 2 perfumes to your cart!
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1582,7 +1651,7 @@
                 <div class="confirmation-box">
                     <span class="success-icon">✅</span>
                     <h1>ORDER PLACED!</h1>
-                    <p>Thank you for your order. We have sent a confirmation email to your inbox.</p>
+                    <p>Thank you for your order. We will contact you shortly.</p>
                     <div class="order-ref-card" id="confirmationDetails"></div>
                     <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
                         <button class="btn-primary" onclick="showPage('shop')">CONTINUE SHOPPING</button>
@@ -1644,9 +1713,6 @@
             <div class="footer-col"><h4>QUICK LINKS</h4><ul>
                 <li><a onclick="showPage('home')">Home</a></li>
                 <li><a onclick="showPage('shop')">Shop</a></li>
-                <li><a onclick="filterByCategory('for-him')">For Him</a></li>
-                <li><a onclick="filterByCategory('for-her')">For Her</a></li>
-                <li><a onclick="filterByCategory('testers')">Testers</a></li>
                 <li><a onclick="showPage('about')">About Us</a></li>
                 <li><a onclick="showPage('contact')">Contact</a></li>
             </ul></div>
@@ -1673,7 +1739,7 @@
         </div>
     </footer>
 
-    <!-- FLOATING WHATSAPP SUPPORT BUTTON -->
+    <!-- WHATSAPP SUPPORT -->
     <a href="https://wa.me/923704558965?text=Hello%20JAMQRA%20LUXE%2C%20I%20have%20a%20question%20about%20your%20perfumes." 
        class="whatsapp-float" 
        target="_blank" 
@@ -1703,22 +1769,50 @@
     }
     </script>
 
-    <!-- ============================================================
-    JAVASCRIPT — Product Catalog, Cart, Reviews, Formspree Integration
-    ============================================================ -->
     <script>
         // ============================================================
-        // PRODUCT CATALOG
+        // PRODUCT CATALOG — Only 3 Products
         // ============================================================
         const PRODUCTS = [
-            { id: "jamqra-rose", name: "JAMQRA Rose", category: "for-her", price: 2000, originalPrice: 2500, badge: "20% OFF", image: "images/jamqra-rose.jpg", description: "Fresh blooming Bulgarian Rose with soft floral and amber notes.", topNotes: "Peony, Peach", heartNotes: "Bulgarian Rose, Jasmine", baseNotes: "Musk, Vanilla" },
-            { id: "jamqra-noir", name: "JAMQRA Noir", category: "for-him", price: 2000, originalPrice: 2500, badge: "20% OFF", image: "images/jamqra-noir.jpg", description: "A bold, magnetic aquatic-woody combination for modern men.", topNotes: "Bergamot, Fresh Citrus", heartNotes: "Cedarwood, Aquatic Accords", baseNotes: "Dark Amber, Oakmoss" },
-            { id: "jamqra-oud", name: "JAMQRA Frosted Oud", category: "for-him", price: 2000, originalPrice: 2500, badge: "20% OFF", image: "images/jamqra-oud.jpg", description: "Exotic warm amber and rich oriental oud for long-lasting luxury.", topNotes: "Saffron, Nutmeg", heartNotes: "Agarwood (Oud)", baseNotes: "Sandalwood, Golden Amber" },
-            { id: "jamqra-box-set", name: "JAMQRA Box Edition", category: "for-him", price: 2200, originalPrice: 2800, badge: "BEST SELLER", image: "images/jamqra-box-set.jpg", description: "Signature 50ml bottle packaged inside a premium velvet luxury gift box.", topNotes: "Rich Spices", heartNotes: "Woody Accord", baseNotes: "Musk & Amber" },
-            { id: "jamqra-bloom", name: "JAMQRA Bloom", category: "for-her", price: 2000, originalPrice: 2500, badge: "20% OFF", image: "images/jamqra-bloom.jpg", description: "Fresh, airy, and joyful floral bouquet with a touch of sweetness.", topNotes: "Citrus, Pear", heartNotes: "Jasmine, Lily", baseNotes: "Musk, Cedar" },
-            { id: "jamqra-elite", name: "JAMQRA Elite", category: "for-him", price: 2000, originalPrice: 2500, badge: "20% OFF", image: "images/jamqra-elite.jpg", description: "Sophisticated, refined, and powerful leather-woody fragrance.", topNotes: "Lavender, Bergamot", heartNotes: "Iris, Violet", baseNotes: "Leather, Oakmoss" },
-            { id: "jamqra-pearl", name: "JAMQRA Pearl", category: "for-her", price: 2000, originalPrice: 2500, badge: "20% OFF", image: "images/jamqra-pearl.jpg", description: "Soft, luminous, and delicate with a powdery floral finish.", topNotes: "Pear, Freesia", heartNotes: "Rose, Peony", baseNotes: "Musk, Vanilla" },
-            { id: "jamqra-testers", name: "Discovery Tester Pack (6 Pack)", category: "testers", price: 500, originalPrice: 1000, badge: "50% OFF", image: "images/jamqra-testers.jpg", description: "Try 6 miniature sample vials before buying the full 50ml bottle.", topNotes: "Mixed Sampler", heartNotes: "Mixed Sampler", baseNotes: "Mixed Sampler" }
+            { 
+                id: "jamqra-rose", 
+                name: "JAMQRA LUXE ROSE", 
+                category: "for-her", 
+                price: 2000, 
+                originalPrice: 2500, 
+                badge: "20% OFF", 
+                image: "images/jamqra-rose.jpg", 
+                description: "Fresh blooming Bulgarian Rose with soft floral and amber notes. Perfect for women who love elegance.", 
+                topNotes: "Peony, Peach", 
+                heartNotes: "Bulgarian Rose, Jasmine", 
+                baseNotes: "Musk, Vanilla" 
+            },
+            { 
+                id: "jamqra-golden", 
+                name: "JAMQRA LUXE GOLDEN", 
+                category: "unisex", 
+                price: 2000, 
+                originalPrice: 2500, 
+                badge: "20% OFF", 
+                image: "images/jamqra-golden.jpg", 
+                description: "Warm amber and rich vanilla with a touch of spice. A unisex masterpiece for all occasions.", 
+                topNotes: "Amber, Vanilla", 
+                heartNotes: "Cinnamon, Clove", 
+                baseNotes: "Sandalwood, Musk" 
+            },
+            { 
+                id: "jamqra-blue", 
+                name: "JAMQRA LUXE BLUE", 
+                category: "for-him", 
+                price: 2000, 
+                originalPrice: 2500, 
+                badge: "20% OFF", 
+                image: "images/jamqra-blue.jpg", 
+                description: "A bold, magnetic aquatic-woody combination for modern men who command attention.", 
+                topNotes: "Bergamot, Fresh Citrus", 
+                heartNotes: "Cedarwood, Aquatic Accords", 
+                baseNotes: "Dark Amber, Oakmoss" 
+            }
         ];
 
         // ============================================================
@@ -1738,73 +1832,56 @@
         // ============================================================
         function generateSampleReviews(product) {
             if (getProductReviews(product.id).length > 0) return;
-            const names = ['Ayesha Khan', 'Bilal Ahmed', 'Fatima Noor', 'Hamza Ali', 'Sana Tariq', 'Usman Riaz', 'Zara Malik', 'Omar Farooq', 'Hira Shah', 'Saad Hussain', 'Mehwish Akhtar', 'Ali Raza', 'Nadia Anwar', 'Fahad Mirza', 'Iqra Asif', 'Danish Ali', 'Sadia Khan', 'Zain Ahmed', 'Mahnoor Sheikh', 'Rayan Malik'];
-            const reviewPool = {
-                'for-her': [
-                    { name: 'Ayesha Khan', rating: 5, text: 'Absolutely love this perfume! The Bulgarian rose is so rich and elegant. It lasts all day on my skin and I get compliments everywhere I go. Definitely my new signature scent.' },
-                    { name: 'Fatima Noor', rating: 5, text: 'This is the most beautiful rose fragrance I\'ve ever worn. It\'s not too sweet, just perfectly balanced. The packaging is also stunning – feels like a luxury gift.' },
-                    { name: 'Sana Tariq', rating: 4, text: 'Really lovely floral scent with a warm vanilla dry-down. It projects well and stays for about 6-7 hours. Only giving 4 stars because I wish it lasted a bit longer.' },
-                    { name: 'Zara Malik', rating: 5, text: 'I bought this after smelling it on my friend and I\'m obsessed. It\'s feminine, soft, and romantic. Perfect for weddings and special occasions.' },
-                    { name: 'Hira Shah', rating: 4, text: 'Beautiful fragrance! The peony and peach top notes are so fresh and inviting. It\'s a spring/summer dream. Longevity is good, not overpowering.' },
-                    { name: 'Mehwish Akhtar', rating: 5, text: 'This perfume is pure elegance in a bottle. The rose is so natural and the vanilla base makes it incredibly smooth. I\'ve already ordered a backup.' },
-                    { name: 'Iqra Asif', rating: 5, text: 'I\'m a huge fan of rose scents and this one is top-tier. It\'s sophisticated, not cloying, and the sillage is beautiful. Received so many compliments at work!' },
-                    { name: 'Nadia Anwar', rating: 5, text: 'The packaging alone made me feel like I bought something really special. The perfume itself is gorgeous – soft, powdery rose with a hint of sweetness.' },
-                    { name: 'Mahnoor Sheikh', rating: 4, text: 'Really pretty scent. It\'s very feminine and wearable. I think it\'s great for everyday use. Could be a bit stronger on projection but overall very nice.' },
-                    { name: 'Sadia Khan', rating: 5, text: 'This is my new go-to for date nights. It\'s romantic, elegant, and just intoxicating. The longevity is fantastic – I can still smell it the next morning.' },
-                    { name: 'Zain Ahmed', rating: 5, text: 'Bought this for my wife and she absolutely loves it. The rose is so refined and classy. She gets compliments every time she wears it.' },
-                    { name: 'Rayan Malik', rating: 4, text: 'Great quality perfume. The rose note is very authentic and not synthetic. It\'s a safe blind buy for anyone who loves floral fragrances.' },
-                    { name: 'Danish Ali', rating: 5, text: 'My wife\'s favorite. She says it makes her feel elegant and confident. The scent is long-lasting and the bottle looks gorgeous on her vanity.' }
+
+            const reviewPools = {
+                'jamqra-rose': [
+                    { name: 'Ayesha Khan', rating: 5, text: 'Absolutely love this perfume! The Bulgarian rose is so rich and elegant. It lasts all day on my skin and I get compliments everywhere I go.' },
+                    { name: 'Fatima Noor', rating: 5, text: 'This is the most beautiful rose fragrance I\'ve ever worn. It\'s not too sweet, just perfectly balanced.' },
+                    { name: 'Sana Tariq', rating: 4, text: 'Really lovely floral scent with a warm vanilla dry-down. It projects well and stays for about 6-7 hours.' },
+                    { name: 'Zara Malik', rating: 5, text: 'I bought this after smelling it on my friend and I\'m obsessed. It\'s feminine, soft, and romantic.' },
+                    { name: 'Hira Shah', rating: 4, text: 'Beautiful fragrance! The peony and peach top notes are so fresh and inviting. It\'s a spring/summer dream.' },
+                    { name: 'Mehwish Akhtar', rating: 5, text: 'This perfume is pure elegance in a bottle. The rose is so natural and the vanilla base makes it incredibly smooth.' },
+                    { name: 'Iqra Asif', rating: 5, text: 'I\'m a huge fan of rose scents and this one is top-tier. It\'s sophisticated, not cloying, and the sillage is beautiful.' },
+                    { name: 'Nadia Anwar', rating: 5, text: 'The packaging alone made me feel like I bought something really special. The perfume itself is gorgeous.' },
+                    { name: 'Mahnoor Sheikh', rating: 4, text: 'Really pretty scent. It\'s very feminine and wearable. I think it\'s great for everyday use.' },
+                    { name: 'Sadia Khan', rating: 5, text: 'This is my new go-to for date nights. It\'s romantic, elegant, and just intoxicating.' },
+                    { name: 'Zain Ahmed', rating: 5, text: 'Bought this for my wife and she absolutely loves it. The rose is so refined and classy.' },
+                    { name: 'Rayan Malik', rating: 4, text: 'Great quality perfume. The rose note is very authentic and not synthetic.' },
+                    { name: 'Danish Ali', rating: 5, text: 'My wife\'s favorite. She says it makes her feel elegant and confident. The scent is long-lasting.' }
                 ],
-                'for-him': [
-                    { name: 'Bilal Ahmed', rating: 5, text: 'This is a beast of a fragrance. The aquatic-woody blend is perfect for the Pakistani climate. It\'s fresh yet has that masculine depth. I get tons of compliments.' },
-                    { name: 'Hamza Ali', rating: 5, text: 'Absolutely incredible scent. The cedarwood and aquatic notes make it so unique. It\'s bold without being too loud. Perfect for both office and evening wear.' },
-                    { name: 'Usman Riaz', rating: 4, text: 'Really good fragrance with excellent longevity. The bergamot opening is so refreshing. I gave 4 stars because I prefer something a bit more woody, but this is top quality.' },
-                    { name: 'Omar Farooq', rating: 5, text: 'This is my signature scent now. The combination of fresh citrus and dark amber is just perfect. It\'s sophisticated, modern, and very masculine.' },
-                    { name: 'Saad Hussain', rating: 5, text: 'I\'ve been wearing this for a few weeks and I\'m blown away. The projection is amazing and it lasts on my skin for 10+ hours. Worth every penny.' },
-                    { name: 'Ali Raza', rating: 4, text: 'Very nice fragrance with a great price point. The aquatic notes are very clean and refreshing. I\'d say it\'s a crowd-pleaser for sure.' },
-                    { name: 'Fahad Mirza', rating: 5, text: 'This is the kind of scent that gets you noticed. It\'s bold, confident, and magnetic. Perfect for special occasions or when you want to make an impression.' },
-                    { name: 'Zain Ahmed', rating: 5, text: 'I\'ve tried many fragrances and this one stands out. The balance between fresh and woody is masterful. It\'s become my daily driver.' },
-                    { name: 'Danish Ali', rating: 5, text: 'Excellent fragrance. The longevity is incredible and the scent profile is very unique. I\'ve gotten so many compliments from friends and colleagues.' },
-                    { name: 'Rayan Malik', rating: 4, text: 'Great value for money. The scent is sophisticated and modern. I\'d say it\'s versatile enough for any occasion.' },
-                    { name: 'Saad Hussain', rating: 5, text: 'This is one of the best fragrances I\'ve ever bought. It\'s a perfect balance of freshness and masculinity. The performance is top-notch.' },
-                    { name: 'Omar Farooq', rating: 5, text: 'I love everything about this perfume. The bottle looks premium and the scent is just incredible. It\'s a must-have for any man who appreciates quality.' },
-                    { name: 'Bilal Ahmed', rating: 5, text: 'Hands down my favorite purchase this year. The aquatic-woody blend is so well crafted. It\'s fresh, masculine, and lasts all day. Highly recommend.' }
-                ],
-                'bestseller': [
-                    { name: 'Ayesha Khan', rating: 5, text: 'This is a masterpiece. The amber and vanilla are so warm and inviting. It\'s unisex in the best way. My husband and I both wear it!' },
-                    { name: 'Bilal Ahmed', rating: 5, text: 'Pure luxury. The amber note is so rich and the vanilla adds a beautiful sweetness. It\'s perfect for winter evenings.' },
-                    { name: 'Fatima Noor', rating: 5, text: 'This fragrance is absolutely stunning. It\'s warm, sensual, and incredibly sophisticated. I get stopped and asked what I\'m wearing all the time.' },
-                    { name: 'Hamza Ali', rating: 4, text: 'Really lovely scent. The cinnamon and clove add a nice spice to the amber. It\'s very unique and definitely a compliment-getter.' },
+                'jamqra-golden': [
+                    { name: 'Bilal Ahmed', rating: 5, text: 'This is a masterpiece. The amber and vanilla are so warm and inviting. It\'s unisex in the best way.' },
+                    { name: 'Ayesha Khan', rating: 5, text: 'Pure luxury. The amber note is so rich and the vanilla adds a beautiful sweetness. Perfect for winter evenings.' },
+                    { name: 'Fatima Noor', rating: 5, text: 'This fragrance is absolutely stunning. It\'s warm, sensual, and incredibly sophisticated.' },
+                    { name: 'Hamza Ali', rating: 4, text: 'Really lovely scent. The cinnamon and clove add a nice spice to the amber. It\'s very unique.' },
                     { name: 'Usman Riaz', rating: 5, text: 'This is a masterpiece. The sandalwood and musk base is so smooth. It\'s elegant, luxurious, and leaves a beautiful trail.' },
-                    { name: 'Zara Malik', rating: 5, text: 'I love how versatile this is. It works for both men and women equally well. The quality is exceptional for the price.' },
-                    { name: 'Omar Farooq', rating: 5, text: 'Incredible fragrance with amazing longevity. The amber is so rich and the vanilla makes it addictive. I\'m buying another bottle.' },
-                    { name: 'Sana Tariq', rating: 4, text: 'Very nice and well-balanced. The spice notes are subtle but present. It\'s warm and comforting – perfect for cold weather.' },
-                    { name: 'Ali Raza', rating: 5, text: 'This is a high-end fragrance at an affordable price. The quality is outstanding and the scent is truly unique.' },
-                    { name: 'Mehwish Akhtar', rating: 5, text: 'I\'m obsessed with this scent. It\'s sophisticated, warm, and lasts forever. I\'ve already recommended it to all my friends.' },
-                    { name: 'Fahad Mirza', rating: 5, text: 'Absolutely phenomenal. The balance between amber and vanilla is perfect. It\'s a fragrance that demands attention.' },
-                    { name: 'Iqra Asif', rating: 5, text: 'This is my favorite perfume in my collection. It\'s elegant, warm, and perfect for any occasion. The packaging is also stunning.' },
-                    { name: 'Danish Ali', rating: 4, text: 'Great scent with excellent performance. I\'d say it\'s a bit more on the sweet side but still very masculine. Love it.' }
+                    { name: 'Zara Malik', rating: 5, text: 'I love how versatile this is. It works for both men and women equally well.' },
+                    { name: 'Omar Farooq', rating: 5, text: 'Incredible fragrance with amazing longevity. The amber is so rich and the vanilla makes it addictive.' },
+                    { name: 'Sana Tariq', rating: 4, text: 'Very nice and well-balanced. The spice notes are subtle but present. It\'s warm and comforting.' },
+                    { name: 'Ali Raza', rating: 5, text: 'This is a high-end fragrance at an affordable price. The quality is outstanding.' },
+                    { name: 'Mehwish Akhtar', rating: 5, text: 'I\'m obsessed with this scent. It\'s sophisticated, warm, and lasts forever.' },
+                    { name: 'Fahad Mirza', rating: 5, text: 'Absolutely phenomenal. The balance between amber and vanilla is perfect.' },
+                    { name: 'Iqra Asif', rating: 5, text: 'This is my favorite perfume in my collection. It\'s elegant, warm, and perfect for any occasion.' },
+                    { name: 'Danish Ali', rating: 4, text: 'Great scent with excellent performance. I\'d say it\'s a bit more on the sweet side but still very masculine.' }
                 ],
-                'testers': [
-                    { name: 'Ayesha Khan', rating: 5, text: 'This tester pack is such a great idea! I got to try 6 different scents and now I know exactly which one to buy. The quality of the testers is also very good.' },
-                    { name: 'Bilal Ahmed', rating: 4, text: 'Very useful pack. The testers are generous in size and the variety is excellent. It helped me decide on my favorite.' },
-                    { name: 'Fatima Noor', rating: 5, text: 'I love this concept! Now I can try all the scents before committing to a full bottle. The testers are well made and the packaging is cute.' },
-                    { name: 'Hamza Ali', rating: 4, text: 'Good collection of samples. It\'s a smart way to discover new fragrances. The vials are nice and the scents are all very different.' },
-                    { name: 'Usman Riaz', rating: 5, text: 'Perfect for anyone who wants to explore the JAMQRA range. Each tester is a good size and the selection covers all the best scents.' },
-                    { name: 'Zara Malik', rating: 5, text: 'I absolutely love this pack! I\'ve found my new signature scent thanks to these testers. Great value for money.' },
-                    { name: 'Omar Farooq', rating: 4, text: 'Nice variety of scents. The testers are well packaged and easy to use. It\'s a great way to try before you buy.' },
-                    { name: 'Sana Tariq', rating: 5, text: 'This is such a thoughtful offering. I was able to sample all the perfumes and pick the perfect one for me. Highly recommend!' },
-                    { name: 'Ali Raza', rating: 5, text: 'Brilliant idea. The testers are high quality and the scents are all beautiful. It made my decision so much easier.' },
-                    { name: 'Mehwish Akhtar', rating: 5, text: 'I\'m so glad I got this pack. I discovered scents I wouldn\'t have considered otherwise. The presentation is also lovely.' },
-                    { name: 'Fahad Mirza', rating: 4, text: 'Good set of testers. The variety is great and each one is a decent size. Helped me find my favorite fragrance.' },
-                    { name: 'Iqra Asif', rating: 5, text: 'Such a great concept! I\'ve already bought two full bottles based on the testers. The quality of the samples is excellent.' }
+                'jamqra-blue': [
+                    { name: 'Bilal Ahmed', rating: 5, text: 'This is a beast of a fragrance. The aquatic-woody blend is perfect for the Pakistani climate.' },
+                    { name: 'Hamza Ali', rating: 5, text: 'Absolutely incredible scent. The cedarwood and aquatic notes make it so unique. It\'s bold without being too loud.' },
+                    { name: 'Usman Riaz', rating: 4, text: 'Really good fragrance with excellent longevity. The bergamot opening is so refreshing.' },
+                    { name: 'Omar Farooq', rating: 5, text: 'This is my signature scent now. The combination of fresh citrus and dark amber is just perfect.' },
+                    { name: 'Saad Hussain', rating: 5, text: 'I\'ve been wearing this for a few weeks and I\'m blown away. The projection is amazing and it lasts on my skin for 10+ hours.' },
+                    { name: 'Ali Raza', rating: 4, text: 'Very nice fragrance with a great price point. The aquatic notes are very clean and refreshing.' },
+                    { name: 'Fahad Mirza', rating: 5, text: 'This is the kind of scent that gets you noticed. It\'s bold, confident, and magnetic.' },
+                    { name: 'Zain Ahmed', rating: 5, text: 'I\'ve tried many fragrances and this one stands out. The balance between fresh and woody is masterful.' },
+                    { name: 'Danish Ali', rating: 5, text: 'Excellent fragrance. The longevity is incredible and the scent profile is very unique.' },
+                    { name: 'Rayan Malik', rating: 4, text: 'Great value for money. The scent is sophisticated and modern. I\'d say it\'s versatile enough for any occasion.' },
+                    { name: 'Saad Hussain', rating: 5, text: 'This is one of the best fragrances I\'ve ever bought. It\'s a perfect balance of freshness and masculinity.' },
+                    { name: 'Omar Farooq', rating: 5, text: 'I love everything about this perfume. The bottle looks premium and the scent is just incredible.' },
+                    { name: 'Bilal Ahmed', rating: 5, text: 'Hands down my favorite purchase this year. The aquatic-woody blend is so well crafted. It\'s fresh, masculine, and lasts all day.' }
                 ]
             };
-            let pool = reviewPool['for-her'];
-            if (product.category === 'for-him') pool = reviewPool['for-him'];
-            else if (product.category === 'bestseller') pool = reviewPool['bestseller'];
-            else if (product.category === 'testers') pool = reviewPool['testers'];
 
+            const pool = reviewPools[product.id] || reviewPools['jamqra-rose'];
             const selected = [];
             const shuffled = [...pool].sort(() => Math.random() - 0.5);
             const count = Math.min(13, shuffled.length);
@@ -1827,7 +1904,7 @@
                 const daysAgo = Math.floor(Math.random() * 60);
                 const date = new Date(); date.setDate(date.getDate() - daysAgo);
                 selected.push({
-                    name: extra.name,
+                    name: extra.name + ' (sample)',
                     rating: extra.rating,
                     text: extra.text,
                     date: date.toISOString().split('T')[0],
@@ -1835,21 +1912,6 @@
                     images: [],
                     videos: []
                 });
-            }
-            // Add sample images to a few reviews
-            const sampleImages = ['images/jamqra-rose.jpg', 'images/jamqra-noir.jpg', 'images/jamqra-oud.jpg', 'images/jamqra-box-set.jpg', 'images/jamqra-bloom.jpg', 'images/jamqra-elite.jpg', 'images/jamqra-pearl.jpg', 'images/jamqra-testers.jpg'];
-            const indicesWithImages = [];
-            for (let i = 0; i < Math.min(4, selected.length); i++) {
-                let idx; do { idx = Math.floor(Math.random() * selected.length); } while (indicesWithImages.includes(idx));
-                indicesWithImages.push(idx);
-                const numImages = 1 + Math.floor(Math.random() * 2);
-                const imgs = [];
-                for (let j = 0; j < numImages; j++) imgs.push(sampleImages[Math.floor(Math.random() * sampleImages.length)]);
-                selected[idx].images = imgs;
-            }
-            if (selected.length > 2) {
-                const vidIdx = Math.floor(Math.random() * selected.length);
-                selected[vidIdx].videos = [{ thumbnail: sampleImages[Math.floor(Math.random() * sampleImages.length)], url: 'https://www.w3schools.com/html/mov_bbb.mp4', poster: sampleImages[Math.floor(Math.random() * sampleImages.length)] }];
             }
             setProductReviews(product.id, selected);
         }
@@ -1879,7 +1941,7 @@
         }
 
         // ============================================================
-        // PRODUCT DETAIL RENDER
+        // PRODUCT DETAIL RENDER (with review submission)
         // ============================================================
         function openProductDetail(productId) {
             const p = PRODUCTS.find(item => item.id === productId);
@@ -1909,14 +1971,39 @@
                     });
                     mediaHTML += '</div>';
                 }
-                if (r.videos && r.videos.length > 0) {
-                    r.videos.forEach(v => {
-                        mediaHTML += `<div class="review-media"><div class="media-item" onclick="event.stopPropagation(); openLightbox('video','${v.url}','${v.poster || ''}')"><img src="${v.poster || v.thumbnail || 'images/hero-bottle.jpg'}" alt="Video thumbnail" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22%3E%3Crect fill=%22%23f0f0f0%22 width=%2280%22 height=%2280%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-family=%22sans-serif%22 font-size=%2210%22%3ENo%20Image%3C/text%3E%3C/svg%3E'"><span class="play-icon">▶</span></div></div>`;
-                    });
-                }
                 reviewsHTML += `<div class="review-card"><div class="review-header"><div><span class="name">${r.name}</span>${verifiedHTML}</div><span class="review-date">${r.date || 'Recent'}</span></div><div class="review-stars">${starHTML}</div><div class="review-text">${r.text}</div>${mediaHTML}</div>`;
             });
             if (reviews.length === 0) reviewsHTML = `<p style="color:var(--text-muted);font-size:13px;">No reviews yet. Be the first to review this product!</p>`;
+
+            const reviewFormHTML = `
+                <div class="review-form">
+                    <h3 style="font-family:var(--font-serif); margin-bottom:12px;">Write a Review</h3>
+                    <form id="reviewForm">
+                        <div class="form-group">
+                            <label for="reviewName">Your Name *</label>
+                            <input type="text" id="reviewName" required placeholder="e.g. Ali Khan">
+                        </div>
+                        <div class="form-group">
+                            <label>Rating *</label>
+                            <div class="star-rating" id="starRating">
+                                <span data-star="1">★</span><span data-star="2">★</span>
+                                <span data-star="3">★</span><span data-star="4">★</span>
+                                <span data-star="5">★</span>
+                            </div>
+                            <input type="hidden" id="reviewRating" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="reviewText">Your Review *</label>
+                            <textarea id="reviewText" rows="3" required placeholder="Share your experience..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="reviewImage">Upload Image (Optional)</label>
+                            <input type="file" id="reviewImage" accept="image/*" class="file-input-wrap">
+                        </div>
+                        <button type="submit" class="btn-primary" style="padding:10px 28px;">SUBMIT REVIEW</button>
+                    </form>
+                </div>
+            `;
 
             const container = document.getElementById('productDetailContent');
             container.innerHTML = `
@@ -1940,6 +2027,9 @@
                         <span>✓ Cash on Delivery Available</span><br>
                         <span>✓ Premium Quality</span><br>
                         <span>✓ Long Lasting Fragrance</span>
+                        <span style="display:block;margin-top:6px;background:var(--accent-soft-pink);padding:6px 12px;border-radius:4px;border:1px dashed var(--accent-rose);">
+                            🎁 <strong>Buy 2 get Rs. 500 OFF</strong>
+                        </span>
                     </div>
                     <div class="reviews-section">
                         <h2 class="section-title-sm">Customer Reviews</h2>
@@ -1949,9 +2039,55 @@
                             <span style="color:var(--text-muted);font-size:12px;">${count} reviews</span>
                         </div>
                         <div id="reviewsContainer">${reviewsHTML}</div>
+                        ${reviewFormHTML}
                     </div>
                 </div>
             `;
+
+            // Star rating logic
+            document.querySelectorAll('#starRating span').forEach(star => {
+                star.addEventListener('click', function() {
+                    const rating = parseInt(this.dataset.star);
+                    document.getElementById('reviewRating').value = rating;
+                    document.querySelectorAll('#starRating span').forEach(s => {
+                        s.style.color = parseInt(s.dataset.star) <= rating ? 'var(--star-color)' : 'var(--star-empty)';
+                    });
+                });
+                star.addEventListener('mouseenter', function() {
+                    const rating = parseInt(this.dataset.star);
+                    document.querySelectorAll('#starRating span').forEach(s => {
+                        s.style.color = parseInt(s.dataset.star) <= rating ? 'var(--star-color)' : 'var(--star-empty)';
+                    });
+                });
+                star.addEventListener('mouseleave', function() {
+                    const selected = parseInt(document.getElementById('reviewRating').value);
+                    document.querySelectorAll('#starRating span').forEach(s => {
+                        s.style.color = parseInt(s.dataset.star) <= selected ? 'var(--star-color)' : 'var(--star-empty)';
+                    });
+                });
+            });
+
+            document.getElementById('reviewForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('reviewName').value.trim();
+                const rating = parseInt(document.getElementById('reviewRating').value);
+                const text = document.getElementById('reviewText').value.trim();
+                const fileInput = document.getElementById('reviewImage');
+                if (!name || rating === 0 || !text) { showToast('Please fill in all required fields and select a rating.'); return; }
+                if (fileInput.files && fileInput.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) { addReview(name, rating, text, e.target.result); };
+                    reader.readAsDataURL(fileInput.files[0]);
+                } else { addReview(name, rating, text, null); }
+                function addReview(name, rating, text, image) {
+                    const reviews = getProductReviews(p.id);
+                    reviews.push({ name, rating, text, date: new Date().toISOString().split('T')[0], verified: false, images: image ? [image] : [], videos: [] });
+                    setProductReviews(p.id, reviews);
+                    openProductDetail(p.id);
+                    showToast('Thank you for your review!');
+                }
+            });
+
             showPage('product');
         }
 
@@ -1963,11 +2099,10 @@
             const content = document.getElementById('lightboxContent');
             if (!overlay || !content) return;
             if (type === 'image') content.innerHTML = `<img src="${src}" alt="Review image" style="max-width:100%;max-height:85vh;">`;
-            else if (type === 'video') content.innerHTML = `<video controls autoplay style="max-width:100%;max-height:85vh;display:block;" poster="${poster || ''}"><source src="${src}" type="video/mp4">Your browser does not support the video tag.</video>`;
+            else if (type === 'video') content.innerHTML = `<video controls autoplay style="max-width:100%;max-height:85vh;display:block;" poster="${poster || ''}"><source src="${src}" type="video/mp4"></video>`;
             overlay.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
-
         function closeLightbox() {
             const overlay = document.getElementById('lightboxOverlay');
             if (overlay) { overlay.classList.remove('active'); document.body.style.overflow = ''; document.getElementById('lightboxContent').innerHTML = ''; }
@@ -2040,19 +2175,6 @@
         // ============================================================
         let currentFilter = 'all', currentSort = 'featured';
 
-        function filterByCategory(category) {
-            currentFilter = category;
-            showPage('shop');
-            renderShopProducts();
-            document.querySelectorAll('.filter-tabs .tab-btn').forEach(btn => {
-                btn.classList.remove('active');
-                const label = btn.textContent.trim().toLowerCase();
-                const catMap = { 'all': 'all', 'for him': 'for-him', 'for her': 'for-her', 'testers': 'testers' };
-                if (catMap[label] === category || (category === 'all' && label === 'all')) btn.classList.add('active');
-            });
-            if (category === 'all') document.querySelectorAll('.filter-tabs .tab-btn').forEach(btn => { if (btn.textContent.trim() === 'All') btn.classList.add('active'); });
-        }
-
         function filterProducts(category, btnElement) {
             currentFilter = category;
             if (btnElement) { document.querySelectorAll('.filter-tabs .tab-btn').forEach(btn => btn.classList.remove('active')); btnElement.classList.add('active'); }
@@ -2088,6 +2210,9 @@
                         <button class="btn-secondary" onclick="Cart.add('${p.id}')">ADD TO CART</button>
                         <button class="btn-primary" onclick="openProductDetail('${p.id}')">BUY NOW</button>
                     </div>
+                    <div style="margin-top:10px;font-size:10px;color:var(--accent-gold);letter-spacing:0.5px;font-weight:600;">
+                        🎁 Buy 2 get Rs. 500 OFF
+                    </div>
                 </div>
             `;
         }
@@ -2110,6 +2235,11 @@
             if (!container) return;
             if (items.length === 0) { container.innerHTML = `<p style="font-size:13px;color:var(--text-muted);">Your shopping bag is empty.</p>`; }
             else {
+                let totalItems = items.reduce((sum, i) => sum + i.quantity, 0);
+                let dealMsg = '';
+                if (totalItems >= 2) {
+                    dealMsg = `<div style="margin-top:6px;font-size:11px;color:var(--accent-rose);font-weight:600;">🎁 Rs. 500 OFF applied!</div>`;
+                }
                 container.innerHTML = items.map(item => `
                     <div class="summary-row" style="align-items:center;padding:4px 0;border-bottom:1px solid var(--border-color);">
                         <div><strong style="font-size:13px;">${item.name}</strong><br><small style="font-size:11px;color:var(--text-muted);">Qty: ${item.quantity} × Rs. ${item.price}</small></div>
@@ -2120,11 +2250,18 @@
                             <button onclick="Cart.remove('${item.id}')" style="background:transparent;border:none;font-size:14px;color:#D96C6C;">✕</button>
                         </div>
                     </div>
-                `).join('');
+                `).join('') + dealMsg;
             }
-            const total = Cart.getTotal();
-            document.getElementById('subtotalVal').textContent = `Rs. ${total.toLocaleString()}`;
-            document.getElementById('totalVal').textContent = `Rs. ${total.toLocaleString()}`;
+            let total = Cart.getTotal();
+            const count = Cart.getCount();
+            if (count >= 2) {
+                total = total - 500;
+                document.getElementById('subtotalVal').textContent = `Rs. ${(Cart.getTotal()).toLocaleString()}`;
+                document.getElementById('totalVal').textContent = `Rs. ${total.toLocaleString()}`;
+            } else {
+                document.getElementById('subtotalVal').textContent = `Rs. ${total.toLocaleString()}`;
+                document.getElementById('totalVal').textContent = `Rs. ${total.toLocaleString()}`;
+            }
         }
 
         // ============================================================
@@ -2139,18 +2276,15 @@
         function handleSearch() {
             const query = document.getElementById('searchInput').value.toLowerCase().trim();
             if (query === '') { renderProducts(getFilteredProducts(), 'shopProductGrid'); return; }
-            const filtered = PRODUCTS.filter(p => p.name.toLowerCase().includes(query) || p.description.toLowerCase().includes(query) || p.category.toLowerCase().includes(query));
+            const filtered = PRODUCTS.filter(p => p.name.toLowerCase().includes(query) || p.description.toLowerCase().includes(query));
             showPage('shop');
             renderProducts(filtered, 'shopProductGrid');
         }
 
-        // ============================================================
-        // MOBILE MENU
-        // ============================================================
         function toggleMobileMenu() { document.getElementById('navLinks').classList.toggle('active'); }
 
         // ============================================================
-        // FORMSPREE SUBMIT FUNCTION
+        // FORMSPREE SUBMIT
         // ============================================================
         const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqpkggwe";
 
@@ -2166,25 +2300,18 @@
         // CHECKOUT FORM SUBMIT
         // ============================================================
         document.addEventListener('DOMContentLoaded', function() {
-            // Generate reviews for all products
             PRODUCTS.forEach(p => generateSampleReviews(p));
 
-            // Render products
-            renderProducts(PRODUCTS.slice(0, 6), 'homeProductGrid');
+            renderProducts(PRODUCTS.slice(0, 3), 'homeProductGrid');
             renderShopProducts();
             Cart.updateUI();
 
-            // Checkout form
             const checkoutForm = document.getElementById('checkoutForm');
             if (checkoutForm) {
                 checkoutForm.addEventListener('submit', function(e) {
                     e.preventDefault();
-
                     const cart = Cart.getItems();
-                    if (cart.length === 0) {
-                        showToast('Your bag is empty. Add some products first.');
-                        return;
-                    }
+                    if (cart.length === 0) { showToast('Your bag is empty. Add some products first.'); return; }
 
                     const name = document.getElementById('fullName').value.trim();
                     const phone = document.getElementById('phone').value.trim();
@@ -2192,68 +2319,51 @@
                     const city = document.getElementById('city').value.trim();
                     const address = document.getElementById('address').value.trim();
 
-                    if (!name || !phone || !email || !city || !address) {
-                        showToast('Please fill in all required fields.');
-                        return;
-                    }
+                    if (!name || !phone || !city || !address) { showToast('Please fill in all required fields.'); return; }
 
                     const orderNum = 'JQ' + String(Math.floor(10000 + Math.random() * 90000));
                     let productList = '';
+                    let total = 0;
+                    let count = 0;
                     cart.forEach((item, index) => {
                         productList += `${index + 1}. ${item.name} × ${item.quantity} = Rs. ${(item.price * item.quantity).toLocaleString()}\n`;
+                        total += item.price * item.quantity;
+                        count += item.quantity;
                     });
-                    const total = Cart.getTotal();
+                    if (count >= 2) total = total - 500;
 
                     const orderData = {
                         order_number: orderNum,
                         customer_name: name,
                         phone: phone,
-                        email: email,
+                        email: email || 'Not provided',
                         city: city,
                         address: address,
                         products: productList,
-                        total: `Rs. ${total.toLocaleString()}`,
+                        total: `Rs. ${total.toLocaleString()} ${count >= 2 ? '(with Rs. 500 OFF)' : ''}`,
                         payment_method: "Cash on Delivery"
                     };
 
-                    // Send to Formspree
-                    submitOrderToFormspree(orderData)
-                        .then(response => {
-                            if (response.ok) {
-                                showToast('✅ Order placed! Confirmation email sent.');
-                            } else {
-                                showToast('⚠️ Order placed but email may not have been sent. We will contact you.');
-                            }
-                        })
-                        .catch(err => {
-                            console.error(err);
-                            showToast('⚠️ Order placed but email failed. We will contact you.');
-                        });
-
-                    // Show confirmation page
+                    submitOrderToFormspree(orderData).catch(() => {});
                     const confirmDetails = document.getElementById('confirmationDetails');
                     if (confirmDetails) {
                         confirmDetails.innerHTML = `
                             <p><strong>Order Ref:</strong> #${orderNum}</p>
                             <p><strong>Name:</strong> ${name}</p>
                             <p><strong>Phone:</strong> ${phone}</p>
-                            <p><strong>Email:</strong> ${email}</p>
+                            ${email ? `<p><strong>Email:</strong> ${email}</p>` : ''}
                             <p><strong>City:</strong> ${city}</p>
                             <p><strong>Address:</strong> ${address}</p>
-                            <p><strong>Total:</strong> Rs. ${total.toLocaleString()} (Cash on Delivery)</p>
+                            <p><strong>Total:</strong> Rs. ${total.toLocaleString()} ${count >= 2 ? '(Rs. 500 OFF applied!)' : ''}</p>
                         `;
                     }
-
-                    // Clear cart
                     Cart.clear();
                     Cart.updateUI();
-
                     showPage('order-confirmation');
                     checkoutForm.reset();
                 });
             }
 
-            // Close mobile nav on outside click
             document.addEventListener('click', function(e) {
                 const nav = document.getElementById('navLinks');
                 const hamburger = document.querySelector('.hamburger-btn');
@@ -2271,7 +2381,7 @@
             }
         });
 
-        console.log('✨ JAMQRA LUXE — Feel Elegant. Feel You. (Formspree + WhatsApp Support)');
+        console.log('✨ JAMQRA LUXE — 3 Products + Buy 2 Get Rs. 500 OFF');
     </script>
 </body>
 </html>
