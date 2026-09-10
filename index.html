@@ -1046,6 +1046,9 @@
         .footer-social-icons .ig { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
         .footer-social-icons .tt { background: #000; border: 2px solid #ff0050; }
 
+        /* ============================================================
+           WHATSAPP FLOAT BUTTON - ORIGINAL ICON WITH TEXT
+           ============================================================ */
         .whatsapp-float {
             position: fixed;
             bottom: 24px;
@@ -1053,19 +1056,31 @@
             background-color: #25D366;
             color: #FFF;
             border-radius: 50px;
-            width: 56px;
-            height: 56px;
+            padding: 14px 24px 14px 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 24px rgba(37, 211, 102, 0.3);
+            gap: 10px;
+            box-shadow: 0 6px 28px rgba(37, 211, 102, 0.4);
             z-index: 999;
-            font-size: 28px;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: var(--font-sans);
             transition: var(--transition);
+            text-decoration: none;
         }
         .whatsapp-float:hover {
-            transform: scale(1.08);
-            box-shadow: 0 8px 32px rgba(37, 211, 102, 0.4);
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 10px 36px rgba(37, 211, 102, 0.55);
+            background-color: #20BA5A;
+        }
+        .whatsapp-float svg {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+        .whatsapp-float span {
+            white-space: nowrap;
         }
 
         .search-overlay {
@@ -1270,7 +1285,8 @@
             .confirmation-box { padding: 28px 20px; }
             .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
             .footer-bottom { flex-direction: column; text-align: center; }
-            .whatsapp-float { width: 50px; height: 50px; font-size: 24px; bottom: 18px; right: 18px; }
+            .whatsapp-float { padding: 12px 20px 12px 16px; font-size: 14px; gap: 8px; bottom: 18px; right: 18px; }
+            .whatsapp-float svg { width: 20px; height: 20px; }
             .rating-summary { flex-direction: column; align-items: stretch; }
             .rating-big { flex-direction: row; gap: 16px; justify-content: center; }
             .review-card { padding: 16px 18px; }
@@ -1316,6 +1332,8 @@
             .deal-section .deal-visual .plus { font-size: 18px; }
             .deal-section .deal-visual .equals { font-size: 16px; }
             .deal-section .deal-visual .free-badge { font-size: 8px; padding: 4px 10px; }
+            .whatsapp-float { padding: 10px 16px 10px 14px; font-size: 13px; gap: 6px; bottom: 16px; right: 16px; }
+            .whatsapp-float svg { width: 18px; height: 18px; }
         }
     </style>
 </head>
@@ -1766,13 +1784,16 @@
         </div>
     </footer>
 
-    <!-- WHATSAPP SUPPORT -->
+    <!-- WHATSAPP FLOAT BUTTON - ORIGINAL ICON WITH TEXT -->
     <a href="https://wa.me/923704558965?text=Hello%20JAMQRA%20LUXE%2C%20I%20have%20a%20question%20about%20your%20perfumes." 
        class="whatsapp-float" 
        target="_blank" 
        rel="noopener" 
        aria-label="Chat on WhatsApp">
-        💬
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="#FFF">
+            <path d="M16.003 0C7.17 0 0 7.17 0 16.003c0 2.82.737 5.57 2.136 8L0 32l8.19-2.146a15.945 15.945 0 0 0 7.813 2.002h.006c8.83 0 16-7.17 16-16.003C32.01 7.17 24.84 0 16.003 0zm0 29.316h-.005a13.26 13.26 0 0 1-6.75-1.848l-.484-.288-5.02 1.316 1.34-4.894-.315-.502a13.242 13.242 0 0 1-2.032-7.063c0-7.32 5.956-13.274 13.275-13.274 3.545 0 6.877 1.382 9.383 3.89a13.19 13.19 0 0 1 3.885 9.388c-.003 7.32-5.96 13.275-13.277 13.275zm7.29-9.945c-.4-.2-2.36-1.164-2.726-1.297-.366-.133-.632-.2-.898.2-.266.4-1.03 1.297-1.263 1.563-.233.266-.466.3-.865.1-.4-.2-1.685-.62-3.21-1.98-1.187-1.058-1.986-2.365-2.22-2.765-.232-.4-.024-.616.176-.815.18-.178.4-.466.6-.7.2-.232.266-.4.4-.665.133-.266.066-.5-.034-.7-.1-.2-.897-2.163-1.23-2.96-.323-.78-.65-.673-.897-.685l-.764-.014c-.266 0-.7.1-1.065.5-.365.4-1.397 1.365-1.397 3.33 0 1.962 1.43 3.86 1.63 4.126.2.266 2.813 4.295 6.817 6.024.952.412 1.696.658 2.276.842.956.304 1.828.26 2.516.158.767-.114 2.36-.965 2.693-1.897.333-.932.333-1.73.233-1.897-.1-.166-.366-.266-.766-.466z"/>
+        </svg>
+        <span>WhatsApp</span>
     </a>
 
     <script>
@@ -2676,6 +2697,7 @@
         console.log('🔐 Admin Auth: Google Apps Script (No third-party!)');
         console.log('✅ Orders saved to Google Sheet + Emails sent');
         console.log('🚀 Powered by Ranking Matters - Dofollow Link');
+        console.log('💬 WhatsApp: Original Icon with Green Button');
     </script>
 </body>
 </html>
