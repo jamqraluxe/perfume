@@ -1780,12 +1780,13 @@
 
     <script>
         // ============================================================
-        // FORMINIT CONFIGURATION
+        // GOOGLE APPS SCRIPT - ORDER ENDPOINT
+        // Orders will be saved to Google Sheet + Email sent to admin
         // ============================================================
-        const FORMINIT_ENDPOINT = "https://forminit.com/f/pgrbxm1phvx";
+        const ORDER_ENDPOINT = "https://script.google.com/macros/s/AKfycbzyyPu97i8biRRzYPdtAug75caJyGliLdRIHlWWN22fHiPbyrT9qYVu9pZdlID-r9Hf/exec";
 
         // ============================================================
-        // EMAILJS CONFIGURATION
+        // EMAILJS CONFIGURATION (Customer Email Only)
         // ============================================================
         const EMAILJS_PUBLIC_KEY = "AUZfO7UaK_fZyO5w-";
         const EMAILJS_SERVICE_ID = "jamqra_service";
@@ -1795,30 +1796,31 @@
         emailjs.init(EMAILJS_PUBLIC_KEY);
 
         // ============================================================
-        // SEND ORDER TO FORMINIT
+        // SEND ORDER TO GOOGLE APPS SCRIPT
         // ============================================================
-        function sendOrderToForminit(orderData) {
-            return fetch(FORMINIT_ENDPOINT, {
+        function sendOrderToGoogleScript(orderData) {
+            console.log('📤 Sending order to Google Script:', orderData);
+            
+            return fetch(ORDER_ENDPOINT, {
                 method: 'POST',
+                mode: 'no-cors',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(orderData)
             })
-            .then(response => response.json())
-            .then(data => {
-                console.log('✅ Order sent to Forminit:', data);
-                return data;
+            .then(() => {
+                console.log('✅ Order sent to Google Script');
+                return { success: true };
             })
             .catch(error => {
-                console.error('❌ Forminit error:', error);
+                console.error('❌ Google Script error:', error);
                 throw error;
             });
         }
 
         // ============================================================
-        // SEND ORDER CONFIRMATION EMAIL
+        // SEND ORDER CONFIRMATION EMAIL (TO CUSTOMER)
         // ============================================================
         function sendOrderConfirmationEmail(orderData) {
             const templateParams = {
@@ -1838,21 +1840,19 @@
                 })
             };
 
-            console.log('📧 Sending order confirmation email...');
-            console.log('Template Params:', templateParams);
+            console.log('📧 Sending order confirmation email to customer...');
 
             emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
                 .then(function(response) {
-                    console.log('✅ Email sent successfully!', response);
-                    showToast('📧 Order confirmation email sent!');
+                    console.log('✅ Customer email sent!', response);
                 })
                 .catch(function(error) {
-                    console.log('❌ Email failed:', error);
+                    console.log('❌ Customer email failed:', error);
                 });
         }
 
         // ============================================================
-        // SECURE AUTHENTICATION - Formspree Serverless Backend
+        // SECURE AUTHENTICATION
         // ============================================================
         const AUTH_ENDPOINT = "https://formspree.io/f/xeaqvrnb";
 
@@ -2677,16 +2677,16 @@
                         notes: notes || 'N/A'
                     };
 
-                    // ⬇️ SEND TO FORMINIT ⬇️
-                    sendOrderToForminit(orderData)
+                    // ⬇️ SEND TO GOOGLE APPS SCRIPT ⬇️
+                    sendOrderToGoogleScript(orderData)
                         .then(() => {
-                            console.log('✅ Order saved to Forminit');
+                            console.log('✅ Order saved to Google Sheet');
                         })
                         .catch((error) => {
-                            console.log('⚠️ Forminit error, but continuing:', error);
+                            console.log('⚠️ Google Script error:', error);
                         });
                     
-                    // ⬇️ SEND EMAIL VIA EMAILJS ⬇️
+                    // ⬇️ SEND EMAIL TO CUSTOMER ⬇️
                     sendOrderConfirmationEmail(orderData);
                     
                     const confirmDetails = document.getElementById('confirmationDetails');
@@ -2699,7 +2699,7 @@
                             <p><strong>City:</strong> ${city}</p>
                             <p><strong>Address:</strong> ${address}</p>
                             <p><strong>Total:</strong> Rs. ${total.toLocaleString()} ${count >= 2 ? '(Rs. 500 OFF applied!)' : ''}</p>
-                            <p><strong>📧 Email:</strong> ${email !== 'Not provided' ? 'Confirmation email sent!' : 'WhatsApp confirmation sent!'}</p>
+                            <p><strong>✅ Order received!</strong> Details sent to business.jamqra@gmail.com</p>
                         `;
                     }
                     Cart.clear();
@@ -2725,10 +2725,10 @@
             }
         });
 
-        console.log('✨ JAMQRA LUXE — Complete with Forminit + EmailJS Integration!');
+        console.log('✨ JAMQRA LUXE — Google Apps Script Integration!');
+        console.log('📊 Order Endpoint:', ORDER_ENDPOINT);
         console.log('📧 EmailJS Public Key:', EMAILJS_PUBLIC_KEY);
-        console.log('📧 Forminit Endpoint:', FORMINIT_ENDPOINT);
-        console.log('🔐 Admin credentials are NOT stored in frontend code');
+        console.log('✅ Orders will be saved to Google Sheet + Email sent to business.jamqra@gmail.com');
     </script>
 </body>
 </html>
