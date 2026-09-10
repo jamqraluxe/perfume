@@ -1762,7 +1762,7 @@
         </div>
         <div class="footer-bottom">
             <p>© 2026 Jamqra Luxe. All Rights Reserved.</p>
-            <p>Designed with ❤️ for Pakistan</p>
+            <p>Powered by <a href="https://rankingexpert.github.io/rankingmatters/" target="_blank" rel="noopener" style="color: var(--accent-rose); font-weight: 600; text-decoration: none;">Ranking Matters</a></p>
         </div>
     </footer>
 
@@ -1777,14 +1777,12 @@
 
     <script>
         // ============================================================
-        // GOOGLE APPS SCRIPT - ORDER ENDPOINT (Naya URL)
-        // Orders will be saved to Google Sheet + Emails sent automatically
+        // GOOGLE APPS SCRIPT - ORDER ENDPOINT
         // ============================================================
         const ORDER_ENDPOINT = "https://script.google.com/macros/s/AKfycbwNKX2PuhhSBHrft_CVScCIugV6EKkMP4JWHaxlNDKJldbQ0xkVxxioy2G9P2oS5PJq/exec";
 
         // ============================================================
         // SEND ORDER TO GOOGLE APPS SCRIPT
-        // (Google Script handles: Sheet save + Admin email + Customer email)
         // ============================================================
         function sendOrderToGoogleScript(orderData) {
             console.log('📤 Sending order to Google Script:', orderData);
@@ -1808,10 +1806,8 @@
         }
 
         // ============================================================
-        // SECURE AUTHENTICATION
+        // ADMIN AUTHENTICATION
         // ============================================================
-        const AUTH_ENDPOINT = "https://formspree.io/f/xeaqvrnb";
-
         let isAuthenticated = false;
         let authToken = null;
 
@@ -1835,30 +1831,27 @@
             errorDiv.style.display = 'none';
             successDiv.style.display = 'none';
 
-            fetch(AUTH_ENDPOINT, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    email: email,
-                    password: password,
-                    action: 'admin_login'
-                })
-            })
+            const authUrl = ORDER_ENDPOINT + 
+                '?action=admin_login&email=' + encodeURIComponent(email) + 
+                '&password=' + encodeURIComponent(password);
+
+            console.log('🔐 Authenticating admin via Google Script...');
+
+            fetch(authUrl)
             .then(response => response.json())
             .then(data => {
                 loginBtn.disabled = false;
                 loginText.textContent = 'UNLOCK DASHBOARD';
 
-                if (data.ok === true) {
+                if (data.success === true) {
                     isAuthenticated = true;
-                    authToken = 'session_' + Date.now();
+                    authToken = data.token || 'session_' + Date.now();
                     window._jamqraAuthToken = authToken;
                     
                     successDiv.style.display = 'block';
                     successDiv.textContent = '✅ Login successful!';
+                    
+                    console.log('✅ Admin authenticated successfully');
                     
                     setTimeout(() => {
                         document.getElementById('dashboardLogin').style.display = 'none';
@@ -1868,9 +1861,10 @@
                     }, 500);
                 } else {
                     errorDiv.style.display = 'block';
-                    errorDiv.textContent = '❌ Invalid credentials. Please try again.';
+                    errorDiv.textContent = '❌ ' + (data.message || 'Invalid credentials. Please try again.');
                     document.getElementById('adminPasswordInput').value = '';
                     document.getElementById('adminPasswordInput').focus();
+                    console.log('❌ Auth failed:', data.message);
                 }
             })
             .catch(error => {
@@ -2633,8 +2627,6 @@
                         notes: notes || 'N/A'
                     };
 
-                    // ⬇️ SEND TO GOOGLE APPS SCRIPT ⬇️
-                    // (Google Script handles: Sheet save + Admin email + Customer email)
                     sendOrderToGoogleScript(orderData)
                         .then(() => {
                             console.log('✅ Order saved to Google Sheet + Email sent');
@@ -2681,7 +2673,9 @@
 
         console.log('✨ JAMQRA LUXE — Google Apps Script Integration!');
         console.log('📊 Order Endpoint:', ORDER_ENDPOINT);
-        console.log('✅ Orders will be saved to Google Sheet + Emails sent by Google Script');
+        console.log('🔐 Admin Auth: Google Apps Script (No third-party!)');
+        console.log('✅ Orders saved to Google Sheet + Emails sent');
+        console.log('🚀 Powered by Ranking Matters - Dofollow Link');
     </script>
 </body>
 </html>
