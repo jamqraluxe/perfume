@@ -31,9 +31,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <!-- EmailJS -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-
     <!-- SEO JSON-LD -->
     <script type="application/ld+json">
     {
@@ -1786,17 +1783,8 @@
         const ORDER_ENDPOINT = "https://script.google.com/macros/s/AKfycbzyyPu97i8biRRzYPdtAug75caJyGliLdRIHlWWN22fHiPbyrT9qYVu9pZdlID-r9Hf/exec";
 
         // ============================================================
-        // EMAILJS CONFIGURATION (Customer Email Only)
-        // ============================================================
-        const EMAILJS_PUBLIC_KEY = "AUZfO7UaK_fZyO5w-";
-        const EMAILJS_SERVICE_ID = "jamqra_service";
-        const EMAILJS_TEMPLATE_ID = "jamqra_order_confirmation";
-
-        // Initialize EmailJS
-        emailjs.init(EMAILJS_PUBLIC_KEY);
-
-        // ============================================================
         // SEND ORDER TO GOOGLE APPS SCRIPT
+        // (Google Script handles: Sheet save + Admin email + Customer email)
         // ============================================================
         function sendOrderToGoogleScript(orderData) {
             console.log('📤 Sending order to Google Script:', orderData);
@@ -1817,38 +1805,6 @@
                 console.error('❌ Google Script error:', error);
                 throw error;
             });
-        }
-
-        // ============================================================
-        // SEND ORDER CONFIRMATION EMAIL (TO CUSTOMER)
-        // ============================================================
-        function sendOrderConfirmationEmail(orderData) {
-            const templateParams = {
-                order_number: orderData.order_number,
-                customer_name: orderData.customer_name,
-                phone: orderData.phone,
-                email: orderData.email || 'business.jamqra@gmail.com',
-                city: orderData.city,
-                address: orderData.address,
-                products: orderData.products,
-                total: orderData.total,
-                name: orderData.customer_name,
-                order_date: new Date().toLocaleDateString('en-PK', {
-                    day: '2-digit',
-                    month: 'long',
-                    year: 'numeric'
-                })
-            };
-
-            console.log('📧 Sending order confirmation email to customer...');
-
-            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
-                .then(function(response) {
-                    console.log('✅ Customer email sent!', response);
-                })
-                .catch(function(error) {
-                    console.log('❌ Customer email failed:', error);
-                });
         }
 
         // ============================================================
@@ -2678,16 +2634,14 @@
                     };
 
                     // ⬇️ SEND TO GOOGLE APPS SCRIPT ⬇️
+                    // (Google Script handles: Sheet save + Admin email + Customer email)
                     sendOrderToGoogleScript(orderData)
                         .then(() => {
-                            console.log('✅ Order saved to Google Sheet');
+                            console.log('✅ Order saved to Google Sheet + Email sent');
                         })
                         .catch((error) => {
                             console.log('⚠️ Google Script error:', error);
                         });
-                    
-                    // ⬇️ SEND EMAIL TO CUSTOMER ⬇️
-                    sendOrderConfirmationEmail(orderData);
                     
                     const confirmDetails = document.getElementById('confirmationDetails');
                     if (confirmDetails) {
@@ -2699,7 +2653,7 @@
                             <p><strong>City:</strong> ${city}</p>
                             <p><strong>Address:</strong> ${address}</p>
                             <p><strong>Total:</strong> Rs. ${total.toLocaleString()} ${count >= 2 ? '(Rs. 500 OFF applied!)' : ''}</p>
-                            <p><strong>✅ Order received!</strong> Details sent to business.jamqra@gmail.com</p>
+                            <p><strong>✅ Order received!</strong> We will contact you shortly.</p>
                         `;
                     }
                     Cart.clear();
@@ -2727,8 +2681,7 @@
 
         console.log('✨ JAMQRA LUXE — Google Apps Script Integration!');
         console.log('📊 Order Endpoint:', ORDER_ENDPOINT);
-        console.log('📧 EmailJS Public Key:', EMAILJS_PUBLIC_KEY);
-        console.log('✅ Orders will be saved to Google Sheet + Email sent to business.jamqra@gmail.com');
+        console.log('✅ Orders will be saved to Google Sheet + Emails sent by Google Script');
     </script>
 </body>
 </html>
